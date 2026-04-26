@@ -1,358 +1,1130 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>St. Veronica Garments</title>
-    <meta
-      name="description"
-      content="Church screen printing services for servant teams, ministries, events, and retreats."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#home" aria-label="St. Veronica Garments home">
-        <span class="brand-mark">SV</span>
-        <span>
-          <strong>St. Veronica Garments</strong>
-          <small>Church screen printing</small>
-        </span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="#projects">Projects</a>
-        <a href="#order">Place Order</a>
-        <a href="#policies">Terms</a>
-        <a href="#servants">Servants</a>
-      </nav>
-    </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>St. Veronica Garments</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F9F6F0;
+    --charcoal: #1C1C1E;
+    --gold: #B8973A;
+    --gold-light: #D4AF55;
+    --warm-gray: #8A8580;
+    --border: #E2DDD6;
+    --white: #FFFFFF;
+    --red-accent: #8B2020;
+    --input-bg: #F4F1EC;
+  }
 
-    <main id="home">
-      <section class="hero">
-        <div class="hero-media" aria-hidden="true">
-          <div class="shirt-preview">
-            <div class="shirt-sleeve left"></div>
-            <div class="shirt-sleeve right"></div>
-            <div class="shirt-body">
-              <span class="cross">+</span>
-              <span class="shirt-text">SERVE</span>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(249,246,240,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--charcoal);
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--warm-gray);
+    text-decoration: none; cursor: pointer;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-links a.btn-nav {
+    color: var(--white); background: var(--charcoal);
+    padding: 10px 22px; border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .nav-links a.btn-nav:hover { background: var(--gold); }
+
+  /* SECTIONS */
+  section { display: none; }
+  section.active { display: block; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(135deg, #F9F6F0 0%, #EDE8DF 60%, #E0D8CC 100%);
+  }
+  .hero-cross {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    font-size: 340px; color: rgba(184,151,58,0.06);
+    font-family: 'Cormorant Garamond', serif; user-select: none;
+    line-height: 1;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 700px; }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 90px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--charcoal); margin-bottom: 28px;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 16px; line-height: 1.7; color: var(--warm-gray);
+    max-width: 480px; margin-bottom: 48px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--charcoal); color: var(--white);
+    padding: 16px 36px; font-size: 13px; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 500;
+    border: none; border-radius: 2px; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--charcoal);
+    padding: 16px 36px; font-size: 13px; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 500;
+    border: 1.5px solid var(--charcoal); border-radius: 2px; cursor: pointer;
+    transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    position: relative; z-index: 1;
+    display: flex; gap: 64px; margin-top: 80px;
+    padding-top: 40px; border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300; color: var(--charcoal);
+  }
+  .stat-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-gray); margin-top: 4px; }
+
+  /* SECTION HEADERS */
+  .section-wrap { padding: 100px 48px; }
+  .section-header { margin-bottom: 64px; }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 16px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.1;
+  }
+  .section-line {
+    width: 60px; height: 1.5px; background: var(--gold);
+    margin-top: 24px;
+  }
+
+  /* PORTFOLIO GRID */
+  #portfolio { background: var(--white); }
+  .portfolio-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .portfolio-item {
+    aspect-ratio: 1;
+    background: var(--input-bg);
+    position: relative; overflow: hidden; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .portfolio-item:nth-child(1) { grid-column: span 2; aspect-ratio: 2/1; }
+  .portfolio-item-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    transition: transform 0.4s ease;
+  }
+  .portfolio-item:hover .portfolio-item-inner { transform: scale(1.03); }
+  .portfolio-overlay {
+    position: absolute; inset: 0;
+    background: rgba(28,28,30,0.0);
+    transition: background 0.3s;
+    display: flex; align-items: flex-end; padding: 28px;
+  }
+  .portfolio-item:hover .portfolio-overlay { background: rgba(28,28,30,0.55); }
+  .portfolio-label {
+    color: white; opacity: 0; transform: translateY(10px);
+    transition: all 0.3s;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-style: italic;
+  }
+  .portfolio-item:hover .portfolio-label { opacity: 1; transform: translateY(0); }
+  /* Mock shirt designs using CSS */
+  .shirt-mock {
+    width: 80px; height: 80px;
+    position: relative;
+  }
+  .shirt-mock svg { width: 100%; height: 100%; }
+
+  /* Color swatches for portfolio items */
+  .pi-1 { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+  .pi-2 { background: linear-gradient(135deg, #2d1b69, #11998e); }
+  .pi-3 { background: linear-gradient(135deg, #8B2020, #C0392B); }
+  .pi-4 { background: linear-gradient(135deg, #1C1C1E, #3a3a3c); }
+  .pi-5 { background: linear-gradient(135deg, #2c5f2e, #97bc62); }
+
+  /* ORDER FORM */
+  #order { background: var(--ivory); }
+  .order-form { max-width: 800px; }
+  .form-step {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px; padding: 40px;
+    margin-bottom: 24px;
+  }
+  .step-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px; padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--charcoal); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; flex-shrink: 0;
+  }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-grid.full { grid-template-columns: 1fr; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field.span2 { grid-column: span 2; }
+  label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--warm-gray); font-weight: 500;
+  }
+  input[type=text], input[type=email], input[type=tel], input[type=date],
+  input[type=number], input[type=password], select, textarea {
+    background: var(--input-bg); border: 1.5px solid transparent;
+    border-radius: 2px; padding: 12px 16px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    color: var(--charcoal); outline: none; width: 100%;
+    transition: border-color 0.2s;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+  textarea { resize: vertical; min-height: 100px; }
+  select { cursor: pointer; }
+
+  /* GARMENT SELECTOR */
+  .garment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .garment-card {
+    border: 1.5px solid var(--border); border-radius: 4px; padding: 20px 12px;
+    text-align: center; cursor: pointer; transition: all 0.2s;
+  }
+  .garment-card:hover { border-color: var(--gold); }
+  .garment-card.selected { border-color: var(--charcoal); background: var(--charcoal); color: var(--white); }
+  .garment-card.selected .garment-icon { filter: invert(1); }
+  .garment-icon { font-size: 32px; margin-bottom: 8px; display: block; }
+  .garment-name { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; }
+
+  /* COLOR PICKER */
+  .color-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .color-swatch {
+    width: 36px; height: 36px; border-radius: 50%;
+    cursor: pointer; transition: transform 0.15s;
+    position: relative; border: 2px solid transparent;
+  }
+  .color-swatch:hover { transform: scale(1.15); }
+  .color-swatch.selected { border-color: var(--charcoal); box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--charcoal); }
+  .color-label { font-size: 11px; color: var(--warm-gray); margin-top: 8px; }
+
+  /* SIZE TABLE */
+  .size-table { width: 100%; border-collapse: collapse; }
+  .size-table th, .size-table td {
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    text-align: left; font-size: 13px;
+  }
+  .size-table th { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; }
+  .size-table input[type=number] { width: 80px; padding: 8px 12px; }
+
+  /* PLACEMENT SELECTOR */
+  .placement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .placement-card {
+    border: 1.5px solid var(--border); border-radius: 4px; padding: 16px;
+    text-align: center; cursor: pointer; transition: all 0.2s;
+  }
+  .placement-card:hover { border-color: var(--gold); }
+  .placement-card.selected { border-color: var(--charcoal); background: var(--input-bg); }
+  .placement-card .icon { font-size: 28px; margin-bottom: 6px; }
+  .placement-card .name { font-size: 12px; font-weight: 500; }
+
+  /* FILE UPLOAD */
+  .file-drop {
+    border: 2px dashed var(--border); border-radius: 4px;
+    padding: 48px; text-align: center; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .file-drop:hover, .file-drop.drag { border-color: var(--gold); background: rgba(184,151,58,0.04); }
+  .file-drop input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .file-drop-icon { font-size: 40px; margin-bottom: 12px; }
+  .file-drop-text { font-size: 14px; color: var(--warm-gray); }
+  .file-drop-text strong { color: var(--charcoal); }
+  .file-drop-hint { font-size: 12px; color: var(--warm-gray); margin-top: 6px; }
+
+  /* SUBMIT BTN */
+  .submit-wrap { text-align: center; padding: 20px 0; }
+  .btn-submit {
+    background: var(--charcoal); color: var(--white);
+    padding: 20px 64px; font-size: 13px; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 500;
+    border: none; border-radius: 2px; cursor: pointer;
+    transition: background 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .btn-submit:hover { background: var(--gold); }
+
+  /* SUCCESS */
+  .success-msg {
+    display: none; text-align: center; padding: 60px 40px;
+    background: var(--white); border: 1px solid var(--border); border-radius: 4px;
+  }
+  .success-msg.show { display: block; }
+  .success-icon { font-size: 56px; margin-bottom: 20px; }
+  .success-msg h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; margin-bottom: 12px; }
+  .success-msg p { color: var(--warm-gray); font-size: 14px; }
+
+  /* SERVANTS PORTAL */
+  #servants { background: var(--charcoal); color: var(--white); min-height: 100vh; }
+  #servants .section-wrap { padding-top: 120px; }
+  .portal-login {
+    max-width: 440px; margin: 0 auto;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px; padding: 48px;
+  }
+  .portal-login h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .portal-login p { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 32px; }
+  .portal-login input {
+    background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12);
+    color: var(--white);
+  }
+  .portal-login input::placeholder { color: rgba(255,255,255,0.3); }
+  .portal-login input:focus { border-color: var(--gold); }
+  .portal-login label { color: rgba(255,255,255,0.5); }
+  .btn-portal {
+    width: 100%; background: var(--gold); color: var(--charcoal);
+    padding: 14px; font-size: 13px; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 600;
+    border: none; border-radius: 2px; cursor: pointer;
+    transition: background 0.2s; font-family: 'DM Sans', sans-serif;
+    margin-top: 8px;
+  }
+  .btn-portal:hover { background: var(--gold-light); }
+  .portal-error { color: #FF6B6B; font-size: 12px; margin-top: 8px; display: none; }
+
+  /* PORTAL DASHBOARD */
+  .portal-dash { display: none; }
+  .portal-dash.show { display: block; }
+  .portal-tabs { display: flex; gap: 0; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .portal-tab {
+    padding: 14px 28px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500; cursor: pointer; color: rgba(255,255,255,0.4);
+    border-bottom: 2px solid transparent; margin-bottom: -1px;
+    transition: all 0.2s;
+  }
+  .portal-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .portal-pane { display: none; }
+  .portal-pane.show { display: block; }
+
+  .calendar-embed {
+    width: 100%; height: 600px;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 16px;
+  }
+  .cal-placeholder-icon { font-size: 56px; }
+  .cal-placeholder-text { color: rgba(255,255,255,0.4); font-size: 14px; text-align: center; line-height: 1.6; }
+  .cal-placeholder-text strong { color: rgba(255,255,255,0.7); display: block; font-size: 18px; margin-bottom: 6px; font-family: 'Cormorant Garamond', serif; }
+  .cal-connect-btn {
+    background: var(--gold); color: var(--charcoal);
+    padding: 12px 28px; font-size: 12px; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 600; border: none; border-radius: 2px;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+  }
+
+  /* AVAILABILITY */
+  .avail-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+  .avail-day {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px; padding: 16px 10px; text-align: center;
+  }
+  .avail-day-name { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .avail-check { display: flex; flex-direction: column; gap: 8px; }
+  .avail-slot {
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; cursor: pointer;
+  }
+  .avail-slot input[type=checkbox] { accent-color: var(--gold); width: 14px; height: 14px; cursor: pointer; }
+  .avail-slot span { font-size: 10px; color: rgba(255,255,255,0.5); }
+  .avail-submit { margin-top: 24px; }
+
+  /* TERMS */
+  #terms { background: var(--white); }
+  .terms-content { max-width: 760px; }
+  .terms-section { margin-bottom: 48px; }
+  .terms-section h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400;
+    margin-bottom: 16px; color: var(--charcoal);
+  }
+  .terms-section p, .terms-section li {
+    font-size: 14px; line-height: 1.8; color: var(--warm-gray);
+    margin-bottom: 10px;
+  }
+  .terms-section ul { padding-left: 20px; }
+  .terms-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 48px; }
+  .terms-last-updated { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 40px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); color: rgba(255,255,255,0.5);
+    padding: 48px; text-align: center;
+  }
+  footer .footer-logo {
+    font-family: 'Cormorant Garamond', serif; font-size: 24px;
+    color: var(--white); margin-bottom: 16px;
+  }
+  footer .footer-logo span { color: var(--gold); }
+  footer p { font-size: 12px; line-height: 1.8; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* NOTIFICATION */
+  .toast {
+    position: fixed; bottom: 32px; right: 32px; z-index: 9999;
+    background: var(--charcoal); color: var(--white);
+    padding: 16px 24px; border-radius: 4px; font-size: 14px;
+    border-left: 4px solid var(--gold);
+    transform: translateY(80px); opacity: 0;
+    transition: all 0.3s ease; pointer-events: none;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content { animation: fadeUp 0.8s ease forwards; }
+  .hero-stats { animation: fadeUp 0.8s 0.3s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 16px; }
+    .nav-links a:not(.btn-nav) { display: none; }
+    .section-wrap { padding: 80px 24px; }
+    #hero { padding: 100px 24px 60px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .field.span2 { grid-column: span 1; }
+    .garment-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-item:nth-child(1) { grid-column: span 2; }
+    .avail-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-stats { gap: 32px; flex-wrap: wrap; }
+    .hero-cross { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showSection('hero')">✝ St. Veronica <span>Garments</span></div>
+  <div class="nav-links">
+    <a onclick="showSection('portfolio')">Portfolio</a>
+    <a onclick="showSection('order')">Place Order</a>
+    <a onclick="showSection('terms')">Terms</a>
+    <a onclick="showSection('servants')" class="btn-nav">Servants Portal</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="active">
+  <div class="hero-bg"></div>
+  <div class="hero-cross">✝</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Faith · Craft · Community</p>
+    <h1>Garments Made<br>With <em>Purpose</em></h1>
+    <p class="hero-sub">St. Veronica Garments is a ministry-driven screen printing service — creating quality apparel for church events, outreach programs, and faith communities.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showSection('order')">Place an Order</button>
+      <button class="btn-secondary" onclick="showSection('portfolio')">View Our Work</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Orders Completed</div>
+    </div>
+    <div>
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Ministries Served</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Faith-Driven</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div style="padding-top:72px;">
+    <div class="section-wrap" style="padding-bottom:40px;">
+      <div class="section-header">
+        <div class="section-eyebrow">Our Work</div>
+        <h2>Previous Projects</h2>
+        <div class="section-line"></div>
+      </div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item pi-1">
+        <div class="portfolio-item-inner">
+          <div style="font-size:80px;color:rgba(255,255,255,0.15);">✝</div>
+          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:0.1em;">YOUTH RETREAT 2024</div>
+          <div style="color:rgba(255,255,255,0.4);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">150 Shirts · Navy & Gold</div>
+        </div>
+        <div class="portfolio-overlay"><div class="portfolio-label">Youth Retreat 2024</div></div>
+      </div>
+      <div class="portfolio-item pi-2">
+        <div class="portfolio-item-inner">
+          <div style="font-size:60px;color:rgba(255,255,255,0.15);">🕊</div>
+          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">OUTREACH WALK</div>
+          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">80 Tees · White Ink</div>
+        </div>
+        <div class="portfolio-overlay"><div class="portfolio-label">Community Outreach Walk</div></div>
+      </div>
+      <div class="portfolio-item pi-3">
+        <div class="portfolio-item-inner">
+          <div style="font-size:60px;color:rgba(255,255,255,0.15);">🙏</div>
+          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">PRAYER CONFERENCE</div>
+          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">220 Long Sleeves</div>
+        </div>
+        <div class="portfolio-overlay"><div class="portfolio-label">Annual Prayer Conference</div></div>
+      </div>
+      <div class="portfolio-item pi-4">
+        <div class="portfolio-item-inner">
+          <div style="font-size:60px;color:rgba(255,255,255,0.15);">⛪</div>
+          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">CHURCH ANNIVERSARY</div>
+          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">300 Hoodies · Gold Print</div>
+        </div>
+        <div class="portfolio-overlay"><div class="portfolio-label">Church Anniversary</div></div>
+      </div>
+      <div class="portfolio-item pi-5">
+        <div class="portfolio-item-inner">
+          <div style="font-size:60px;color:rgba(255,255,255,0.15);">🌿</div>
+          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">MISSION TRIP</div>
+          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">60 Shirts · Green & White</div>
+        </div>
+        <div class="portfolio-overlay"><div class="portfolio-label">Mission Trip 2023</div></div>
+      </div>
+    </div>
+    <div class="section-wrap" style="padding-top:60px;text-align:center;">
+      <p style="color:var(--warm-gray);font-size:14px;margin-bottom:28px;">Ready to create something meaningful for your ministry?</p>
+      <button class="btn-primary" onclick="showSection('order')">Start Your Order</button>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section id="order">
+  <div class="section-wrap" style="padding-top:120px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Get Started</div>
+      <h2>Place an Order</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="order-form" id="orderForm">
+
+      <!-- STEP 1: Personal Info -->
+      <div class="form-step">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Your Information</div>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label>First Name *</label>
+            <input type="text" id="firstName" placeholder="Mary">
+          </div>
+          <div class="field">
+            <label>Last Name *</label>
+            <input type="text" id="lastName" placeholder="Johnson">
+          </div>
+          <div class="field">
+            <label>Email Address *</label>
+            <input type="email" id="email" placeholder="mary@church.org">
+          </div>
+          <div class="field">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" placeholder="(555) 000-0000">
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Event Info -->
+      <div class="form-step">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Event Details</div>
+        </div>
+        <div class="form-grid">
+          <div class="field span2">
+            <label>Name of Service / Event *</label>
+            <input type="text" id="eventName" placeholder="e.g. Annual Youth Revival 2025">
+          </div>
+          <div class="field">
+            <label>Date Needed By *</label>
+            <input type="date" id="neededBy">
+          </div>
+          <div class="field">
+            <label>Expected Quantity</label>
+            <input type="number" id="quantity" placeholder="e.g. 100" min="1">
+          </div>
+          <div class="field span2">
+            <label>Additional Notes</label>
+            <textarea id="notes" placeholder="Any special requests or details about your event..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Garment -->
+      <div class="form-step">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-title">Garment & Colors</div>
+        </div>
+        <div style="margin-bottom:28px;">
+          <label style="display:block;margin-bottom:16px;">Select Garment Type *</label>
+          <div class="garment-grid">
+            <div class="garment-card" onclick="selectGarment(this,'Short Sleeve Tee')">
+              <span class="garment-icon">👕</span>
+              <div class="garment-name">Short Sleeve Tee</div>
+            </div>
+            <div class="garment-card" onclick="selectGarment(this,'Long Sleeve Tee')">
+              <span class="garment-icon">👔</span>
+              <div class="garment-name">Long Sleeve Tee</div>
+            </div>
+            <div class="garment-card" onclick="selectGarment(this,'Hoodie')">
+              <span class="garment-icon">🧥</span>
+              <div class="garment-name">Hoodie</div>
+            </div>
+            <div class="garment-card" onclick="selectGarment(this,'Tank Top')">
+              <span class="garment-icon">🎽</span>
+              <div class="garment-name">Tank Top</div>
+            </div>
+            <div class="garment-card" onclick="selectGarment(this,'Crewneck Sweatshirt')">
+              <span class="garment-icon">🧶</span>
+              <div class="garment-name">Crewneck</div>
+            </div>
+            <div class="garment-card" onclick="selectGarment(this,'Polo Shirt')">
+              <span class="garment-icon">👗</span>
+              <div class="garment-name">Polo Shirt</div>
+            </div>
+            <div class="garment-card" onclick="selectGarment(this,'Youth Tee')">
+              <span class="garment-icon">🧸</span>
+              <div class="garment-name">Youth Tee</div>
+            </div>
+            <div class="garment-card" onclick="selectGarment(this,'Baseball Tee')">
+              <span class="garment-icon">⚾</span>
+              <div class="garment-name">Baseball Tee</div>
             </div>
           </div>
+          <input type="hidden" id="selectedGarment">
         </div>
-        <div class="hero-copy">
-          <p class="eyebrow">Ministry apparel made with care</p>
-          <h1>St. Veronica Garments</h1>
-          <p>
-            Screen printed shirts for church services, retreats, servant teams, youth events,
-            fundraisers, and parish celebrations.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#order">Start an Order</a>
-            <a class="button secondary" href="#projects">View Projects</a>
-          </div>
-        </div>
-      </section>
 
-      <section class="intro-band" aria-label="Service highlights">
         <div>
-          <strong>Custom garments</strong>
-          <span>Tees, long sleeves, hoodies, crews, and totes.</span>
-        </div>
-        <div>
-          <strong>Event ready</strong>
-          <span>Collect due dates, quantities, colors, and artwork in one request.</span>
-        </div>
-        <div>
-          <strong>Servant coordination</strong>
-          <span>Private schedule and weekly availability area for the print team.</span>
-        </div>
-      </section>
-
-      <section id="projects" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Previous projects</p>
-          <h2>Work for ministries, services, and parish events</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-art retreat">
-              <span>Retreat</span>
-            </div>
-            <div class="project-copy">
-              <h3>Confirmation Retreat</h3>
-              <p>Navy tees with cream front crest and back scripture layout.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-art youth">
-              <span>Youth</span>
-            </div>
-            <div class="project-copy">
-              <h3>Youth Service Night</h3>
-              <p>Soft cream shirts with navy sleeve mark and full-back design.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-art feast">
-              <span>Feast</span>
-            </div>
-            <div class="project-copy">
-              <h3>Feast Day Volunteers</h3>
-              <p>Volunteer apparel with simple one-color print for easy sorting.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-art choir">
-              <span>Choir</span>
-            </div>
-            <div class="project-copy">
-              <h3>Choir Fundraiser</h3>
-              <p>Crewneck sweatshirts with tonal ink and small left-chest placement.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="order" class="section order-section">
-        <div class="section-heading">
-          <p class="eyebrow">Order placement</p>
-          <h2>Request custom printed garments</h2>
-        </div>
-
-        <form id="orderForm" class="order-form">
-          <fieldset>
-            <legend>Personal Information</legend>
-            <div class="form-grid">
-              <label>
-                Name
-                <input name="name" type="text" autocomplete="name" required />
-              </label>
-              <label>
-                Email
-                <input name="email" type="email" autocomplete="email" required />
-              </label>
-              <label>
-                Phone Number
-                <input name="phone" type="tel" autocomplete="tel" required />
-              </label>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Event Details</legend>
-            <div class="form-grid">
-              <label>
-                Service or Event Name
-                <input name="eventName" type="text" required />
-              </label>
-              <label>
-                Date Needed By
-                <input name="neededBy" type="date" required />
-              </label>
-              <label class="wide">
-                Notes for the Team
-                <textarea name="eventNotes" rows="4" placeholder="Tell us about timing, pickup needs, or anything special."></textarea>
-              </label>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Garment Selection</legend>
-            <div class="form-grid">
-              <label>
-                Garment Type
-                <select name="garmentType" required>
-                  <option value="">Select one</option>
-                  <option>T-shirt</option>
-                  <option>Long sleeve</option>
-                  <option>Hoodie</option>
-                  <option>Crewneck sweatshirt</option>
-                  <option>Tote bag</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label>
-                Garment Color
-                <input name="garmentColor" type="text" placeholder="Cream, navy, black..." required />
-              </label>
-              <label>
-                Ink Color
-                <input name="inkColor" type="text" placeholder="Navy, cream, gold..." required />
-              </label>
-            </div>
-
-            <div class="sizes-block">
-              <div class="subheading-row">
-                <h3>Sizes and Amounts</h3>
-                <button class="icon-button" id="addSize" type="button" aria-label="Add size row" title="Add size">
-                  +
-                </button>
-              </div>
-              <div id="sizeRows" class="size-rows" aria-live="polite"></div>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Design Files and Placement</legend>
-            <div class="form-grid">
-              <label>
-                Upload Design
-                <input name="designFile" type="file" accept=".svg,.ai,image/svg+xml,application/postscript" required />
-              </label>
-              <label>
-                Design Placement
-                <select name="placement" required>
-                  <option value="">Select placement</option>
-                  <option>Front center</option>
-                  <option>Left chest</option>
-                  <option>Back center</option>
-                  <option>Right sleeve</option>
-                  <option>Left sleeve</option>
-                  <option>Multiple placements</option>
-                </select>
-              </label>
-              <label class="wide">
-                Placement Instructions
-                <textarea
-                  name="placementNotes"
-                  rows="4"
-                  placeholder="Example: 3 inch logo on left chest, large design centered on back."
-                ></textarea>
-              </label>
-            </div>
-          </fieldset>
-
-          <label class="checkbox-row">
-            <input name="agree" type="checkbox" required />
-            <span>I understand this is an order request and St. Veronica Garments will confirm pricing, timeline, and artwork before printing.</span>
-          </label>
-
-          <div class="form-footer">
-            <p id="orderStatus" class="form-status" role="status"></p>
-            <button class="button primary" type="submit">Submit Order Request</button>
+          <label style="display:block;margin-bottom:12px;">Garment Color *</label>
+          <div class="color-row">
+            <div class="color-swatch" style="background:#FFFFFF;border:1px solid #ddd;" onclick="selectColor(this,'garment','White')" title="White"></div>
+            <div class="color-swatch" style="background:#1C1C1E;" onclick="selectColor(this,'garment','Black')" title="Black"></div>
+            <div class="color-swatch" style="background:#1B3A6B;" onclick="selectColor(this,'garment','Navy')" title="Navy"></div>
+            <div class="color-swatch" style="background:#8B2020;" onclick="selectColor(this,'garment','Maroon')" title="Maroon"></div>
+            <div class="color-swatch" style="background:#2c5f2e;" onclick="selectColor(this,'garment','Forest Green')" title="Forest Green"></div>
+            <div class="color-swatch" style="background:#C0392B;" onclick="selectColor(this,'garment','Red')" title="Red"></div>
+            <div class="color-swatch" style="background:#7B3F00;" onclick="selectColor(this,'garment','Brown')" title="Brown"></div>
+            <div class="color-swatch" style="background:#6B6B6B;" onclick="selectColor(this,'garment','Gray')" title="Gray"></div>
+            <div class="color-swatch" style="background:#B8973A;" onclick="selectColor(this,'garment','Gold')" title="Gold"></div>
+            <div class="color-swatch" style="background:#4A235A;" onclick="selectColor(this,'garment','Purple')" title="Purple"></div>
+            <div class="color-swatch" style="background:#1A5276;" onclick="selectColor(this,'garment','Royal Blue')" title="Royal Blue"></div>
+            <div class="color-swatch" style="background:#F5CBA7;" onclick="selectColor(this,'garment','Peach')" title="Peach"></div>
           </div>
-        </form>
-      </section>
+          <div class="color-label" id="garmentColorLabel">No color selected</div>
+          <input type="hidden" id="garmentColor">
+        </div>
+      </div>
 
-      <section id="servants" class="section servants-section">
-        <div class="section-heading">
-          <p class="eyebrow">Servants only</p>
-          <h2>Private print team area</h2>
+      <!-- STEP 4: Sizes & Quantities -->
+      <div class="form-step">
+        <div class="step-header">
+          <div class="step-num">4</div>
+          <div class="step-title">Sizes & Quantities</div>
+        </div>
+        <table class="size-table">
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>XS</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+            <tr><td>S</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+            <tr><td>M</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+            <tr><td>L</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+            <tr><td>XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+            <tr><td>2XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+            <tr><td>3XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+            <tr><td>4XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- STEP 5: Ink Color -->
+      <div class="form-step">
+        <div class="step-header">
+          <div class="step-num">5</div>
+          <div class="step-title">Ink Color</div>
+        </div>
+        <p style="font-size:13px;color:var(--warm-gray);margin-bottom:20px;">Select the color(s) of ink for your design print.</p>
+        <div class="color-row">
+          <div class="color-swatch" style="background:#FFFFFF;border:1px solid #ddd;" onclick="selectColor(this,'ink','White')" title="White"></div>
+          <div class="color-swatch" style="background:#1C1C1E;" onclick="selectColor(this,'ink','Black')" title="Black"></div>
+          <div class="color-swatch" style="background:#B8973A;" onclick="selectColor(this,'ink','Gold')" title="Gold"></div>
+          <div class="color-swatch" style="background:#C0392B;" onclick="selectColor(this,'ink','Red')" title="Red"></div>
+          <div class="color-swatch" style="background:#1B3A6B;" onclick="selectColor(this,'ink','Navy')" title="Navy"></div>
+          <div class="color-swatch" style="background:#2c5f2e;" onclick="selectColor(this,'ink','Green')" title="Green"></div>
+          <div class="color-swatch" style="background:#4A235A;" onclick="selectColor(this,'ink','Purple')" title="Purple"></div>
+          <div class="color-swatch" style="background:#E8E8E8;" onclick="selectColor(this,'ink','Silver')" title="Silver"></div>
+          <div class="color-swatch" style="background:#E74C3C;" onclick="selectColor(this,'ink','Bright Red')" title="Bright Red"></div>
+          <div class="color-swatch" style="background:#F39C12;" onclick="selectColor(this,'ink','Orange')" title="Orange"></div>
+          <div class="color-swatch" style="background:#3498DB;" onclick="selectColor(this,'ink','Sky Blue')" title="Sky Blue"></div>
+          <div class="color-swatch" style="background:#E91E63;" onclick="selectColor(this,'ink','Pink')" title="Pink"></div>
+        </div>
+        <div class="color-label" id="inkColorLabel">No ink color selected</div>
+        <input type="hidden" id="inkColor">
+      </div>
+
+      <!-- STEP 6: Design Upload -->
+      <div class="form-step">
+        <div class="step-header">
+          <div class="step-num">6</div>
+          <div class="step-title">Upload Your Design</div>
+        </div>
+        <div class="file-drop" id="fileDrop">
+          <input type="file" accept=".svg,.ai" id="designFile" onchange="handleFile(this)">
+          <div class="file-drop-icon">📁</div>
+          <div class="file-drop-text"><strong>Click to upload</strong> or drag & drop your file here</div>
+          <div class="file-drop-hint">Accepted formats: .SVG, .AI</div>
+        </div>
+        <div id="fileChosen" style="display:none;margin-top:12px;padding:12px 16px;background:var(--input-bg);border-radius:2px;font-size:13px;color:var(--warm-gray);">
+          ✅ <span id="fileName"></span>
         </div>
 
-        <div id="loginPanel" class="servant-login">
-          <label>
-            Servant Password
-            <input id="servantPassword" type="password" autocomplete="current-password" />
-          </label>
-          <button id="unlockServants" class="button primary" type="button">Unlock</button>
-          <p id="loginStatus" class="form-status" role="status"></p>
-        </div>
-
-        <div id="servantPortal" class="servant-portal hidden">
-          <div class="tabs" role="tablist" aria-label="Servant portal tabs">
-            <button class="tab active" type="button" data-tab="calendar" role="tab" aria-selected="true">Calendar</button>
-            <button class="tab" type="button" data-tab="availability" role="tab" aria-selected="false">Availability</button>
-            <button class="tab" type="button" data-tab="orders" role="tab" aria-selected="false">Orders</button>
+        <div style="margin-top:32px;">
+          <label style="display:block;margin-bottom:16px;">Design Placement *</label>
+          <div class="placement-grid">
+            <div class="placement-card" onclick="selectPlacement(this,'Front Center')">
+              <div class="icon">🔵</div>
+              <div class="name">Front Center</div>
+            </div>
+            <div class="placement-card" onclick="selectPlacement(this,'Front Left Chest')">
+              <div class="icon">🔵</div>
+              <div class="name">Front Left Chest</div>
+            </div>
+            <div class="placement-card" onclick="selectPlacement(this,'Full Back')">
+              <div class="icon">🟠</div>
+              <div class="name">Full Back</div>
+            </div>
+            <div class="placement-card" onclick="selectPlacement(this,'Back Upper')">
+              <div class="icon">🟠</div>
+              <div class="name">Back Upper</div>
+            </div>
+            <div class="placement-card" onclick="selectPlacement(this,'Left Sleeve')">
+              <div class="icon">🟢</div>
+              <div class="name">Left Sleeve</div>
+            </div>
+            <div class="placement-card" onclick="selectPlacement(this,'Right Sleeve')">
+              <div class="icon">🟢</div>
+              <div class="name">Right Sleeve</div>
+            </div>
           </div>
-
-          <section class="tab-panel active" id="calendarPanel">
-            <div class="calendar-shell">
-              <iframe
-                title="St. Veronica Garments Google Calendar"
-                src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York"
-              ></iframe>
-            </div>
-          </section>
-
-          <section class="tab-panel" id="availabilityPanel">
-            <form id="availabilityForm" class="availability-form">
-              <div class="form-grid">
-                <label>
-                  Name
-                  <input name="servantName" type="text" required />
-                </label>
-                <label>
-                  Week Of
-                  <input name="weekOf" type="date" required />
-                </label>
-              </div>
-              <div class="availability-grid">
-                <label><input name="days" type="checkbox" value="Monday" /> Monday</label>
-                <label><input name="days" type="checkbox" value="Tuesday" /> Tuesday</label>
-                <label><input name="days" type="checkbox" value="Wednesday" /> Wednesday</label>
-                <label><input name="days" type="checkbox" value="Thursday" /> Thursday</label>
-                <label><input name="days" type="checkbox" value="Friday" /> Friday</label>
-                <label><input name="days" type="checkbox" value="Saturday" /> Saturday</label>
-                <label><input name="days" type="checkbox" value="Sunday" /> Sunday</label>
-              </div>
-              <label>
-                Notes
-                <textarea name="availabilityNotes" rows="4" placeholder="Times you can serve, rides needed, limits, etc."></textarea>
-              </label>
-              <div class="form-footer">
-                <p id="availabilityStatus" class="form-status" role="status"></p>
-                <button class="button primary" type="submit">Save Availability</button>
-              </div>
-            </form>
-            <div>
-              <h3>Saved Availability</h3>
-              <div id="availabilityList" class="saved-list"></div>
-            </div>
-          </section>
-
-          <section class="tab-panel" id="ordersPanel">
-            <div class="subheading-row">
-              <h3>Recent Submitted Requests</h3>
-              <button id="clearOrders" class="button secondary compact" type="button">Clear Demo Orders</button>
-            </div>
-            <div id="ordersList" class="saved-list"></div>
-          </section>
+          <input type="hidden" id="placement">
+          <p style="font-size:11px;color:var(--warm-gray);margin-top:12px;">You may select multiple placements. Contact us if you need a custom placement.</p>
         </div>
-      </section>
+      </div>
 
-      <section id="policies" class="section policies-section">
-        <div class="section-heading">
-          <p class="eyebrow">Terms and policies</p>
-          <h2>How orders are handled</h2>
+      <!-- SUBMIT -->
+      <div class="submit-wrap">
+        <button class="btn-submit" onclick="submitOrder()">Submit Order Request</button>
+        <p style="font-size:12px;color:var(--warm-gray);margin-top:16px;">By submitting, you agree to our <a href="#" onclick="showSection('terms')" style="color:var(--gold);">Terms & Policies</a>. We will contact you within 2 business days to confirm your order.</p>
+      </div>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <div class="success-icon">✝</div>
+      <h3>Order Received — Blessings!</h3>
+      <p>Thank you for trusting St. Veronica Garments with your ministry's apparel. We will review your order and reach out to you within 2 business days to confirm details and pricing.</p>
+      <br>
+      <button class="btn-primary" onclick="resetOrder()" style="margin-top:16px;">Place Another Order</button>
+    </div>
+  </div>
+</section>
+
+<!-- SERVANTS PORTAL -->
+<section id="servants">
+  <div class="section-wrap">
+    <div style="margin-bottom:48px;">
+      <div class="section-eyebrow" style="color:var(--gold);">Staff Only</div>
+      <h2 style="color:var(--white);">Servants Portal</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="portal-login" id="portalLogin">
+      <h3>Sign In</h3>
+      <p>This area is for ministry servants and staff only.</p>
+      <div class="field" style="margin-bottom:16px;">
+        <label>Username</label>
+        <input type="text" id="portalUser" placeholder="Enter username">
+      </div>
+      <div class="field" style="margin-bottom:20px;">
+        <label>Password</label>
+        <input type="password" id="portalPass" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <div class="portal-error" id="portalError">❌ Incorrect credentials. Please try again.</div>
+      <button class="btn-portal" onclick="doLogin()">Sign In</button>
+      <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px;text-align:center;">Demo: username <strong style="color:rgba(255,255,255,0.4);">servant</strong> · password <strong style="color:rgba(255,255,255,0.4);">stveronica</strong></p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="portal-dash" id="portalDash">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;">
+        <div>
+          <p style="color:rgba(255,255,255,0.5);font-size:12px;text-transform:uppercase;letter-spacing:0.1em;">Welcome back</p>
+          <h3 style="color:var(--white);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;">Servant Dashboard</h3>
         </div>
-        <div class="policy-grid">
-          <article>
-            <h3>Artwork</h3>
-            <p>Vector artwork is preferred. Please upload `.svg` or `.ai` files when submitting your request. Low-resolution files may need cleanup before printing.</p>
-          </article>
-          <article>
-            <h3>Timeline</h3>
-            <p>Order timelines depend on garment availability, design approval, and the print schedule. Rush orders may not always be possible.</p>
-          </article>
-          <article>
-            <h3>Approval</h3>
-            <p>Printing begins after garment details, artwork placement, quantity, pricing, and pickup details are confirmed.</p>
-          </article>
-          <article>
-            <h3>Changes</h3>
-            <p>Changes after approval may affect completion date and final cost. Reprints are reviewed case by case.</p>
-          </article>
+        <button onclick="doLogout()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:10px 20px;border-radius:2px;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;">Sign Out</button>
+      </div>
+
+      <div class="portal-tabs">
+        <div class="portal-tab active" onclick="switchTab(this,'calTab')">📅 Calendar</div>
+        <div class="portal-tab" onclick="switchTab(this,'availTab')">🗓 My Availability</div>
+      </div>
+
+      <!-- CALENDAR TAB -->
+      <div class="portal-pane show" id="calTab">
+        <div class="calendar-embed">
+          <div class="cal-placeholder-icon">📅</div>
+          <div class="cal-placeholder-text">
+            <strong>Google Calendar</strong>
+            Connect your Google Calendar to display upcoming orders and print days here.
+          </div>
+          <button class="cal-connect-btn" onclick="showToast('Paste your Google Calendar embed URL in the code to connect.')">Connect Calendar</button>
         </div>
-      </section>
-    </main>
+        <p style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:16px;text-align:center;">To connect: replace the calendar-embed placeholder with your Google Calendar &lt;iframe&gt; embed code.</p>
+      </div>
 
-    <footer class="site-footer">
-      <span>St. Veronica Garments</span>
-      <span>Made for ministry teams, servants, and community events.</span>
-    </footer>
+      <!-- AVAILABILITY TAB -->
+      <div class="portal-pane" id="availTab">
+        <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:28px;">Mark your availability for the upcoming week. Check all time slots you are available.</p>
+        <div class="avail-grid" id="availGrid"></div>
+        <div class="avail-submit">
+          <button class="btn-portal" style="width:auto;padding:14px 36px;" onclick="saveAvail()">Save Availability</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
-  </body>
+<!-- TERMS -->
+<section id="terms">
+  <div class="section-wrap" style="padding-top:120px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Legal</div>
+      <h2>Terms & Policies</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="terms-content">
+      <div class="terms-last-updated">Last Updated: January 2025</div>
+
+      <div class="terms-section">
+        <h3>Order Policy</h3>
+        <p>All orders placed through St. Veronica Garments are subject to review and confirmation. Submission of an order form does not constitute a binding contract until confirmed in writing by our team.</p>
+        <ul>
+          <li>A minimum order of 12 garments is required per order.</li>
+          <li>Rush orders (needed within 7 days) may incur additional fees.</li>
+          <li>Orders are confirmed only after design approval and deposit payment.</li>
+          <li>Changes to order quantities or design must be submitted at least 5 business days before the print date.</li>
+        </ul>
+      </div>
+
+      <div class="terms-divider"></div>
+
+      <div class="terms-section">
+        <h3>Design & File Requirements</h3>
+        <p>To ensure the highest print quality, all submitted designs must meet the following requirements:</p>
+        <ul>
+          <li>Files must be submitted in .SVG or .AI format with all text converted to outlines/curves.</li>
+          <li>Designs must be provided at a minimum of 300 DPI equivalent resolution.</li>
+          <li>St. Veronica Garments is not responsible for poor print quality resulting from low-resolution or improperly formatted files.</li>
+          <li>By submitting a design, you confirm you hold the rights or license to use that design for printing.</li>
+        </ul>
+      </div>
+
+      <div class="terms-divider"></div>
+
+      <div class="terms-section">
+        <h3>Payment Policy</h3>
+        <ul>
+          <li>A 50% non-refundable deposit is required before production begins.</li>
+          <li>The remaining balance is due upon pickup or before shipment.</li>
+          <li>We accept cash, check (made out to St. Veronica Garments), and digital payments via Zelle or CashApp.</li>
+        </ul>
+      </div>
+
+      <div class="terms-divider"></div>
+
+      <div class="terms-section">
+        <h3>Returns & Reprints</h3>
+        <p>Due to the custom nature of screen printed garments, all sales are final. However:</p>
+        <ul>
+          <li>If an error was made on our part (wrong color, wrong placement, misprinted design), we will reprint the affected garments at no charge.</li>
+          <li>Claims for errors must be submitted within 5 business days of receiving your order.</li>
+          <li>Garments must be unworn and unwashed to qualify for a reprint claim.</li>
+          <li>We are not responsible for sizing errors if the correct sizes were ordered and printed.</li>
+        </ul>
+      </div>
+
+      <div class="terms-divider"></div>
+
+      <div class="terms-section">
+        <h3>Turnaround Time</h3>
+        <ul>
+          <li>Standard orders: 10–14 business days from design approval and deposit.</li>
+          <li>Rush orders: 5–7 business days (subject to availability and additional fee).</li>
+          <li>Turnaround times begin after full design approval, not order submission.</li>
+        </ul>
+      </div>
+
+      <div class="terms-divider"></div>
+
+      <div class="terms-section">
+        <h3>Privacy Policy</h3>
+        <p>St. Veronica Garments collects personal information (name, email, phone number) solely for the purpose of processing and fulfilling your order. We do not sell or share your information with third parties. Your information may be used to contact you regarding your order status or future ministry opportunities with our team.</p>
+      </div>
+
+      <div class="terms-divider"></div>
+
+      <div class="terms-section">
+        <h3>Ministry Mission</h3>
+        <p>St. Veronica Garments is a faith-based screen printing ministry. We reserve the right to decline orders that conflict with our Christian values and beliefs. We are committed to serving all faith communities with excellence, integrity, and love.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">✝ St. Veronica <span>Garments</span></div>
+  <p>
+    A faith-driven screen printing ministry serving the body of Christ.<br>
+    Questions? Email us at <a href="mailto:orders@steronicagarments.org">orders@stveronicarments.org</a><br><br>
+    &copy; 2025 St. Veronica Garments · All Rights Reserved ·
+    <a href="#" onclick="showSection('terms')">Terms & Policies</a>
+  </p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // NAVIGATION
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // TOAST
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  // GARMENT SELECT
+  let selectedGarmentVal = '';
+  function selectGarment(el, name) {
+    document.querySelectorAll('.garment-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedGarmentVal = name;
+    document.getElementById('selectedGarment').value = name;
+  }
+
+  // COLOR SELECT
+  let garmentColorVal = '', inkColorVal = '';
+  function selectColor(el, type, name) {
+    const siblings = el.parentElement.querySelectorAll('.color-swatch');
+    siblings.forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+    if (type === 'garment') {
+      garmentColorVal = name;
+      document.getElementById('garmentColorLabel').textContent = 'Selected: ' + name;
+      document.getElementById('garmentColor').value = name;
+    } else {
+      inkColorVal = name;
+      document.getElementById('inkColorLabel').textContent = 'Selected: ' + name;
+      document.getElementById('inkColor').value = name;
+    }
+  }
+
+  // PLACEMENT SELECT (multi)
+  let placements = [];
+  function selectPlacement(el, name) {
+    el.classList.toggle('selected');
+    if (placements.includes(name)) {
+      placements = placements.filter(p => p !== name);
+    } else {
+      placements.push(name);
+    }
+    document.getElementById('placement').value = placements.join(', ');
+  }
+
+  // FILE UPLOAD
+  function handleFile(input) {
+    if (input.files.length > 0) {
+      document.getElementById('fileChosen').style.display = 'block';
+      document.getElementById('fileName').textContent = input.files[0].name;
+    }
+  }
+
+  // DRAG AND DROP
+  const drop = document.getElementById('fileDrop');
+  drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('drag'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('drag'));
+  drop.addEventListener('drop', e => {
+    e.preventDefault(); drop.classList.remove('drag');
+    const files = e.dataTransfer.files;
+    if (files.length) {
+      document.getElementById('designFile').files = files;
+      handleFile(document.getElementById('designFile'));
+    }
+  });
+
+  // SUBMIT ORDER
+  function submitOrder() {
+    const req = ['firstName','lastName','email','phone','eventName','neededBy'];
+    let missing = false;
+    req.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.style.borderColor = '#E74C3C'; missing = true; }
+      else el.style.borderColor = 'transparent';
+    });
+    if (!selectedGarmentVal) { showToast('Please select a garment type.'); missing = true; }
+    if (!garmentColorVal) { showToast('Please select a garment color.'); missing = true; }
+    if (!inkColorVal) { showToast('Please select an ink color.'); missing = true; }
+    if (missing) { showToast('Please fill in all required fields.'); return; }
+
+    document.getElementById('orderForm').style.display = 'none';
+    const s = document.getElementById('successMsg');
+    s.classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetOrder() {
+    document.getElementById('orderForm').style.display = 'block';
+    document.getElementById('successMsg').classList.remove('show');
+    document.getElementById('orderForm').reset();
+    selectedGarmentVal = ''; garmentColorVal = ''; inkColorVal = ''; placements = [];
+    document.querySelectorAll('.garment-card, .placement-card').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.color-swatch').forEach(c => c.classList.remove('selected'));
+    document.getElementById('garmentColorLabel').textContent = 'No color selected';
+    document.getElementById('inkColorLabel').textContent = 'No ink color selected';
+    document.getElementById('fileChosen').style.display = 'none';
+  }
+
+  // PORTAL LOGIN
+  const PORTAL_USER = 'servant';
+  const PORTAL_PASS = 'stveronica';
+
+  function doLogin() {
+    const u = document.getElementById('portalUser').value;
+    const p = document.getElementById('portalPass').value;
+    if (u === PORTAL_USER && p === PORTAL_PASS) {
+      document.getElementById('portalLogin').style.display = 'none';
+      document.getElementById('portalDash').classList.add('show');
+      buildAvailGrid();
+    } else {
+      document.getElementById('portalError').style.display = 'block';
+    }
+  }
+
+  function doLogout() {
+    document.getElementById('portalLogin').style.display = 'block';
+    document.getElementById('portalDash').classList.remove('show');
+    document.getElementById('portalUser').value = '';
+    document.getElementById('portalPass').value = '';
+    document.getElementById('portalError').style.display = 'none';
+  }
+
+  // PORTAL TABS
+  function switchTab(el, paneId) {
+    document.querySelectorAll('.portal-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.portal-pane').forEach(p => p.classList.remove('show'));
+    el.classList.add('active');
+    document.getElementById(paneId).classList.add('show');
+  }
+
+  // AVAILABILITY GRID
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const slots = ['Morning', 'Afternoon', 'Evening'];
+
+  function buildAvailGrid() {
+    const grid = document.getElementById('availGrid');
+    if (grid.innerHTML) return;
+    days.forEach(day => {
+      const d = document.createElement('div');
+      d.className = 'avail-day';
+      d.innerHTML = `<div class="avail-day-name">${day}</div><div class="avail-check">${
+        slots.map(s => `<label class="avail-slot"><input type="checkbox"><span>${s}</span></label>`).join('')
+      }</div>`;
+      grid.appendChild(d);
+    });
+  }
+
+  function saveAvail() {
+    showToast('✅ Availability saved successfully!');
+  }
+</script>
+</body>
 </html>
