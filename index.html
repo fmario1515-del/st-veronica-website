@@ -1,9 +1,358 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Test</title>
-</head>
-<body>
-  <h1>My Site Works 🎉</h1>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>St. Veronica Garments</title>
+    <meta
+      name="description"
+      content="Church screen printing services for servant teams, ministries, events, and retreats."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="St. Veronica Garments home">
+        <span class="brand-mark">SV</span>
+        <span>
+          <strong>St. Veronica Garments</strong>
+          <small>Church screen printing</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#order">Place Order</a>
+        <a href="#policies">Terms</a>
+        <a href="#servants">Servants</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true">
+          <div class="shirt-preview">
+            <div class="shirt-sleeve left"></div>
+            <div class="shirt-sleeve right"></div>
+            <div class="shirt-body">
+              <span class="cross">+</span>
+              <span class="shirt-text">SERVE</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Ministry apparel made with care</p>
+          <h1>St. Veronica Garments</h1>
+          <p>
+            Screen printed shirts for church services, retreats, servant teams, youth events,
+            fundraisers, and parish celebrations.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#order">Start an Order</a>
+            <a class="button secondary" href="#projects">View Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-band" aria-label="Service highlights">
+        <div>
+          <strong>Custom garments</strong>
+          <span>Tees, long sleeves, hoodies, crews, and totes.</span>
+        </div>
+        <div>
+          <strong>Event ready</strong>
+          <span>Collect due dates, quantities, colors, and artwork in one request.</span>
+        </div>
+        <div>
+          <strong>Servant coordination</strong>
+          <span>Private schedule and weekly availability area for the print team.</span>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Previous projects</p>
+          <h2>Work for ministries, services, and parish events</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art retreat">
+              <span>Retreat</span>
+            </div>
+            <div class="project-copy">
+              <h3>Confirmation Retreat</h3>
+              <p>Navy tees with cream front crest and back scripture layout.</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art youth">
+              <span>Youth</span>
+            </div>
+            <div class="project-copy">
+              <h3>Youth Service Night</h3>
+              <p>Soft cream shirts with navy sleeve mark and full-back design.</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art feast">
+              <span>Feast</span>
+            </div>
+            <div class="project-copy">
+              <h3>Feast Day Volunteers</h3>
+              <p>Volunteer apparel with simple one-color print for easy sorting.</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art choir">
+              <span>Choir</span>
+            </div>
+            <div class="project-copy">
+              <h3>Choir Fundraiser</h3>
+              <p>Crewneck sweatshirts with tonal ink and small left-chest placement.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="order" class="section order-section">
+        <div class="section-heading">
+          <p class="eyebrow">Order placement</p>
+          <h2>Request custom printed garments</h2>
+        </div>
+
+        <form id="orderForm" class="order-form">
+          <fieldset>
+            <legend>Personal Information</legend>
+            <div class="form-grid">
+              <label>
+                Name
+                <input name="name" type="text" autocomplete="name" required />
+              </label>
+              <label>
+                Email
+                <input name="email" type="email" autocomplete="email" required />
+              </label>
+              <label>
+                Phone Number
+                <input name="phone" type="tel" autocomplete="tel" required />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Event Details</legend>
+            <div class="form-grid">
+              <label>
+                Service or Event Name
+                <input name="eventName" type="text" required />
+              </label>
+              <label>
+                Date Needed By
+                <input name="neededBy" type="date" required />
+              </label>
+              <label class="wide">
+                Notes for the Team
+                <textarea name="eventNotes" rows="4" placeholder="Tell us about timing, pickup needs, or anything special."></textarea>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Garment Selection</legend>
+            <div class="form-grid">
+              <label>
+                Garment Type
+                <select name="garmentType" required>
+                  <option value="">Select one</option>
+                  <option>T-shirt</option>
+                  <option>Long sleeve</option>
+                  <option>Hoodie</option>
+                  <option>Crewneck sweatshirt</option>
+                  <option>Tote bag</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>
+                Garment Color
+                <input name="garmentColor" type="text" placeholder="Cream, navy, black..." required />
+              </label>
+              <label>
+                Ink Color
+                <input name="inkColor" type="text" placeholder="Navy, cream, gold..." required />
+              </label>
+            </div>
+
+            <div class="sizes-block">
+              <div class="subheading-row">
+                <h3>Sizes and Amounts</h3>
+                <button class="icon-button" id="addSize" type="button" aria-label="Add size row" title="Add size">
+                  +
+                </button>
+              </div>
+              <div id="sizeRows" class="size-rows" aria-live="polite"></div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Design Files and Placement</legend>
+            <div class="form-grid">
+              <label>
+                Upload Design
+                <input name="designFile" type="file" accept=".svg,.ai,image/svg+xml,application/postscript" required />
+              </label>
+              <label>
+                Design Placement
+                <select name="placement" required>
+                  <option value="">Select placement</option>
+                  <option>Front center</option>
+                  <option>Left chest</option>
+                  <option>Back center</option>
+                  <option>Right sleeve</option>
+                  <option>Left sleeve</option>
+                  <option>Multiple placements</option>
+                </select>
+              </label>
+              <label class="wide">
+                Placement Instructions
+                <textarea
+                  name="placementNotes"
+                  rows="4"
+                  placeholder="Example: 3 inch logo on left chest, large design centered on back."
+                ></textarea>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="checkbox-row">
+            <input name="agree" type="checkbox" required />
+            <span>I understand this is an order request and St. Veronica Garments will confirm pricing, timeline, and artwork before printing.</span>
+          </label>
+
+          <div class="form-footer">
+            <p id="orderStatus" class="form-status" role="status"></p>
+            <button class="button primary" type="submit">Submit Order Request</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="servants" class="section servants-section">
+        <div class="section-heading">
+          <p class="eyebrow">Servants only</p>
+          <h2>Private print team area</h2>
+        </div>
+
+        <div id="loginPanel" class="servant-login">
+          <label>
+            Servant Password
+            <input id="servantPassword" type="password" autocomplete="current-password" />
+          </label>
+          <button id="unlockServants" class="button primary" type="button">Unlock</button>
+          <p id="loginStatus" class="form-status" role="status"></p>
+        </div>
+
+        <div id="servantPortal" class="servant-portal hidden">
+          <div class="tabs" role="tablist" aria-label="Servant portal tabs">
+            <button class="tab active" type="button" data-tab="calendar" role="tab" aria-selected="true">Calendar</button>
+            <button class="tab" type="button" data-tab="availability" role="tab" aria-selected="false">Availability</button>
+            <button class="tab" type="button" data-tab="orders" role="tab" aria-selected="false">Orders</button>
+          </div>
+
+          <section class="tab-panel active" id="calendarPanel">
+            <div class="calendar-shell">
+              <iframe
+                title="St. Veronica Garments Google Calendar"
+                src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York"
+              ></iframe>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="availabilityPanel">
+            <form id="availabilityForm" class="availability-form">
+              <div class="form-grid">
+                <label>
+                  Name
+                  <input name="servantName" type="text" required />
+                </label>
+                <label>
+                  Week Of
+                  <input name="weekOf" type="date" required />
+                </label>
+              </div>
+              <div class="availability-grid">
+                <label><input name="days" type="checkbox" value="Monday" /> Monday</label>
+                <label><input name="days" type="checkbox" value="Tuesday" /> Tuesday</label>
+                <label><input name="days" type="checkbox" value="Wednesday" /> Wednesday</label>
+                <label><input name="days" type="checkbox" value="Thursday" /> Thursday</label>
+                <label><input name="days" type="checkbox" value="Friday" /> Friday</label>
+                <label><input name="days" type="checkbox" value="Saturday" /> Saturday</label>
+                <label><input name="days" type="checkbox" value="Sunday" /> Sunday</label>
+              </div>
+              <label>
+                Notes
+                <textarea name="availabilityNotes" rows="4" placeholder="Times you can serve, rides needed, limits, etc."></textarea>
+              </label>
+              <div class="form-footer">
+                <p id="availabilityStatus" class="form-status" role="status"></p>
+                <button class="button primary" type="submit">Save Availability</button>
+              </div>
+            </form>
+            <div>
+              <h3>Saved Availability</h3>
+              <div id="availabilityList" class="saved-list"></div>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="ordersPanel">
+            <div class="subheading-row">
+              <h3>Recent Submitted Requests</h3>
+              <button id="clearOrders" class="button secondary compact" type="button">Clear Demo Orders</button>
+            </div>
+            <div id="ordersList" class="saved-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="policies" class="section policies-section">
+        <div class="section-heading">
+          <p class="eyebrow">Terms and policies</p>
+          <h2>How orders are handled</h2>
+        </div>
+        <div class="policy-grid">
+          <article>
+            <h3>Artwork</h3>
+            <p>Vector artwork is preferred. Please upload `.svg` or `.ai` files when submitting your request. Low-resolution files may need cleanup before printing.</p>
+          </article>
+          <article>
+            <h3>Timeline</h3>
+            <p>Order timelines depend on garment availability, design approval, and the print schedule. Rush orders may not always be possible.</p>
+          </article>
+          <article>
+            <h3>Approval</h3>
+            <p>Printing begins after garment details, artwork placement, quantity, pricing, and pickup details are confirmed.</p>
+          </article>
+          <article>
+            <h3>Changes</h3>
+            <p>Changes after approval may affect completion date and final cost. Reprints are reviewed case by case.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>St. Veronica Garments</span>
+      <span>Made for ministry teams, servants, and community events.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
