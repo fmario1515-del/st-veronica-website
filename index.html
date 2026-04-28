@@ -1,1130 +1,464 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>St. Veronica Garments</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ivory: #F9F6F0;
-    --charcoal: #1C1C1E;
-    --gold: #B8973A;
-    --gold-light: #D4AF55;
-    --warm-gray: #8A8580;
-    --border: #E2DDD6;
-    --white: #FFFFFF;
-    --red-accent: #8B2020;
-    --input-bg: #F4F1EC;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--ivory);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(249,246,240,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 72px;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600; letter-spacing: 0.04em;
-    color: var(--charcoal);
-    display: flex; align-items: center; gap: 10px;
-    cursor: pointer;
-  }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 36px; align-items: center; }
-  .nav-links a {
-    font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--warm-gray);
-    text-decoration: none; cursor: pointer;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--charcoal); }
-  .nav-links a.btn-nav {
-    color: var(--white); background: var(--charcoal);
-    padding: 10px 22px; border-radius: 2px;
-    transition: background 0.2s;
-  }
-  .nav-links a.btn-nav:hover { background: var(--gold); }
-
-  /* SECTIONS */
-  section { display: none; }
-  section.active { display: block; }
-
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 48px 80px;
-    position: relative; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(135deg, #F9F6F0 0%, #EDE8DF 60%, #E0D8CC 100%);
-  }
-  .hero-cross {
-    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
-    font-size: 340px; color: rgba(184,151,58,0.06);
-    font-family: 'Cormorant Garamond', serif; user-select: none;
-    line-height: 1;
-  }
-  .hero-content { position: relative; z-index: 1; max-width: 700px; }
-  .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 20px;
-  }
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 7vw, 90px);
-    font-weight: 300; line-height: 1.05;
-    color: var(--charcoal); margin-bottom: 28px;
-  }
-  h1 em { font-style: italic; color: var(--gold); }
-  .hero-sub {
-    font-size: 16px; line-height: 1.7; color: var(--warm-gray);
-    max-width: 480px; margin-bottom: 48px;
-  }
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--charcoal); color: var(--white);
-    padding: 16px 36px; font-size: 13px; letter-spacing: 0.08em;
-    text-transform: uppercase; font-weight: 500;
-    border: none; border-radius: 2px; cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
-  .btn-secondary {
-    background: transparent; color: var(--charcoal);
-    padding: 16px 36px; font-size: 13px; letter-spacing: 0.08em;
-    text-transform: uppercase; font-weight: 500;
-    border: 1.5px solid var(--charcoal); border-radius: 2px; cursor: pointer;
-    transition: all 0.2s; font-family: 'DM Sans', sans-serif;
-  }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-
-  .hero-stats {
-    position: relative; z-index: 1;
-    display: flex; gap: 64px; margin-top: 80px;
-    padding-top: 40px; border-top: 1px solid var(--border);
-  }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px; font-weight: 300; color: var(--charcoal);
-  }
-  .stat-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-gray); margin-top: 4px; }
-
-  /* SECTION HEADERS */
-  .section-wrap { padding: 100px 48px; }
-  .section-header { margin-bottom: 64px; }
-  .section-eyebrow {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 16px;
-  }
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.1;
-  }
-  .section-line {
-    width: 60px; height: 1.5px; background: var(--gold);
-    margin-top: 24px;
-  }
-
-  /* PORTFOLIO GRID */
-  #portfolio { background: var(--white); }
-  .portfolio-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-  .portfolio-item {
-    aspect-ratio: 1;
-    background: var(--input-bg);
-    position: relative; overflow: hidden; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .portfolio-item:nth-child(1) { grid-column: span 2; aspect-ratio: 2/1; }
-  .portfolio-item-inner {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 12px;
-    transition: transform 0.4s ease;
-  }
-  .portfolio-item:hover .portfolio-item-inner { transform: scale(1.03); }
-  .portfolio-overlay {
-    position: absolute; inset: 0;
-    background: rgba(28,28,30,0.0);
-    transition: background 0.3s;
-    display: flex; align-items: flex-end; padding: 28px;
-  }
-  .portfolio-item:hover .portfolio-overlay { background: rgba(28,28,30,0.55); }
-  .portfolio-label {
-    color: white; opacity: 0; transform: translateY(10px);
-    transition: all 0.3s;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic;
-  }
-  .portfolio-item:hover .portfolio-label { opacity: 1; transform: translateY(0); }
-  /* Mock shirt designs using CSS */
-  .shirt-mock {
-    width: 80px; height: 80px;
-    position: relative;
-  }
-  .shirt-mock svg { width: 100%; height: 100%; }
-
-  /* Color swatches for portfolio items */
-  .pi-1 { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-  .pi-2 { background: linear-gradient(135deg, #2d1b69, #11998e); }
-  .pi-3 { background: linear-gradient(135deg, #8B2020, #C0392B); }
-  .pi-4 { background: linear-gradient(135deg, #1C1C1E, #3a3a3c); }
-  .pi-5 { background: linear-gradient(135deg, #2c5f2e, #97bc62); }
-
-  /* ORDER FORM */
-  #order { background: var(--ivory); }
-  .order-form { max-width: 800px; }
-  .form-step {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 4px; padding: 40px;
-    margin-bottom: 24px;
-  }
-  .step-header {
-    display: flex; align-items: center; gap: 16px;
-    margin-bottom: 32px; padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .step-num {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--charcoal); color: var(--white);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 600; flex-shrink: 0;
-  }
-  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .form-grid.full { grid-template-columns: 1fr; }
-  .field { display: flex; flex-direction: column; gap: 8px; }
-  .field.span2 { grid-column: span 2; }
-  label {
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--warm-gray); font-weight: 500;
-  }
-  input[type=text], input[type=email], input[type=tel], input[type=date],
-  input[type=number], input[type=password], select, textarea {
-    background: var(--input-bg); border: 1.5px solid transparent;
-    border-radius: 2px; padding: 12px 16px;
-    font-family: 'DM Sans', sans-serif; font-size: 14px;
-    color: var(--charcoal); outline: none; width: 100%;
-    transition: border-color 0.2s;
-  }
-  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
-  textarea { resize: vertical; min-height: 100px; }
-  select { cursor: pointer; }
-
-  /* GARMENT SELECTOR */
-  .garment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .garment-card {
-    border: 1.5px solid var(--border); border-radius: 4px; padding: 20px 12px;
-    text-align: center; cursor: pointer; transition: all 0.2s;
-  }
-  .garment-card:hover { border-color: var(--gold); }
-  .garment-card.selected { border-color: var(--charcoal); background: var(--charcoal); color: var(--white); }
-  .garment-card.selected .garment-icon { filter: invert(1); }
-  .garment-icon { font-size: 32px; margin-bottom: 8px; display: block; }
-  .garment-name { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; }
-
-  /* COLOR PICKER */
-  .color-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
-  .color-swatch {
-    width: 36px; height: 36px; border-radius: 50%;
-    cursor: pointer; transition: transform 0.15s;
-    position: relative; border: 2px solid transparent;
-  }
-  .color-swatch:hover { transform: scale(1.15); }
-  .color-swatch.selected { border-color: var(--charcoal); box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--charcoal); }
-  .color-label { font-size: 11px; color: var(--warm-gray); margin-top: 8px; }
-
-  /* SIZE TABLE */
-  .size-table { width: 100%; border-collapse: collapse; }
-  .size-table th, .size-table td {
-    padding: 12px 16px; border-bottom: 1px solid var(--border);
-    text-align: left; font-size: 13px;
-  }
-  .size-table th { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; }
-  .size-table input[type=number] { width: 80px; padding: 8px 12px; }
-
-  /* PLACEMENT SELECTOR */
-  .placement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .placement-card {
-    border: 1.5px solid var(--border); border-radius: 4px; padding: 16px;
-    text-align: center; cursor: pointer; transition: all 0.2s;
-  }
-  .placement-card:hover { border-color: var(--gold); }
-  .placement-card.selected { border-color: var(--charcoal); background: var(--input-bg); }
-  .placement-card .icon { font-size: 28px; margin-bottom: 6px; }
-  .placement-card .name { font-size: 12px; font-weight: 500; }
-
-  /* FILE UPLOAD */
-  .file-drop {
-    border: 2px dashed var(--border); border-radius: 4px;
-    padding: 48px; text-align: center; cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    position: relative;
-  }
-  .file-drop:hover, .file-drop.drag { border-color: var(--gold); background: rgba(184,151,58,0.04); }
-  .file-drop input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-  .file-drop-icon { font-size: 40px; margin-bottom: 12px; }
-  .file-drop-text { font-size: 14px; color: var(--warm-gray); }
-  .file-drop-text strong { color: var(--charcoal); }
-  .file-drop-hint { font-size: 12px; color: var(--warm-gray); margin-top: 6px; }
-
-  /* SUBMIT BTN */
-  .submit-wrap { text-align: center; padding: 20px 0; }
-  .btn-submit {
-    background: var(--charcoal); color: var(--white);
-    padding: 20px 64px; font-size: 13px; letter-spacing: 0.1em;
-    text-transform: uppercase; font-weight: 500;
-    border: none; border-radius: 2px; cursor: pointer;
-    transition: background 0.2s; font-family: 'DM Sans', sans-serif;
-  }
-  .btn-submit:hover { background: var(--gold); }
-
-  /* SUCCESS */
-  .success-msg {
-    display: none; text-align: center; padding: 60px 40px;
-    background: var(--white); border: 1px solid var(--border); border-radius: 4px;
-  }
-  .success-msg.show { display: block; }
-  .success-icon { font-size: 56px; margin-bottom: 20px; }
-  .success-msg h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; margin-bottom: 12px; }
-  .success-msg p { color: var(--warm-gray); font-size: 14px; }
-
-  /* SERVANTS PORTAL */
-  #servants { background: var(--charcoal); color: var(--white); min-height: 100vh; }
-  #servants .section-wrap { padding-top: 120px; }
-  .portal-login {
-    max-width: 440px; margin: 0 auto;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px; padding: 48px;
-  }
-  .portal-login h3 {
-    font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300;
-    color: var(--white); margin-bottom: 8px;
-  }
-  .portal-login p { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 32px; }
-  .portal-login input {
-    background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12);
-    color: var(--white);
-  }
-  .portal-login input::placeholder { color: rgba(255,255,255,0.3); }
-  .portal-login input:focus { border-color: var(--gold); }
-  .portal-login label { color: rgba(255,255,255,0.5); }
-  .btn-portal {
-    width: 100%; background: var(--gold); color: var(--charcoal);
-    padding: 14px; font-size: 13px; letter-spacing: 0.1em;
-    text-transform: uppercase; font-weight: 600;
-    border: none; border-radius: 2px; cursor: pointer;
-    transition: background 0.2s; font-family: 'DM Sans', sans-serif;
-    margin-top: 8px;
-  }
-  .btn-portal:hover { background: var(--gold-light); }
-  .portal-error { color: #FF6B6B; font-size: 12px; margin-top: 8px; display: none; }
-
-  /* PORTAL DASHBOARD */
-  .portal-dash { display: none; }
-  .portal-dash.show { display: block; }
-  .portal-tabs { display: flex; gap: 0; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .portal-tab {
-    padding: 14px 28px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 500; cursor: pointer; color: rgba(255,255,255,0.4);
-    border-bottom: 2px solid transparent; margin-bottom: -1px;
-    transition: all 0.2s;
-  }
-  .portal-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-  .portal-pane { display: none; }
-  .portal-pane.show { display: block; }
-
-  .calendar-embed {
-    width: 100%; height: 600px;
-    border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;
-    background: rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 16px;
-  }
-  .cal-placeholder-icon { font-size: 56px; }
-  .cal-placeholder-text { color: rgba(255,255,255,0.4); font-size: 14px; text-align: center; line-height: 1.6; }
-  .cal-placeholder-text strong { color: rgba(255,255,255,0.7); display: block; font-size: 18px; margin-bottom: 6px; font-family: 'Cormorant Garamond', serif; }
-  .cal-connect-btn {
-    background: var(--gold); color: var(--charcoal);
-    padding: 12px 28px; font-size: 12px; letter-spacing: 0.08em;
-    text-transform: uppercase; font-weight: 600; border: none; border-radius: 2px;
-    cursor: pointer; font-family: 'DM Sans', sans-serif;
-  }
-
-  /* AVAILABILITY */
-  .avail-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
-  .avail-day {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px; padding: 16px 10px; text-align: center;
-  }
-  .avail-day-name { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
-  .avail-check { display: flex; flex-direction: column; gap: 8px; }
-  .avail-slot {
-    display: flex; align-items: center; justify-content: center;
-    gap: 6px; cursor: pointer;
-  }
-  .avail-slot input[type=checkbox] { accent-color: var(--gold); width: 14px; height: 14px; cursor: pointer; }
-  .avail-slot span { font-size: 10px; color: rgba(255,255,255,0.5); }
-  .avail-submit { margin-top: 24px; }
-
-  /* TERMS */
-  #terms { background: var(--white); }
-  .terms-content { max-width: 760px; }
-  .terms-section { margin-bottom: 48px; }
-  .terms-section h3 {
-    font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400;
-    margin-bottom: 16px; color: var(--charcoal);
-  }
-  .terms-section p, .terms-section li {
-    font-size: 14px; line-height: 1.8; color: var(--warm-gray);
-    margin-bottom: 10px;
-  }
-  .terms-section ul { padding-left: 20px; }
-  .terms-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 48px; }
-  .terms-last-updated { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 40px; }
-
-  /* FOOTER */
-  footer {
-    background: var(--charcoal); color: rgba(255,255,255,0.5);
-    padding: 48px; text-align: center;
-  }
-  footer .footer-logo {
-    font-family: 'Cormorant Garamond', serif; font-size: 24px;
-    color: var(--white); margin-bottom: 16px;
-  }
-  footer .footer-logo span { color: var(--gold); }
-  footer p { font-size: 12px; line-height: 1.8; }
-  footer a { color: var(--gold); text-decoration: none; }
-
-  /* NOTIFICATION */
-  .toast {
-    position: fixed; bottom: 32px; right: 32px; z-index: 9999;
-    background: var(--charcoal); color: var(--white);
-    padding: 16px 24px; border-radius: 4px; font-size: 14px;
-    border-left: 4px solid var(--gold);
-    transform: translateY(80px); opacity: 0;
-    transition: all 0.3s ease; pointer-events: none;
-  }
-  .toast.show { transform: translateY(0); opacity: 1; }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-content { animation: fadeUp 0.8s ease forwards; }
-  .hero-stats { animation: fadeUp 0.8s 0.3s ease both; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 0 24px; }
-    .nav-links { gap: 16px; }
-    .nav-links a:not(.btn-nav) { display: none; }
-    .section-wrap { padding: 80px 24px; }
-    #hero { padding: 100px 24px 60px; }
-    .form-grid { grid-template-columns: 1fr; }
-    .field.span2 { grid-column: span 1; }
-    .garment-grid { grid-template-columns: repeat(2, 1fr); }
-    .portfolio-grid { grid-template-columns: 1fr 1fr; }
-    .portfolio-item:nth-child(1) { grid-column: span 2; }
-    .avail-grid { grid-template-columns: repeat(3, 1fr); }
-    .hero-stats { gap: 32px; flex-wrap: wrap; }
-    .hero-cross { display: none; }
-  }
+:root{--navy:#061f4f;--navy2:#123766;--cream:#f8f1df;--cream2:#fffaf0;--accent:#9aa6b2;--accent2:#6f7f90;--ink:#172033;--muted:#667085;--line:rgba(6,31,79,.16);--shadow:0 22px 60px rgba(6,31,79,.18);--r:10px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--cream);font-family:Arial,Helvetica,sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px clamp(18px,4vw,56px);color:var(--cream2);background:rgba(6,31,79,.96);border-bottom:1px solid rgba(255,255,255,.12)}
+.brand{display:flex;align-items:center;gap:12px;border:0;padding:0;color:inherit;background:transparent;text-align:left}.brand img{width:54px;height:54px;object-fit:contain;border-radius:50%;background:var(--cream2);border:2px solid var(--accent)}.brand strong,.brand small{display:block}.brand strong{font-size:1rem}.brand small{color:rgba(255,250,240,.72);font-size:.78rem}
+.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button{border:0;border-radius:var(--r);padding:10px 13px;color:rgba(255,250,240,.92);background:transparent;font-weight:800}.nav button:hover{background:rgba(255,255,255,.12)}
+.button{display:inline-flex;min-height:44px;align-items:center;justify-content:center;border:1px solid transparent;border-radius:var(--r);padding:11px 18px;font-weight:900}.button.primary{color:white;background:var(--navy2);border-color:var(--navy2)}.button.secondary{color:var(--cream2);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}.button.light{color:var(--navy);background:var(--cream2);border-color:var(--line)}
+.page{display:none}.page.active{display:block}.hero{min-height:720px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(28px,5vw,74px);padding:clamp(56px,8vw,100px) clamp(20px,5vw,76px);color:var(--cream2);background:linear-gradient(115deg,rgba(6,31,79,.98),rgba(6,31,79,.82)),repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 1px,transparent 1px 18px),var(--navy)}
+.hero-logo{display:flex;align-items:center;gap:18px;margin-bottom:20px}.hero-logo img{width:96px;height:96px;object-fit:contain;border-radius:50%;background:var(--cream2);border:3px solid var(--accent);box-shadow:var(--shadow)}
+.eyebrow{margin:0 0 10px;color:var(--accent);font-size:.78rem;font-weight:900;text-transform:uppercase}h1{margin:0;max-width:780px;font-size:clamp(3rem,7vw,6.5rem);line-height:1}.hero-text{max-width:670px;margin-top:20px;color:rgba(255,250,240,.86);font-size:1.16rem}.verse{margin-top:24px;max-width:700px;padding:18px 20px;border-left:5px solid var(--accent);border-radius:var(--r);background:rgba(255,255,255,.08)}.verse strong{display:block;margin-top:8px;color:var(--cream2)}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-card{padding:26px;border:1px solid rgba(255,255,255,.16);border-radius:var(--r);background:rgba(255,255,255,.08);box-shadow:var(--shadow)}.hero-card img{display:block;width:min(340px,100%);margin:0 auto;border-radius:50%;background:var(--cream2)}
+.section{padding:clamp(54px,8vw,92px) clamp(20px,5vw,76px)}.section.alt{background:#fbf5e7;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.section-heading{max-width:880px;margin-bottom:30px}.section-heading h2{margin:0;color:var(--navy);font-size:clamp(2rem,4.8vw,3.7rem);line-height:1.08}.section-heading p:not(.eyebrow){margin-top:12px;color:var(--muted);font-size:1.05rem}
+.about-grid,.project-grid,.policy-grid{display:grid;gap:18px}.about-grid{grid-template-columns:repeat(3,1fr)}.project-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.policy-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1080px}.card,.project-card,.form-card,.portal-card,.policy-card,.summary-card{background:var(--cream2);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 12px 30px rgba(6,31,79,.08)}.card,.policy-card{padding:22px}.card h3,.project-card h3,.policy-card h3{margin:0 0 8px;color:var(--navy)}.card p,.project-card p,.policy-card p{margin:0;color:var(--muted)}
+.project-card{overflow:hidden;cursor:pointer}.project-art{min-height:230px;display:grid;place-items:end start;padding:18px;color:var(--cream2);background:linear-gradient(135deg,rgba(6,31,79,.9),rgba(6,31,79,.35)),repeating-linear-gradient(45deg,#123766 0 14px,#2e5278 14px 28px)}.project-art.two{background:linear-gradient(135deg,rgba(6,31,79,.78),rgba(111,127,144,.75)),radial-gradient(circle at 25% 25%,var(--accent),transparent 30%)}.project-art.three{background:linear-gradient(135deg,rgba(6,31,79,.92),rgba(154,166,178,.52)),repeating-linear-gradient(90deg,#123766 0 18px,#254f7c 18px 36px)}.project-art.four{background:linear-gradient(135deg,rgba(6,31,79,.9),rgba(6,31,79,.35)),linear-gradient(45deg,#6f7f90,#e8dfc8)}.project-art span{display:inline-flex;padding:8px 10px;border-radius:var(--r);color:var(--navy);background:var(--cream);font-weight:900}.project-copy{padding:20px}.uploaded-image{width:100%;height:230px;object-fit:cover;display:block;background:var(--cream)}
+.order-layout{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:22px;align-items:start}.form-card,.portal-card,.summary-card{padding:clamp(18px,4vw,34px);box-shadow:var(--shadow)}.step-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:24px}.step-pill{min-height:42px;border:1px solid var(--line);border-radius:var(--r);color:var(--muted);background:#fffdf7;font-size:.82rem;font-weight:900}.step-pill.active{color:var(--navy);border-color:var(--accent2);background:rgba(154,166,178,.18)}.step{display:none}.step.active{display:block}fieldset{margin:0;padding:0;border:0}legend{margin-bottom:18px;color:var(--navy);font-size:1.32rem;font-weight:900}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}label{display:grid;gap:7px;color:var(--navy);font-size:.9rem;font-weight:800}.wide{grid-column:1/-1}input,select,textarea{width:100%;min-height:44px;border:1px solid var(--line);border-radius:var(--r);padding:11px 12px;color:var(--ink);background:#fffdf7}textarea{resize:vertical}input:focus,select:focus,textarea:focus{outline:3px solid rgba(154,166,178,.34);border-color:var(--accent2);background:white}
+.size-tabs{display:flex;gap:8px;margin:18px 0 12px}.size-tab{border:1px solid var(--line);border-radius:var(--r);padding:9px 14px;color:var(--navy);background:#fffdf7;font-weight:900}.size-tab.active{background:var(--navy2);color:white}.size-panel{display:none}.size-panel.active{display:block}.size-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}.size-grid label{gap:4px;padding:8px;border:1px solid var(--line);border-radius:var(--r);background:rgba(255,253,247,.72);font-size:.82rem}.size-grid input{min-height:36px;padding:6px 8px}.form-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}.status{min-height:24px;color:var(--accent2);font-weight:900}
+.mockup-card{position:sticky;top:96px}.mockup-wrap{position:relative;height:470px;display:grid;place-items:center;margin-top:14px;border:1px solid var(--line);border-radius:var(--r);background:#fffdf7;overflow:hidden}.garment{position:relative;width:220px;height:280px;background:#f7efd8;border:2px solid rgba(6,31,79,.18);box-shadow:0 20px 40px rgba(6,31,79,.16);z-index:1}.garment::before,.garment::after{box-sizing:border-box}.garment.tshirt,.garment.longsleeve,.garment.crewneck,.garment.other{border-radius:38px 38px 16px 16px}
+.garment.tshirt::before,.garment.tshirt::after,.garment.crewneck::before,.garment.crewneck::after,.garment.other::before,.garment.other::after{content:"";position:absolute;top:34px;width:78px;height:116px;background:inherit;border:inherit;z-index:-1}.garment.tshirt::before,.garment.crewneck::before,.garment.other::before{left:-58px;transform:rotate(18deg);border-radius:26px 8px 24px 20px}.garment.tshirt::after,.garment.crewneck::after,.garment.other::after{right:-58px;transform:rotate(-18deg);border-radius:8px 26px 20px 24px}
+.garment.longsleeve::before,.garment.longsleeve::after{content:"";position:absolute;top:34px;width:58px;height:214px;background:inherit;border:inherit;z-index:-1}.garment.longsleeve::before{left:-52px;transform:rotate(8deg);border-radius:26px 8px 18px 18px}.garment.longsleeve::after{right:-52px;transform:rotate(-8deg);border-radius:8px 26px 18px 18px}
+.garment.hoodie{border-radius:42px 42px 18px 18px}.garment.hoodie::before{content:"";position:absolute;top:-58px;left:50%;width:128px;height:104px;transform:translateX(-50%);border:inherit;border-radius:66px 66px 30px 30px;background:inherit;z-index:-1}.garment.hoodie .pocket,.garment.hoodie .drawstrings{display:block}
+.garment.quarterzip{border-radius:28px 28px 14px 14px}.garment.quarterzip::before{content:"";position:absolute;top:-32px;left:50%;width:104px;height:54px;transform:translateX(-50%);border:inherit;border-radius:14px 14px 30px 30px;background:inherit}.garment.quarterzip .zipper{display:block;height:92px}.garment.crewneck .neck-detail{display:block}
+.mock-neck{position:absolute;top:-2px;left:50%;width:76px;height:42px;transform:translateX(-50%);border-radius:0 0 40px 40px;background:#fffdf7;border:2px solid rgba(6,31,79,.14);z-index:4}.pocket,.drawstrings,.zipper,.neck-detail{display:none;position:absolute;z-index:2}.pocket{left:50%;bottom:50px;width:94px;height:44px;transform:translateX(-50%);border:2px solid rgba(6,31,79,.22);border-radius:0 0 38px 38px;background:rgba(255,255,255,.14)}.drawstrings{top:42px;left:50%;width:48px;height:70px;transform:translateX(-50%);border-left:2px solid rgba(6,31,79,.35);border-right:2px solid rgba(6,31,79,.35)}.zipper{top:2px;left:50%;width:3px;background:rgba(6,31,79,.35);transform:translateX(-50%)}.neck-detail{top:36px;left:50%;width:108px;height:18px;transform:translateX(-50%);border-top:3px solid rgba(6,31,79,.22);border-radius:50%}
+.design-preview{position:absolute;left:50%;width:92px;height:92px;transform:translateX(-50%);display:grid;place-items:center;color:var(--navy);font-weight:900;text-align:center;font-size:.78rem;overflow:hidden;z-index:5}.design-preview.front-center{top:96px;width:110px;height:110px}.design-preview.left-chest{top:78px;left:42%;width:58px;height:58px}.design-preview.right-chest{top:78px;left:58%;width:58px;height:58px}.design-preview.back-center{top:100px;width:124px;height:124px}.design-preview.upper-back{top:66px;width:130px;height:72px}.design-preview.lower-back{top:154px;width:120px;height:80px}.design-preview img{max-width:100%;max-height:100%;object-fit:contain}
+.check-row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;color:var(--muted);font-weight:700}.check-row input{width:18px;min-height:18px;margin-top:3px}.modal-backdrop{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:18px;background:rgba(5,16,31,.72)}.modal-backdrop.open{display:grid}.modal{width:min(900px,100%);max-height:86vh;overflow:auto;padding:28px;background:var(--cream);border:1px solid rgba(255,255,255,.42);border-radius:var(--r);box-shadow:var(--shadow)}.modal h2{margin-top:0;color:var(--navy);text-align:center}.terms-document{max-width:780px;margin:0 auto;color:var(--ink);background:linear-gradient(180deg,rgba(255,250,240,.82),rgba(248,241,223,.92));border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,38px);box-shadow:0 12px 32px rgba(6,31,79,.1)}.terms-document h2{color:var(--navy)}.terms-document h3{margin:22px 0 8px;color:var(--navy)}.terms-document p,.terms-document li{color:#374151}
+.portal-login{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:20px}.portal-login label{min-width:min(360px,100%)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line)}.tab{min-height:44px;border:0;border-bottom:3px solid transparent;border-radius:var(--r) var(--r) 0 0;padding:10px 12px;color:var(--muted);background:transparent;font-weight:900}.tab.active{color:var(--navy);border-color:var(--accent2);background:rgba(154,166,178,.16)}.tab-panel{display:none}.tab-panel.active{display:block}.calendar-shell{overflow:hidden;border:1px solid var(--line);border-radius:var(--r)}.calendar-shell iframe{display:block;width:100%;height:560px;border:0;background:var(--cream)}.availability-builder{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;margin-top:16px}.saved-list{display:grid;gap:10px;margin-top:16px}.saved-item{padding:14px;border:1px solid var(--line);border-radius:var(--r);background:#fffdf7}.saved-item strong{color:var(--navy)}.saved-item span{display:block;margin-top:4px;color:var(--muted)}.gallery-modal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.gallery-modal-grid img{width:100%;border-radius:var(--r);border:1px solid var(--line)}.footer{display:flex;justify-content:space-between;gap:16px;padding:24px clamp(20px,5vw,76px);color:rgba(255,250,240,.78);background:var(--navy)}.footer strong{color:var(--cream2)}
+@media(max-width:980px){.hero,.order-layout{grid-template-columns:1fr}.mockup-card{position:static}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid,.form-grid,.policy-grid,.availability-builder{grid-template-columns:1fr}.step-bar{grid-template-columns:1fr}}
+@media(max-width:640px){.header{align-items:flex-start;flex-direction:column}.nav{width:100%}.nav button{flex:1}h1{font-size:clamp(2.7rem,15vw,3.7rem)}.project-grid,.size-grid,.gallery-modal-grid{grid-template-columns:1fr}.footer{flex-direction:column}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo" onclick="showSection('hero')">✝ St. Veronica <span>Garments</span></div>
-  <div class="nav-links">
-    <a onclick="showSection('portfolio')">Portfolio</a>
-    <a onclick="showSection('order')">Place Order</a>
-    <a onclick="showSection('terms')">Terms</a>
-    <a onclick="showSection('servants')" class="btn-nav">Servants Portal</a>
-  </div>
+<header class="header">
+<button class="brand" type="button" onclick="showPage('homePage')">
+<img src="logo.png" alt="St. Veronica Garments logo">
+<span><strong>St. Veronica Garments</strong><small>Church screen printing</small></span>
+</button>
+<nav class="nav">
+<button type="button" onclick="showPage('orderPage')">Place Order</button>
+<button type="button" onclick="showPage('servantPage')">Servants</button>
+<button type="button" onclick="showPage('termsPage')">Terms</button>
 </nav>
+</header>
 
-<!-- HERO -->
-<section id="hero" class="active">
-  <div class="hero-bg"></div>
-  <div class="hero-cross">✝</div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Faith · Craft · Community</p>
-    <h1>Garments Made<br>With <em>Purpose</em></h1>
-    <p class="hero-sub">St. Veronica Garments is a ministry-driven screen printing service — creating quality apparel for church events, outreach programs, and faith communities.</p>
-    <div class="hero-btns">
-      <button class="btn-primary" onclick="showSection('order')">Place an Order</button>
-      <button class="btn-secondary" onclick="showSection('portfolio')">View Our Work</button>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div>
-      <div class="stat-num">200+</div>
-      <div class="stat-label">Orders Completed</div>
-    </div>
-    <div>
-      <div class="stat-num">50+</div>
-      <div class="stat-label">Ministries Served</div>
-    </div>
-    <div>
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Faith-Driven</div>
-    </div>
-  </div>
+<main>
+<div id="homePage" class="page active">
+<section class="hero">
+<div>
+<div class="hero-logo">
+<img src="logo.png" alt="St. Veronica Garments logo">
+<div><p class="eyebrow">Custom apparel made with care</p><strong>Custom shirts for services, retreats, and church events</strong></div>
+</div>
+<h1>St. Veronica Garments</h1>
+<p class="hero-text">We create custom screen printed garments for church services, servant teams, retreats, youth events, and fundraisers.</p>
+<div class="verse">"As each one has received a gift, minister it to one another, as good stewards of the manifold grace of God."<strong>1 Peter 4:10</strong></div>
+<div class="hero-actions">
+<button class="button primary" type="button" onclick="showPage('orderPage')">Place an Order</button>
+<button class="button secondary" type="button" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">See Projects</button>
+</div>
+</div>
+<div class="hero-card"><img src="logo.png" alt="St. Veronica Garments logo"></div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div style="padding-top:72px;">
-    <div class="section-wrap" style="padding-bottom:40px;">
-      <div class="section-header">
-        <div class="section-eyebrow">Our Work</div>
-        <h2>Previous Projects</h2>
-        <div class="section-line"></div>
-      </div>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-item pi-1">
-        <div class="portfolio-item-inner">
-          <div style="font-size:80px;color:rgba(255,255,255,0.15);">✝</div>
-          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:0.1em;">YOUTH RETREAT 2024</div>
-          <div style="color:rgba(255,255,255,0.4);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">150 Shirts · Navy & Gold</div>
-        </div>
-        <div class="portfolio-overlay"><div class="portfolio-label">Youth Retreat 2024</div></div>
-      </div>
-      <div class="portfolio-item pi-2">
-        <div class="portfolio-item-inner">
-          <div style="font-size:60px;color:rgba(255,255,255,0.15);">🕊</div>
-          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">OUTREACH WALK</div>
-          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">80 Tees · White Ink</div>
-        </div>
-        <div class="portfolio-overlay"><div class="portfolio-label">Community Outreach Walk</div></div>
-      </div>
-      <div class="portfolio-item pi-3">
-        <div class="portfolio-item-inner">
-          <div style="font-size:60px;color:rgba(255,255,255,0.15);">🙏</div>
-          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">PRAYER CONFERENCE</div>
-          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">220 Long Sleeves</div>
-        </div>
-        <div class="portfolio-overlay"><div class="portfolio-label">Annual Prayer Conference</div></div>
-      </div>
-      <div class="portfolio-item pi-4">
-        <div class="portfolio-item-inner">
-          <div style="font-size:60px;color:rgba(255,255,255,0.15);">⛪</div>
-          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">CHURCH ANNIVERSARY</div>
-          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">300 Hoodies · Gold Print</div>
-        </div>
-        <div class="portfolio-overlay"><div class="portfolio-label">Church Anniversary</div></div>
-      </div>
-      <div class="portfolio-item pi-5">
-        <div class="portfolio-item-inner">
-          <div style="font-size:60px;color:rgba(255,255,255,0.15);">🌿</div>
-          <div style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.1em;">MISSION TRIP</div>
-          <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">60 Shirts · Green & White</div>
-        </div>
-        <div class="portfolio-overlay"><div class="portfolio-label">Mission Trip 2023</div></div>
-      </div>
-    </div>
-    <div class="section-wrap" style="padding-top:60px;text-align:center;">
-      <p style="color:var(--warm-gray);font-size:14px;margin-bottom:28px;">Ready to create something meaningful for your ministry?</p>
-      <button class="btn-primary" onclick="showSection('order')">Start Your Order</button>
-    </div>
-  </div>
+<section class="section alt">
+<div class="section-heading">
+<p class="eyebrow">About us</p>
+<h2>Printed with purpose, made to serve</h2>
+<p>St. Veronica Garments helps church groups create apparel that is organized, meaningful, and ready for the service or event it belongs to.</p>
+</div>
+<div class="about-grid">
+<article class="card"><h3>For church groups</h3><p>Team shirts, youth events, servant apparel, retreat garments, and fundraiser orders.</p></article>
+<article class="card"><h3>Clear order details</h3><p>Contact info, event dates, garment colors, ink colors, sizes, artwork, and placements.</p></article>
+<article class="card"><h3>Made with care</h3><p>Our work exists to support services, servants, and church events with thoughtful custom garments.</p></article>
+</div>
 </section>
 
-<!-- ORDER FORM -->
-<section id="order">
-  <div class="section-wrap" style="padding-top:120px;">
-    <div class="section-header">
-      <div class="section-eyebrow">Get Started</div>
-      <h2>Place an Order</h2>
-      <div class="section-line"></div>
-    </div>
+<section id="projects" class="section">
+<div class="section-heading">
+<p class="eyebrow">Projects</p>
+<h2>Previous work and completed orders</h2>
+</div>
+<div id="uploadedProjectGrid" class="project-grid"></div>
+<div id="placeholderProjectGrid" class="project-grid">
+<article class="project-card"><div class="project-art"><span>Retreat</span></div><div class="project-copy"><h3>Confirmation Retreat</h3><p>Navy tees with cream front crest and back scripture layout.</p></div></article>
+<article class="project-card"><div class="project-art two"><span>Youth</span></div><div class="project-copy"><h3>Youth Service Night</h3><p>Soft cream shirts with navy sleeve mark and full-back design.</p></div></article>
+<article class="project-card"><div class="project-art three"><span>Feast</span></div><div class="project-copy"><h3>Feast Day Volunteers</h3><p>Volunteer apparel with simple one-color print for easy sorting.</p></div></article>
+<article class="project-card"><div class="project-art four"><span>Choir</span></div><div class="project-copy"><h3>Choir Fundraiser</h3><p>Crewneck sweatshirts with tonal ink and left-chest placement.</p></div></article>
+</div>
+</section>
+</div>
 
-    <div class="order-form" id="orderForm">
+<div id="orderPage" class="page">
+<section class="section alt">
+<div class="section-heading">
+<p class="eyebrow">Place an order</p>
+<h2>Custom garment request</h2>
+<p>Complete each step. You can preview SVG or PNG artwork on the mockup before submitting.</p>
+</div>
 
-      <!-- STEP 1: Personal Info -->
-      <div class="form-step">
-        <div class="step-header">
-          <div class="step-num">1</div>
-          <div class="step-title">Your Information</div>
-        </div>
-        <div class="form-grid">
-          <div class="field">
-            <label>First Name *</label>
-            <input type="text" id="firstName" placeholder="Mary">
-          </div>
-          <div class="field">
-            <label>Last Name *</label>
-            <input type="text" id="lastName" placeholder="Johnson">
-          </div>
-          <div class="field">
-            <label>Email Address *</label>
-            <input type="email" id="email" placeholder="mary@church.org">
-          </div>
-          <div class="field">
-            <label>Phone Number *</label>
-            <input type="tel" id="phone" placeholder="(555) 000-0000">
-          </div>
-        </div>
-      </div>
+<div class="order-layout">
+<form id="orderForm" class="form-card">
+<div class="step-bar">
+<button class="step-pill active" type="button" data-step-button="0">Personal</button>
+<button class="step-pill" type="button" data-step-button="1">Event</button>
+<button class="step-pill" type="button" data-step-button="2">Garments</button>
+<button class="step-pill" type="button" data-step-button="3">Design</button>
+<button class="step-pill" type="button" data-step-button="4">Terms</button>
+</div>
 
-      <!-- STEP 2: Event Info -->
-      <div class="form-step">
-        <div class="step-header">
-          <div class="step-num">2</div>
-          <div class="step-title">Event Details</div>
-        </div>
-        <div class="form-grid">
-          <div class="field span2">
-            <label>Name of Service / Event *</label>
-            <input type="text" id="eventName" placeholder="e.g. Annual Youth Revival 2025">
-          </div>
-          <div class="field">
-            <label>Date Needed By *</label>
-            <input type="date" id="neededBy">
-          </div>
-          <div class="field">
-            <label>Expected Quantity</label>
-            <input type="number" id="quantity" placeholder="e.g. 100" min="1">
-          </div>
-          <div class="field span2">
-            <label>Additional Notes</label>
-            <textarea id="notes" placeholder="Any special requests or details about your event..."></textarea>
-          </div>
-        </div>
-      </div>
+<fieldset class="step active">
+<legend>Personal Information</legend>
+<div class="form-grid">
+<label>Name <input name="name" type="text" required></label>
+<label>Email <input name="email" type="email" required></label>
+<label>Phone Number <input name="phone" type="tel" required></label>
+</div>
+</fieldset>
 
-      <!-- STEP 3: Garment -->
-      <div class="form-step">
-        <div class="step-header">
-          <div class="step-num">3</div>
-          <div class="step-title">Garment & Colors</div>
-        </div>
-        <div style="margin-bottom:28px;">
-          <label style="display:block;margin-bottom:16px;">Select Garment Type *</label>
-          <div class="garment-grid">
-            <div class="garment-card" onclick="selectGarment(this,'Short Sleeve Tee')">
-              <span class="garment-icon">👕</span>
-              <div class="garment-name">Short Sleeve Tee</div>
-            </div>
-            <div class="garment-card" onclick="selectGarment(this,'Long Sleeve Tee')">
-              <span class="garment-icon">👔</span>
-              <div class="garment-name">Long Sleeve Tee</div>
-            </div>
-            <div class="garment-card" onclick="selectGarment(this,'Hoodie')">
-              <span class="garment-icon">🧥</span>
-              <div class="garment-name">Hoodie</div>
-            </div>
-            <div class="garment-card" onclick="selectGarment(this,'Tank Top')">
-              <span class="garment-icon">🎽</span>
-              <div class="garment-name">Tank Top</div>
-            </div>
-            <div class="garment-card" onclick="selectGarment(this,'Crewneck Sweatshirt')">
-              <span class="garment-icon">🧶</span>
-              <div class="garment-name">Crewneck</div>
-            </div>
-            <div class="garment-card" onclick="selectGarment(this,'Polo Shirt')">
-              <span class="garment-icon">👗</span>
-              <div class="garment-name">Polo Shirt</div>
-            </div>
-            <div class="garment-card" onclick="selectGarment(this,'Youth Tee')">
-              <span class="garment-icon">🧸</span>
-              <div class="garment-name">Youth Tee</div>
-            </div>
-            <div class="garment-card" onclick="selectGarment(this,'Baseball Tee')">
-              <span class="garment-icon">⚾</span>
-              <div class="garment-name">Baseball Tee</div>
-            </div>
-          </div>
-          <input type="hidden" id="selectedGarment">
-        </div>
+<fieldset class="step">
+<legend>Event Information</legend>
+<div class="form-grid">
+<label>Service or Event Name <input name="eventName" type="text" required></label>
+<label>Date Needed By <input name="neededBy" type="date" required></label>
+<label class="wide">Event Notes <textarea name="eventNotes" rows="4"></textarea></label>
+</div>
+</fieldset>
 
-        <div>
-          <label style="display:block;margin-bottom:12px;">Garment Color *</label>
-          <div class="color-row">
-            <div class="color-swatch" style="background:#FFFFFF;border:1px solid #ddd;" onclick="selectColor(this,'garment','White')" title="White"></div>
-            <div class="color-swatch" style="background:#1C1C1E;" onclick="selectColor(this,'garment','Black')" title="Black"></div>
-            <div class="color-swatch" style="background:#1B3A6B;" onclick="selectColor(this,'garment','Navy')" title="Navy"></div>
-            <div class="color-swatch" style="background:#8B2020;" onclick="selectColor(this,'garment','Maroon')" title="Maroon"></div>
-            <div class="color-swatch" style="background:#2c5f2e;" onclick="selectColor(this,'garment','Forest Green')" title="Forest Green"></div>
-            <div class="color-swatch" style="background:#C0392B;" onclick="selectColor(this,'garment','Red')" title="Red"></div>
-            <div class="color-swatch" style="background:#7B3F00;" onclick="selectColor(this,'garment','Brown')" title="Brown"></div>
-            <div class="color-swatch" style="background:#6B6B6B;" onclick="selectColor(this,'garment','Gray')" title="Gray"></div>
-            <div class="color-swatch" style="background:#B8973A;" onclick="selectColor(this,'garment','Gold')" title="Gold"></div>
-            <div class="color-swatch" style="background:#4A235A;" onclick="selectColor(this,'garment','Purple')" title="Purple"></div>
-            <div class="color-swatch" style="background:#1A5276;" onclick="selectColor(this,'garment','Royal Blue')" title="Royal Blue"></div>
-            <div class="color-swatch" style="background:#F5CBA7;" onclick="selectColor(this,'garment','Peach')" title="Peach"></div>
-          </div>
-          <div class="color-label" id="garmentColorLabel">No color selected</div>
-          <input type="hidden" id="garmentColor">
-        </div>
-      </div>
+<fieldset class="step">
+<legend>Garment, Color, Ink, and Sizes</legend>
+<div class="form-grid">
+<label>Garment Type
+<select name="garmentType" id="garmentType" required>
+<option value="">Select one</option>
+<option value="tshirt">T-shirt</option>
+<option value="longsleeve">Long sleeves</option>
+<option value="quarterzip">Quarter zip</option>
+<option value="hoodie">Hoodie</option>
+<option value="crewneck">Crewneck</option>
+<option value="other">Other</option>
+</select>
+</label>
+<label>Garment Color
+<select name="garmentColor" id="garmentColor" required>
+<option value="">Select one</option>
+<option value="#f7efd8">Cream</option>
+<option value="#071f4f">Navy</option>
+<option value="#111827">Black</option>
+<option value="#ffffff">White</option>
+<option value="#6f7f90">Slate</option>
+<option value="#6f8b74">Sage</option>
+</select>
+</label>
+<label>Ink Color
+<select name="inkColor" required>
+<option value="">Select one</option>
+<option>Navy</option>
+<option>Cream</option>
+<option>White</option>
+<option>Black</option>
+<option>Silver</option>
+<option>Slate</option>
+<option>Other</option>
+</select>
+</label>
+</div>
 
-      <!-- STEP 4: Sizes & Quantities -->
-      <div class="form-step">
-        <div class="step-header">
-          <div class="step-num">4</div>
-          <div class="step-title">Sizes & Quantities</div>
-        </div>
-        <table class="size-table">
-          <thead>
-            <tr>
-              <th>Size</th>
-              <th>Quantity</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>XS</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-            <tr><td>S</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-            <tr><td>M</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-            <tr><td>L</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-            <tr><td>XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-            <tr><td>2XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-            <tr><td>3XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-            <tr><td>4XL</td><td><input type="number" min="0" value="0" placeholder="0"></td></tr>
-          </tbody>
-        </table>
-      </div>
+<div class="size-tabs">
+<button class="size-tab active" type="button" data-size-panel="youthSizes">Youth Sizes</button>
+<button class="size-tab" type="button" data-size-panel="adultSizes">Adult Sizes</button>
+</div>
+<div id="youthSizes" class="size-panel active">
+<div class="size-grid">
+<label>YXS <input name="size_YXS" type="number" min="0" value="0"></label>
+<label>YS <input name="size_YS" type="number" min="0" value="0"></label>
+<label>YM <input name="size_YM" type="number" min="0" value="0"></label>
+<label>YL <input name="size_YL" type="number" min="0" value="0"></label>
+<label>YXL <input name="size_YXL" type="number" min="0" value="0"></label>
+</div>
+</div>
+<div id="adultSizes" class="size-panel">
+<div class="size-grid">
+<label>S <input name="size_S" type="number" min="0" value="0"></label>
+<label>M <input name="size_M" type="number" min="0" value="0"></label>
+<label>L <input name="size_L" type="number" min="0" value="0"></label>
+<label>XL <input name="size_XL" type="number" min="0" value="0"></label>
+<label>2XL <input name="size_2XL" type="number" min="0" value="0"></label>
+</div>
+</div>
+</fieldset>
 
-      <!-- STEP 5: Ink Color -->
-      <div class="form-step">
-        <div class="step-header">
-          <div class="step-num">5</div>
-          <div class="step-title">Ink Color</div>
-        </div>
-        <p style="font-size:13px;color:var(--warm-gray);margin-bottom:20px;">Select the color(s) of ink for your design print.</p>
-        <div class="color-row">
-          <div class="color-swatch" style="background:#FFFFFF;border:1px solid #ddd;" onclick="selectColor(this,'ink','White')" title="White"></div>
-          <div class="color-swatch" style="background:#1C1C1E;" onclick="selectColor(this,'ink','Black')" title="Black"></div>
-          <div class="color-swatch" style="background:#B8973A;" onclick="selectColor(this,'ink','Gold')" title="Gold"></div>
-          <div class="color-swatch" style="background:#C0392B;" onclick="selectColor(this,'ink','Red')" title="Red"></div>
-          <div class="color-swatch" style="background:#1B3A6B;" onclick="selectColor(this,'ink','Navy')" title="Navy"></div>
-          <div class="color-swatch" style="background:#2c5f2e;" onclick="selectColor(this,'ink','Green')" title="Green"></div>
-          <div class="color-swatch" style="background:#4A235A;" onclick="selectColor(this,'ink','Purple')" title="Purple"></div>
-          <div class="color-swatch" style="background:#E8E8E8;" onclick="selectColor(this,'ink','Silver')" title="Silver"></div>
-          <div class="color-swatch" style="background:#E74C3C;" onclick="selectColor(this,'ink','Bright Red')" title="Bright Red"></div>
-          <div class="color-swatch" style="background:#F39C12;" onclick="selectColor(this,'ink','Orange')" title="Orange"></div>
-          <div class="color-swatch" style="background:#3498DB;" onclick="selectColor(this,'ink','Sky Blue')" title="Sky Blue"></div>
-          <div class="color-swatch" style="background:#E91E63;" onclick="selectColor(this,'ink','Pink')" title="Pink"></div>
-        </div>
-        <div class="color-label" id="inkColorLabel">No ink color selected</div>
-        <input type="hidden" id="inkColor">
-      </div>
+<fieldset class="step">
+<legend>Design and Placement</legend>
+<div class="form-grid">
+<label>Front Design SVG/PNG <input id="frontDesign" name="frontDesign" type="file" accept=".svg,.png,image/svg+xml,image/png"></label>
+<label>Front Placement
+<select id="frontPlacement" name="frontPlacement">
+<option value="front-center">Front center</option>
+<option value="left-chest">Left chest</option>
+<option value="right-chest">Right chest</option>
+</select>
+</label>
+<label>Back Design SVG/PNG <input id="backDesign" name="backDesign" type="file" accept=".svg,.png,image/svg+xml,image/png"></label>
+<label>Back Placement
+<select id="backPlacement" name="backPlacement">
+<option value="back-center">Back center</option>
+<option value="upper-back">Upper back</option>
+<option value="lower-back">Lower back</option>
+</select>
+</label>
+<label class="wide">Design Notes <textarea name="designNotes" rows="4"></textarea></label>
+</div>
+</fieldset>
 
-      <!-- STEP 6: Design Upload -->
-      <div class="form-step">
-        <div class="step-header">
-          <div class="step-num">6</div>
-          <div class="step-title">Upload Your Design</div>
-        </div>
-        <div class="file-drop" id="fileDrop">
-          <input type="file" accept=".svg,.ai" id="designFile" onchange="handleFile(this)">
-          <div class="file-drop-icon">📁</div>
-          <div class="file-drop-text"><strong>Click to upload</strong> or drag & drop your file here</div>
-          <div class="file-drop-hint">Accepted formats: .SVG, .AI</div>
-        </div>
-        <div id="fileChosen" style="display:none;margin-top:12px;padding:12px 16px;background:var(--input-bg);border-radius:2px;font-size:13px;color:var(--warm-gray);">
-          ✅ <span id="fileName"></span>
-        </div>
+<fieldset class="step">
+<legend>Terms and Signature</legend>
+<p style="color:var(--muted);margin-bottom:16px">Please open the terms and conditions, check the box, then type your full name as your signature.</p>
+<button id="openTerms" class="button light" type="button">Open Terms and Conditions</button>
+<div style="margin-top:18px">
+<label class="check-row"><input id="termsCheck" name="termsCheck" type="checkbox" required><span>I have read and agree to the terms and conditions.</span></label>
+</div>
+<div class="form-grid" style="margin-top:18px">
+<label class="wide">Type Your Full Name as Signature <input name="signature" type="text" required></label>
+</div>
+</fieldset>
 
-        <div style="margin-top:32px;">
-          <label style="display:block;margin-bottom:16px;">Design Placement *</label>
-          <div class="placement-grid">
-            <div class="placement-card" onclick="selectPlacement(this,'Front Center')">
-              <div class="icon">🔵</div>
-              <div class="name">Front Center</div>
-            </div>
-            <div class="placement-card" onclick="selectPlacement(this,'Front Left Chest')">
-              <div class="icon">🔵</div>
-              <div class="name">Front Left Chest</div>
-            </div>
-            <div class="placement-card" onclick="selectPlacement(this,'Full Back')">
-              <div class="icon">🟠</div>
-              <div class="name">Full Back</div>
-            </div>
-            <div class="placement-card" onclick="selectPlacement(this,'Back Upper')">
-              <div class="icon">🟠</div>
-              <div class="name">Back Upper</div>
-            </div>
-            <div class="placement-card" onclick="selectPlacement(this,'Left Sleeve')">
-              <div class="icon">🟢</div>
-              <div class="name">Left Sleeve</div>
-            </div>
-            <div class="placement-card" onclick="selectPlacement(this,'Right Sleeve')">
-              <div class="icon">🟢</div>
-              <div class="name">Right Sleeve</div>
-            </div>
-          </div>
-          <input type="hidden" id="placement">
-          <p style="font-size:11px;color:var(--warm-gray);margin-top:12px;">You may select multiple placements. Contact us if you need a custom placement.</p>
-        </div>
-      </div>
+<div class="form-actions">
+<button id="prevStep" class="button light" type="button">Back</button>
+<p id="orderStatus" class="status"></p>
+<button id="nextStep" class="button primary" type="button">Next</button>
+<button id="submitOrder" class="button primary hidden" type="submit">Submit Order</button>
+</div>
+</form>
 
-      <!-- SUBMIT -->
-      <div class="submit-wrap">
-        <button class="btn-submit" onclick="submitOrder()">Submit Order Request</button>
-        <p style="font-size:12px;color:var(--warm-gray);margin-top:16px;">By submitting, you agree to our <a href="#" onclick="showSection('terms')" style="color:var(--gold);">Terms & Policies</a>. We will contact you within 2 business days to confirm your order.</p>
-      </div>
-    </div>
+<aside class="summary-card mockup-card">
+<h3>Live Mockup Preview</h3>
+<p style="color:var(--muted);margin:0">Upload SVG or PNG artwork and choose placement to preview it.</p>
+<div style="display:flex;gap:8px;margin-top:14px">
+<button id="showFront" class="button light" type="button">Front</button>
+<button id="showBack" class="button light" type="button">Back</button>
+</div>
+<div class="mockup-wrap">
+<div id="mockShirt" class="garment tshirt">
+<div class="mock-neck"></div><div class="pocket"></div><div class="drawstrings"></div><div class="zipper"></div><div class="neck-detail"></div>
+<div id="frontPreview" class="design-preview front-center">Front Design</div>
+<div id="backPreview" class="design-preview back-center hidden">Back Design</div>
+</div>
+</div>
+<p style="color:var(--muted);margin-top:12px">This mockup is a preview only. Final placement will be confirmed before printing.</p>
+</aside>
+</div>
+</section>
+</div>
 
-    <div class="success-msg" id="successMsg">
-      <div class="success-icon">✝</div>
-      <h3>Order Received — Blessings!</h3>
-      <p>Thank you for trusting St. Veronica Garments with your ministry's apparel. We will review your order and reach out to you within 2 business days to confirm details and pricing.</p>
-      <br>
-      <button class="btn-primary" onclick="resetOrder()" style="margin-top:16px;">Place Another Order</button>
-    </div>
-  </div>
+<div id="servantPage" class="page">
+<section class="section alt">
+<div class="section-heading">
+<p class="eyebrow">Servants only</p>
+<h2>Private print team portal</h2>
+</div>
+<div class="portal-card">
+<div id="loginPanel" class="portal-login">
+<label>Servant Password <input id="portalPassword" type="password"></label>
+<button id="unlockPortal" class="button primary" type="button">Unlock</button>
+<p id="loginStatus" class="status"></p>
+</div>
+
+<div id="portalArea" class="hidden">
+<div class="tabs">
+<button class="tab active" type="button" data-tab="calendarPanel">Calendar</button>
+<button class="tab" type="button" data-tab="availabilityPanel">My Availability</button>
+<button id="ordersTab" class="tab hidden" type="button" data-tab="ordersPanel">Orders</button>
+<button id="allAvailabilityTab" class="tab hidden" type="button" data-tab="allAvailabilityPanel">All Availability</button>
+<button id="adminTab" class="tab hidden" type="button" data-tab="adminPanel">Admin Photos</button>
+</div>
+
+<section id="calendarPanel" class="tab-panel active">
+<div class="calendar-shell">
+<iframe title="St. Veronica Garments Google Calendar" src="https://calendar.google.com/calendar/embed?src=fmario1515%40gmail.com&ctz=America%2FNew_York"></iframe>
+</div>
 </section>
 
-<!-- SERVANTS PORTAL -->
-<section id="servants">
-  <div class="section-wrap">
-    <div style="margin-bottom:48px;">
-      <div class="section-eyebrow" style="color:var(--gold);">Staff Only</div>
-      <h2 style="color:var(--white);">Servants Portal</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <!-- LOGIN -->
-    <div class="portal-login" id="portalLogin">
-      <h3>Sign In</h3>
-      <p>This area is for ministry servants and staff only.</p>
-      <div class="field" style="margin-bottom:16px;">
-        <label>Username</label>
-        <input type="text" id="portalUser" placeholder="Enter username">
-      </div>
-      <div class="field" style="margin-bottom:20px;">
-        <label>Password</label>
-        <input type="password" id="portalPass" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()">
-      </div>
-      <div class="portal-error" id="portalError">❌ Incorrect credentials. Please try again.</div>
-      <button class="btn-portal" onclick="doLogin()">Sign In</button>
-      <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px;text-align:center;">Demo: username <strong style="color:rgba(255,255,255,0.4);">servant</strong> · password <strong style="color:rgba(255,255,255,0.4);">stveronica</strong></p>
-    </div>
-
-    <!-- DASHBOARD -->
-    <div class="portal-dash" id="portalDash">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;">
-        <div>
-          <p style="color:rgba(255,255,255,0.5);font-size:12px;text-transform:uppercase;letter-spacing:0.1em;">Welcome back</p>
-          <h3 style="color:var(--white);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;">Servant Dashboard</h3>
-        </div>
-        <button onclick="doLogout()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:10px 20px;border-radius:2px;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;">Sign Out</button>
-      </div>
-
-      <div class="portal-tabs">
-        <div class="portal-tab active" onclick="switchTab(this,'calTab')">📅 Calendar</div>
-        <div class="portal-tab" onclick="switchTab(this,'availTab')">🗓 My Availability</div>
-      </div>
-
-      <!-- CALENDAR TAB -->
-      <div class="portal-pane show" id="calTab">
-        <div class="calendar-embed">
-          <div class="cal-placeholder-icon">📅</div>
-          <div class="cal-placeholder-text">
-            <strong>Google Calendar</strong>
-            Connect your Google Calendar to display upcoming orders and print days here.
-          </div>
-          <button class="cal-connect-btn" onclick="showToast('Paste your Google Calendar embed URL in the code to connect.')">Connect Calendar</button>
-        </div>
-        <p style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:16px;text-align:center;">To connect: replace the calendar-embed placeholder with your Google Calendar &lt;iframe&gt; embed code.</p>
-      </div>
-
-      <!-- AVAILABILITY TAB -->
-      <div class="portal-pane" id="availTab">
-        <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:28px;">Mark your availability for the upcoming week. Check all time slots you are available.</p>
-        <div class="avail-grid" id="availGrid"></div>
-        <div class="avail-submit">
-          <button class="btn-portal" style="width:auto;padding:14px 36px;" onclick="saveAvail()">Save Availability</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<section id="availabilityPanel" class="tab-panel">
+<form id="availabilityForm">
+<p style="color:var(--muted);margin-top:0">Select the day you are available and the time range. Weekday times are 3:00 PM to 10:00 PM. Saturday times are 8:00 AM to 5:00 PM. Availability resets every Sunday.</p>
+<div class="form-grid"><label>Name <input name="servantName" type="text" required></label></div>
+<div class="availability-builder">
+<label>Day
+<select id="availabilityDay">
+<option value="Monday">Monday</option>
+<option value="Tuesday">Tuesday</option>
+<option value="Wednesday">Wednesday</option>
+<option value="Thursday">Thursday</option>
+<option value="Friday">Friday</option>
+<option value="Saturday">Saturday</option>
+</select>
+</label>
+<label>Start <select id="availabilityStart"></select></label>
+<label>End <select id="availabilityEnd"></select></label>
+<button class="button light" id="addAvailabilitySlot" type="button">Add</button>
+</div>
+<div id="availabilitySlots" class="saved-list"></div>
+<label style="margin-top:16px">Notes <textarea name="availabilityNotes" rows="4"></textarea></label>
+<div class="form-actions">
+<p id="availabilityStatus" class="status"></p>
+<button class="button primary" type="submit">Save Availability</button>
+</div>
+</form>
+<div id="availabilityList" class="saved-list"></div>
 </section>
 
-<!-- TERMS -->
-<section id="terms">
-  <div class="section-wrap" style="padding-top:120px;">
-    <div class="section-header">
-      <div class="section-eyebrow">Legal</div>
-      <h2>Terms & Policies</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="terms-content">
-      <div class="terms-last-updated">Last Updated: January 2025</div>
-
-      <div class="terms-section">
-        <h3>Order Policy</h3>
-        <p>All orders placed through St. Veronica Garments are subject to review and confirmation. Submission of an order form does not constitute a binding contract until confirmed in writing by our team.</p>
-        <ul>
-          <li>A minimum order of 12 garments is required per order.</li>
-          <li>Rush orders (needed within 7 days) may incur additional fees.</li>
-          <li>Orders are confirmed only after design approval and deposit payment.</li>
-          <li>Changes to order quantities or design must be submitted at least 5 business days before the print date.</li>
-        </ul>
-      </div>
-
-      <div class="terms-divider"></div>
-
-      <div class="terms-section">
-        <h3>Design & File Requirements</h3>
-        <p>To ensure the highest print quality, all submitted designs must meet the following requirements:</p>
-        <ul>
-          <li>Files must be submitted in .SVG or .AI format with all text converted to outlines/curves.</li>
-          <li>Designs must be provided at a minimum of 300 DPI equivalent resolution.</li>
-          <li>St. Veronica Garments is not responsible for poor print quality resulting from low-resolution or improperly formatted files.</li>
-          <li>By submitting a design, you confirm you hold the rights or license to use that design for printing.</li>
-        </ul>
-      </div>
-
-      <div class="terms-divider"></div>
-
-      <div class="terms-section">
-        <h3>Payment Policy</h3>
-        <ul>
-          <li>A 50% non-refundable deposit is required before production begins.</li>
-          <li>The remaining balance is due upon pickup or before shipment.</li>
-          <li>We accept cash, check (made out to St. Veronica Garments), and digital payments via Zelle or CashApp.</li>
-        </ul>
-      </div>
-
-      <div class="terms-divider"></div>
-
-      <div class="terms-section">
-        <h3>Returns & Reprints</h3>
-        <p>Due to the custom nature of screen printed garments, all sales are final. However:</p>
-        <ul>
-          <li>If an error was made on our part (wrong color, wrong placement, misprinted design), we will reprint the affected garments at no charge.</li>
-          <li>Claims for errors must be submitted within 5 business days of receiving your order.</li>
-          <li>Garments must be unworn and unwashed to qualify for a reprint claim.</li>
-          <li>We are not responsible for sizing errors if the correct sizes were ordered and printed.</li>
-        </ul>
-      </div>
-
-      <div class="terms-divider"></div>
-
-      <div class="terms-section">
-        <h3>Turnaround Time</h3>
-        <ul>
-          <li>Standard orders: 10–14 business days from design approval and deposit.</li>
-          <li>Rush orders: 5–7 business days (subject to availability and additional fee).</li>
-          <li>Turnaround times begin after full design approval, not order submission.</li>
-        </ul>
-      </div>
-
-      <div class="terms-divider"></div>
-
-      <div class="terms-section">
-        <h3>Privacy Policy</h3>
-        <p>St. Veronica Garments collects personal information (name, email, phone number) solely for the purpose of processing and fulfilling your order. We do not sell or share your information with third parties. Your information may be used to contact you regarding your order status or future ministry opportunities with our team.</p>
-      </div>
-
-      <div class="terms-divider"></div>
-
-      <div class="terms-section">
-        <h3>Ministry Mission</h3>
-        <p>St. Veronica Garments is a faith-based screen printing ministry. We reserve the right to decline orders that conflict with our Christian values and beliefs. We are committed to serving all faith communities with excellence, integrity, and love.</p>
-      </div>
-    </div>
-  </div>
+<section id="ordersPanel" class="tab-panel">
+<h3>Upcoming Orders</h3>
+<p style="color:var(--muted)">Orders marked completed stay visible for 2 weeks, then hide automatically.</p>
+<div id="ordersList" class="saved-list"></div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">✝ St. Veronica <span>Garments</span></div>
-  <p>
-    A faith-driven screen printing ministry serving the body of Christ.<br>
-    Questions? Email us at <a href="mailto:orders@steronicagarments.org">orders@stveronicarments.org</a><br><br>
-    &copy; 2025 St. Veronica Garments · All Rights Reserved ·
-    <a href="#" onclick="showSection('terms')">Terms & Policies</a>
-  </p>
+<section id="allAvailabilityPanel" class="tab-panel">
+<h3>Everyone's Availability This Week</h3>
+<div id="allAvailabilityList" class="saved-list"></div>
+</section>
+
+<section id="adminPanel" class="tab-panel">
+<form id="photoForm">
+<div class="form-grid">
+<label>Project Title <input name="photoTitle" type="text" required></label>
+<label>Photos <input name="photoFiles" type="file" accept="image/*" multiple required></label>
+<label class="wide">Short Description <textarea name="photoDescription" rows="3" required></textarea></label>
+</div>
+<div class="form-actions">
+<p id="photoStatus" class="status"></p>
+<button class="button primary" type="submit">Add Project Post</button>
+</div>
+</form>
+</section>
+</div>
+</div>
+</section>
+</div>
+
+<div id="termsPage" class="page">
+<section class="section">
+<div class="section-heading">
+<p class="eyebrow">Terms and policies</p>
+<h2>St. Veronica's Garments Ordering Policies</h2>
+</div>
+<div class="terms-document">
+<h2>St. Veronica's Garments Ordering Policies - Terms & Conditions</h2>
+<h3>1. Price Structure</h3>
+<p>The price for your order is based on the cost of wholesale items, plus any additional materials or services required.</p>
+<ul><li><strong>Wholesale Price:</strong> The base cost of the garment.</li><li><strong>Supplies:</strong> This includes all materials such as ink, film paper, and other production-related items.</li></ul>
+<h3>2. Production Turnaround</h3>
+<p>Production time is based on the size of the order:</p>
+<ul><li>50 items or less: 10 days</li><li>51-100 items: 2 weeks</li><li>101+ items: 3 weeks</li><li>200+ items: 1 month in advance</li></ul>
+<p>Please note that these timelines are estimates and may vary depending on the complexity of the order.</p>
+<h3>3. Payment Terms</h3>
+<ul><li><strong>Payment Method:</strong> Payment is CASH or Zelle.</li><li><strong>Deposit Requirement:</strong> A 50% deposit is required upon signing the invoice to begin processing your order.</li><li><strong>Order Confirmation:</strong> Your order is not confirmed until the invoice is signed and the deposit is paid.</li><li>Deposits are non-refundable.</li></ul>
+<h3>4. Final Delivery & Pickup</h3>
+<p>Once your order is completed, you will be notified to arrange for pickup. The balance of your invoice is due upon pickup IN CASH or through Zelle.</p>
+<h3>5. Disclaimer</h3>
+<p>By signing the invoice and submitting your deposit, you agree to these Terms & Conditions, which govern all aspects of your order, including pricing, payment, and production timelines.</p>
+<p>St. Veronica's Garments reserves the right to amend these policies at any time, with changes taking effect immediately upon publication.</p>
+<p>If you have any questions or concerns, please contact us before signing the invoice. We are committed to providing you with high-quality garments and excellent service.</p>
+<p><strong>In Christ, St. Veronica's Garment Servants</strong></p>
+</div>
+</section>
+</div>
+</main>
+
+<div id="termsModal" class="modal-backdrop">
+<div class="modal">
+<div class="terms-document">
+<h2>St. Veronica's Garments Ordering Policies - Terms & Conditions</h2>
+<h3>1. Price Structure</h3>
+<p>The price for your order is based on the cost of wholesale items, plus any additional materials or services required.</p>
+<ul><li><strong>Wholesale Price:</strong> The base cost of the garment.</li><li><strong>Supplies:</strong> Ink, film paper, and other production-related items.</li></ul>
+<h3>2. Production Turnaround</h3>
+<ul><li>50 items or less: 10 days</li><li>51-100 items: 2 weeks</li><li>101+ items: 3 weeks</li><li>200+ items: 1 month in advance</li></ul>
+<h3>3. Payment Terms</h3>
+<ul><li>Payment is CASH or Zelle.</li><li>A 50% deposit is required upon signing the invoice.</li><li>Your order is not confirmed until the invoice is signed and the deposit is paid.</li><li>Deposits are non-refundable.</li></ul>
+<h3>4. Final Delivery & Pickup</h3>
+<p>Once your order is completed, you will be notified to arrange pickup. The balance is due upon pickup in CASH or through Zelle.</p>
+<h3>5. Disclaimer</h3>
+<p>By signing the invoice and submitting your deposit, you agree to these Terms & Conditions.</p>
+<p><strong>In Christ, St. Veronica's Garment Servants</strong></p>
+</div>
+<div class="form-actions">
+<label class="check-row"><input id="modalTermsCheck" type="checkbox"><span>I have read the terms and conditions.</span></label>
+<button id="closeTerms" class="button primary" type="button">Close</button>
+</div>
+</div>
+</div>
+
+<div id="galleryModal" class="modal-backdrop">
+<div class="modal">
+<h2 id="galleryTitle"></h2>
+<p id="galleryDescription" style="color:var(--muted)"></p>
+<div id="galleryImages" class="gallery-modal-grid"></div>
+<div class="form-actions"><button id="closeGallery" class="button primary" type="button">Close</button></div>
+</div>
+</div>
+
+<footer class="footer">
+<strong>St. Veronica Garments</strong>
+<span>Made for servant teams and church events.</span>
 </footer>
 
-<div class="toast" id="toast"></div>
-
 <script>
-  // NAVIGATION
-  function showSection(id) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0, 0);
-  }
-
-  // TOAST
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3500);
-  }
-
-  // GARMENT SELECT
-  let selectedGarmentVal = '';
-  function selectGarment(el, name) {
-    document.querySelectorAll('.garment-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    selectedGarmentVal = name;
-    document.getElementById('selectedGarment').value = name;
-  }
-
-  // COLOR SELECT
-  let garmentColorVal = '', inkColorVal = '';
-  function selectColor(el, type, name) {
-    const siblings = el.parentElement.querySelectorAll('.color-swatch');
-    siblings.forEach(s => s.classList.remove('selected'));
-    el.classList.add('selected');
-    if (type === 'garment') {
-      garmentColorVal = name;
-      document.getElementById('garmentColorLabel').textContent = 'Selected: ' + name;
-      document.getElementById('garmentColor').value = name;
-    } else {
-      inkColorVal = name;
-      document.getElementById('inkColorLabel').textContent = 'Selected: ' + name;
-      document.getElementById('inkColor').value = name;
-    }
-  }
-
-  // PLACEMENT SELECT (multi)
-  let placements = [];
-  function selectPlacement(el, name) {
-    el.classList.toggle('selected');
-    if (placements.includes(name)) {
-      placements = placements.filter(p => p !== name);
-    } else {
-      placements.push(name);
-    }
-    document.getElementById('placement').value = placements.join(', ');
-  }
-
-  // FILE UPLOAD
-  function handleFile(input) {
-    if (input.files.length > 0) {
-      document.getElementById('fileChosen').style.display = 'block';
-      document.getElementById('fileName').textContent = input.files[0].name;
-    }
-  }
-
-  // DRAG AND DROP
-  const drop = document.getElementById('fileDrop');
-  drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('drag'); });
-  drop.addEventListener('dragleave', () => drop.classList.remove('drag'));
-  drop.addEventListener('drop', e => {
-    e.preventDefault(); drop.classList.remove('drag');
-    const files = e.dataTransfer.files;
-    if (files.length) {
-      document.getElementById('designFile').files = files;
-      handleFile(document.getElementById('designFile'));
-    }
-  });
-
-  // SUBMIT ORDER
-  function submitOrder() {
-    const req = ['firstName','lastName','email','phone','eventName','neededBy'];
-    let missing = false;
-    req.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) { el.style.borderColor = '#E74C3C'; missing = true; }
-      else el.style.borderColor = 'transparent';
-    });
-    if (!selectedGarmentVal) { showToast('Please select a garment type.'); missing = true; }
-    if (!garmentColorVal) { showToast('Please select a garment color.'); missing = true; }
-    if (!inkColorVal) { showToast('Please select an ink color.'); missing = true; }
-    if (missing) { showToast('Please fill in all required fields.'); return; }
-
-    document.getElementById('orderForm').style.display = 'none';
-    const s = document.getElementById('successMsg');
-    s.classList.add('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function resetOrder() {
-    document.getElementById('orderForm').style.display = 'block';
-    document.getElementById('successMsg').classList.remove('show');
-    document.getElementById('orderForm').reset();
-    selectedGarmentVal = ''; garmentColorVal = ''; inkColorVal = ''; placements = [];
-    document.querySelectorAll('.garment-card, .placement-card').forEach(c => c.classList.remove('selected'));
-    document.querySelectorAll('.color-swatch').forEach(c => c.classList.remove('selected'));
-    document.getElementById('garmentColorLabel').textContent = 'No color selected';
-    document.getElementById('inkColorLabel').textContent = 'No ink color selected';
-    document.getElementById('fileChosen').style.display = 'none';
-  }
-
-  // PORTAL LOGIN
-  const PORTAL_USER = 'servant';
-  const PORTAL_PASS = 'stveronica';
-
-  function doLogin() {
-    const u = document.getElementById('portalUser').value;
-    const p = document.getElementById('portalPass').value;
-    if (u === PORTAL_USER && p === PORTAL_PASS) {
-      document.getElementById('portalLogin').style.display = 'none';
-      document.getElementById('portalDash').classList.add('show');
-      buildAvailGrid();
-    } else {
-      document.getElementById('portalError').style.display = 'block';
-    }
-  }
-
-  function doLogout() {
-    document.getElementById('portalLogin').style.display = 'block';
-    document.getElementById('portalDash').classList.remove('show');
-    document.getElementById('portalUser').value = '';
-    document.getElementById('portalPass').value = '';
-    document.getElementById('portalError').style.display = 'none';
-  }
-
-  // PORTAL TABS
-  function switchTab(el, paneId) {
-    document.querySelectorAll('.portal-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.portal-pane').forEach(p => p.classList.remove('show'));
-    el.classList.add('active');
-    document.getElementById(paneId).classList.add('show');
-  }
-
-  // AVAILABILITY GRID
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const slots = ['Morning', 'Afternoon', 'Evening'];
-
-  function buildAvailGrid() {
-    const grid = document.getElementById('availGrid');
-    if (grid.innerHTML) return;
-    days.forEach(day => {
-      const d = document.createElement('div');
-      d.className = 'avail-day';
-      d.innerHTML = `<div class="avail-day-name">${day}</div><div class="avail-check">${
-        slots.map(s => `<label class="avail-slot"><input type="checkbox"><span>${s}</span></label>`).join('')
-      }</div>`;
-      grid.appendChild(d);
-    });
-  }
-
-  function saveAvail() {
-    showToast('✅ Availability saved successfully!');
-  }
+const GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/AKfycbx8w1VKMhsLCmlsvepn0j6MOXi8K5aNzUHQmV3LGT0JJwRdX0dfIHevgT5YkI7XJWuB/exec";
+const NOTIFICATION_EMAIL="fmario1515@gmail.com";
+const pages=document.querySelectorAll(".page"),steps=document.querySelectorAll(".step"),stepButtons=document.querySelectorAll("[data-step-button]"),prevStepButton=document.querySelector("#prevStep"),nextStepButton=document.querySelector("#nextStep"),submitOrderButton=document.querySelector("#submitOrder"),orderForm=document.querySelector("#orderForm"),orderStatus=document.querySelector("#orderStatus"),termsModal=document.querySelector("#termsModal"),openTerms=document.querySelector("#openTerms"),closeTerms=document.querySelector("#closeTerms"),termsCheck=document.querySelector("#termsCheck"),modalTermsCheck=document.querySelector("#modalTermsCheck"),mockShirt=document.querySelector("#mockShirt"),frontPreview=document.querySelector("#frontPreview"),backPreview=document.querySelector("#backPreview"),frontDesign=document.querySelector("#frontDesign"),backDesign=document.querySelector("#backDesign"),frontPlacement=document.querySelector("#frontPlacement"),backPlacement=document.querySelector("#backPlacement"),garmentColor=document.querySelector("#garmentColor"),garmentType=document.querySelector("#garmentType"),unlockPortal=document.querySelector("#unlockPortal"),loginStatus=document.querySelector("#loginStatus"),portalArea=document.querySelector("#portalArea"),loginPanel=document.querySelector("#loginPanel"),adminTab=document.querySelector("#adminTab"),ordersTab=document.querySelector("#ordersTab"),allAvailabilityTab=document.querySelector("#allAvailabilityTab"),availabilityForm=document.querySelector("#availabilityForm"),availabilityList=document.querySelector("#availabilityList"),allAvailabilityList=document.querySelector("#allAvailabilityList"),availabilityStatus=document.querySelector("#availabilityStatus"),ordersList=document.querySelector("#ordersList"),photoForm=document.querySelector("#photoForm"),photoStatus=document.querySelector("#photoStatus"),uploadedProjectGrid=document.querySelector("#uploadedProjectGrid"),placeholderProjectGrid=document.querySelector("#placeholderProjectGrid"),galleryModal=document.querySelector("#galleryModal"),galleryTitle=document.querySelector("#galleryTitle"),galleryDescription=document.querySelector("#galleryDescription"),galleryImages=document.querySelector("#galleryImages"),closeGallery=document.querySelector("#closeGallery"),availabilityDay=document.querySelector("#availabilityDay"),availabilityStart=document.querySelector("#availabilityStart"),availabilityEnd=document.querySelector("#availabilityEnd"),addAvailabilitySlot=document.querySelector("#addAvailabilitySlot"),availabilitySlots=document.querySelector("#availabilitySlots");
+let currentStep=0,pendingAvailabilitySlots=[];
+function showPage(id){pages.forEach(p=>p.classList.toggle("active",p.id===id));window.scrollTo({top:0,behavior:"smooth"})}window.showPage=showPage;
+function updateStep(){steps.forEach((s,i)=>s.classList.toggle("active",i===currentStep));stepButtons.forEach((b,i)=>b.classList.toggle("active",i===currentStep));prevStepButton.classList.toggle("hidden",currentStep===0);nextStepButton.classList.toggle("hidden",currentStep===steps.length-1);submitOrderButton.classList.toggle("hidden",currentStep!==steps.length-1);orderStatus.textContent=""}
+function validateCurrentStep(){for(const f of steps[currentStep].querySelectorAll("input,select,textarea")){if(!f.checkValidity()){f.reportValidity();return false}}return true}
+nextStepButton.addEventListener("click",()=>{if(!validateCurrentStep())return;currentStep=Math.min(currentStep+1,steps.length-1);updateStep()});
+prevStepButton.addEventListener("click",()=>{currentStep=Math.max(currentStep-1,0);updateStep()});
+stepButtons.forEach(b=>b.addEventListener("click",()=>{const n=Number(b.dataset.stepButton);if(n>currentStep&&!validateCurrentStep())return;currentStep=n;updateStep()}));
+document.querySelectorAll(".size-tab").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".size-tab").forEach(i=>i.classList.remove("active"));document.querySelectorAll(".size-panel").forEach(i=>i.classList.remove("active"));t.classList.add("active");document.querySelector("#"+t.dataset.sizePanel).classList.add("active")}));
+openTerms.addEventListener("click",()=>termsModal.classList.add("open"));
+closeTerms.addEventListener("click",()=>{if(modalTermsCheck.checked)termsCheck.checked=true;termsModal.classList.remove("open")});
+termsModal.addEventListener("click",e=>{if(e.target===termsModal)termsModal.classList.remove("open")});
+garmentColor.addEventListener("change",()=>{mockShirt.style.background=garmentColor.value||"#f7efd8"});
+garmentType.addEventListener("change",()=>{mockShirt.className="garment "+(garmentType.value||"tshirt")});
+function processPngBackground(file,cb){const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const c=document.createElement("canvas");c.width=img.width;c.height=img.height;const x=c.getContext("2d");x.drawImage(img,0,0);const d=x.getImageData(0,0,c.width,c.height),p=d.data,s=[p[0],p[1],p[2]],tol=42;for(let i=0;i<p.length;i+=4){const corner=Math.abs(p[i]-s[0])<tol&&Math.abs(p[i+1]-s[1])<tol&&Math.abs(p[i+2]-s[2])<tol,white=p[i]>236&&p[i+1]>236&&p[i+2]>236;if(corner||white)p[i+3]=0}x.putImageData(d,0,0);cb(c.toDataURL("image/png"))};img.src=r.result};r.readAsDataURL(file)}
+function readPreviewFile(input,el){const file=input.files[0];if(!file)return;if(!["image/png","image/svg+xml"].includes(file.type)){alert("Preview only supports SVG or PNG files.");input.value="";return}if(file.type==="image/png"){processPngBackground(file,src=>{el.innerHTML=`<img src="${src}" alt="Design preview">`});return}const r=new FileReader();r.onload=()=>{el.innerHTML=`<img src="${r.result}" alt="Design preview">`};r.readAsDataURL(file)}
+frontDesign.addEventListener("change",()=>readPreviewFile(frontDesign,frontPreview));backDesign.addEventListener("change",()=>readPreviewFile(backDesign,backPreview));
+frontPlacement.addEventListener("change",()=>{frontPreview.className="design-preview "+frontPlacement.value});backPlacement.addEventListener("change",()=>{backPreview.className="design-preview "+backPlacement.value});
+document.querySelector("#showFront").addEventListener("click",()=>{frontPreview.classList.remove("hidden");backPreview.classList.add("hidden")});document.querySelector("#showBack").addEventListener("click",()=>{backPreview.classList.remove("hidden");frontPreview.classList.add("hidden")});
+function escapeHtml(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
+function getStored(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch{return[]}}function setStored(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function getWeekKey(d=new Date()){const c=new Date(d),day=c.getDay();c.setDate(c.getDate()-day);c.setHours(0,0,0,0);return c.toISOString().slice(0,10)}
+function getSizes(fd){return["YXS","YS","YM","YL","YXL","S","M","L","XL","2XL"].map(size=>({size,quantity:Number(fd.get("size_"+size)||0)})).filter(i=>i.quantity>0)}
+async function fileToData(input){const file=input.files[0];if(!file)return null;return new Promise(res=>{const r=new FileReader();r.onload=()=>res({name:file.name,type:file.type,data:r.result});r.readAsDataURL(file)})}
+function cleanupOrders(){const now=new Date(),orders=getStored("svgOrders").filter(o=>{if(o.status!=="completed"||!o.completedAt)return true;return(now-new Date(o.completedAt))/(1000*60*60*24)<=14});setStored("svgOrders",orders);return orders}
+function saveLocalOrder(order){const orders=cleanupOrders();orders.unshift({...order,id:Date.now(),status:"submitted",completedAt:""});setStored("svgOrders",orders)}
+function renderOrders(){const orders=cleanupOrders();if(!orders.length){ordersList.innerHTML='<p class="saved-item">No upcoming orders saved on this browser yet.</p>';return}ordersList.innerHTML=orders.map(o=>`<article class="saved-item"><strong>${escapeHtml(o.eventName)}</strong><span>Due: ${escapeHtml(o.neededBy)}</span><span>Customer: ${escapeHtml(o.name)} | ${escapeHtml(o.email)}</span><span>Status: ${escapeHtml(o.status||"submitted")}</span><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;"><button class="button light" type="button" onclick="updateOrderStatus(${o.id}, 'started')">Started</button><button class="button primary" type="button" onclick="updateOrderStatus(${o.id}, 'completed')">Completed</button></div></article>`).join("")}
+function updateOrderStatus(id,status){const orders=getStored("svgOrders").map(o=>o.id!==id?o:{...o,status,completedAt:status==="completed"?new Date().toISOString():o.completedAt});setStored("svgOrders",orders);renderOrders()}window.updateOrderStatus=updateOrderStatus;
+orderForm.addEventListener("submit",async e=>{e.preventDefault();if(!orderForm.checkValidity()){orderForm.reportValidity();return}const fd=new FormData(orderForm),sizes=getSizes(fd);if(!sizes.length){orderStatus.textContent="Please enter at least one size quantity.";currentStep=2;updateStep();return}orderStatus.textContent="Submitting...";const order={notificationEmail:NOTIFICATION_EMAIL,submittedAt:new Date().toISOString(),name:fd.get("name"),email:fd.get("email"),phone:fd.get("phone"),eventName:fd.get("eventName"),neededBy:fd.get("neededBy"),eventNotes:fd.get("eventNotes"),garmentType:fd.get("garmentType"),garmentColor:fd.get("garmentColor"),inkColor:fd.get("inkColor"),sizes,frontPlacement:fd.get("frontPlacement"),backPlacement:fd.get("backPlacement"),designNotes:fd.get("designNotes"),signature:fd.get("signature"),frontDesign:await fileToData(frontDesign),backDesign:await fileToData(backDesign)};saveLocalOrder(order);renderOrders();try{await fetch(GOOGLE_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(order)});orderStatus.textContent="Order submitted. You should receive confirmation soon."}catch{orderStatus.textContent="The order was saved locally, but email/calendar submission had a problem."}orderForm.reset();modalTermsCheck.checked=false;frontPreview.innerHTML="Front Design";backPreview.innerHTML="Back Design";mockShirt.style.background="#f7efd8";mockShirt.className="garment tshirt";currentStep=0;updateStep()});
+unlockPortal.addEventListener("click",()=>{const p=document.querySelector("#portalPassword").value.trim();if(p!=="servant"&&p!=="admin"){loginStatus.textContent="Password not recognized.";return}loginStatus.textContent="";loginPanel.classList.add("hidden");portalArea.classList.remove("hidden");if(p==="admin"){adminTab.classList.remove("hidden");ordersTab.classList.remove("hidden");allAvailabilityTab.classList.remove("hidden")}renderAvailability();renderAllAvailability();renderOrders()});
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(i=>i.classList.remove("active"));document.querySelectorAll(".tab-panel").forEach(i=>i.classList.remove("active"));t.classList.add("active");document.querySelector("#"+t.dataset.tab).classList.add("active")}));
+function makeTimeOptions(start,end){let out=[];for(let h=start;h<=end;h++){for(const m of[0,30]){if(h===end&&m>0)continue;const v=`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`,h12=h>12?h-12:h,s=h>=12?"PM":"AM";out.push(`<option value="${v}">${h12}:${String(m).padStart(2,"0")} ${s}</option>`)}}return out.join("")}
+function updateAvailabilityTimes(){const opts=availabilityDay.value==="Saturday"?makeTimeOptions(8,17):makeTimeOptions(15,22);availabilityStart.innerHTML=opts;availabilityEnd.innerHTML=opts;availabilityEnd.selectedIndex=Math.min(availabilityStart.selectedIndex+2,availabilityEnd.options.length-1)}
+function renderPendingSlots(){availabilitySlots.innerHTML=pendingAvailabilitySlots.map((s,i)=>`<article class="saved-item"><strong>${escapeHtml(s.day)}</strong><span>${escapeHtml(s.start)} to ${escapeHtml(s.end)}</span><button class="button light" type="button" onclick="removePendingSlot(${i})" style="margin-top:8px;">Remove</button></article>`).join("")}
+function removePendingSlot(i){pendingAvailabilitySlots.splice(i,1);renderPendingSlots()}window.removePendingSlot=removePendingSlot;
+addAvailabilitySlot.addEventListener("click",()=>{if(availabilityEnd.value<=availabilityStart.value){availabilityStatus.textContent="End time must be after start time.";return}pendingAvailabilitySlots.push({day:availabilityDay.value,start:availabilityStart.options[availabilityStart.selectedIndex].text,end:availabilityEnd.options[availabilityEnd.selectedIndex].text});availabilityStatus.textContent="";renderPendingSlots()});
+availabilityDay.addEventListener("change",updateAvailabilityTimes);
+function currentWeekAvailability(){const week=getWeekKey(),entries=getStored("svgAvailability").filter(e=>e.week===week);setStored("svgAvailability",entries);return entries}
+function renderAvailability(){const entries=currentWeekAvailability();if(!entries.length){availabilityList.innerHTML='<p class="saved-item">No availability saved for this week yet.</p>';return}availabilityList.innerHTML=entries.map(e=>`<article class="saved-item"><strong>${escapeHtml(e.name)}</strong>${e.slots.map(s=>`<span>${escapeHtml(s.day)}: ${escapeHtml(s.start)} to ${escapeHtml(s.end)}</span>`).join("")}${e.notes?`<span>${escapeHtml(e.notes)}</span>`:""}</article>`).join("")}
+function renderAllAvailability(){const entries=currentWeekAvailability();if(!entries.length){allAvailabilityList.innerHTML='<p class="saved-item">No servant availability saved for this week yet.</p>';return}allAvailabilityList.innerHTML=entries.map(e=>`<article class="saved-item"><strong>${escapeHtml(e.name)}</strong>${e.slots.map(s=>`<span>${escapeHtml(s.day)}: ${escapeHtml(s.start)} to ${escapeHtml(s.end)}</span>`).join("")}${e.notes?`<span>${escapeHtml(e.notes)}</span>`:""}</article>`).join("")}
+availabilityForm.addEventListener("submit",e=>{e.preventDefault();if(!pendingAvailabilitySlots.length){availabilityStatus.textContent="Please add at least one availability time.";return}const fd=new FormData(availabilityForm),entry={name:fd.get("servantName"),week:getWeekKey(),slots:pendingAvailabilitySlots,notes:fd.get("availabilityNotes")},entries=currentWeekAvailability();entries.unshift(entry);setStored("svgAvailability",entries);availabilityStatus.textContent="Availability saved for this week.";availabilityForm.reset();pendingAvailabilitySlots=[];updateAvailabilityTimes();renderPendingSlots();renderAvailability();renderAllAvailability()});
+function readFilesAsData(files){return Promise.all([...files].map(file=>new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(file)})))}
+function renderPhotos(){const posts=getStored("svgCompletedPhotos");placeholderProjectGrid.classList.toggle("hidden",posts.length>0);if(!posts.length){uploadedProjectGrid.innerHTML="";return}uploadedProjectGrid.innerHTML=posts.map((p,i)=>`<article class="project-card" onclick="openGallery(${i})"><img class="uploaded-image rotating-photo" data-post="${i}" data-photo="0" src="${p.images[0]}" alt="${escapeHtml(p.title)}"><div class="project-copy"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.description)}</p></div></article>`).join("")}
+function rotateProjectPhotos(){const posts=getStored("svgCompletedPhotos");document.querySelectorAll(".rotating-photo").forEach(img=>{const i=Number(img.dataset.post),p=posts[i];if(!p||!p.images||p.images.length<=1)return;const n=(Number(img.dataset.photo)+1)%p.images.length;img.dataset.photo=String(n);img.src=p.images[n]})}
+function openGallery(i){const p=getStored("svgCompletedPhotos")[i];if(!p)return;galleryTitle.textContent=p.title;galleryDescription.textContent=p.description;galleryImages.innerHTML=p.images.map(img=>`<img src="${img}" alt="${escapeHtml(p.title)}">`).join("");galleryModal.classList.add("open")}window.openGallery=openGallery;
+closeGallery.addEventListener("click",()=>galleryModal.classList.remove("open"));galleryModal.addEventListener("click",e=>{if(e.target===galleryModal)galleryModal.classList.remove("open")});
+photoForm.addEventListener("submit",async e=>{e.preventDefault();const fd=new FormData(photoForm),files=fd.getAll("photoFiles").filter(f=>f&&f.size),images=await readFilesAsData(files),posts=getStored("svgCompletedPhotos");posts.unshift({title:fd.get("photoTitle"),description:fd.get("photoDescription"),images});setStored("svgCompletedPhotos",posts);photoStatus.textContent="Project post added to completed work.";photoForm.reset();renderPhotos()});
+updateStep();updateAvailabilityTimes();renderPhotos();renderAvailability();renderAllAvailability();renderOrders();setInterval(rotateProjectPhotos,3000);
 </script>
 </body>
 </html>
