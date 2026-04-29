@@ -5,460 +5,107 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>St. Veronica Garments</title>
 <style>
-:root{--navy:#061f4f;--navy2:#123766;--cream:#f8f1df;--cream2:#fffaf0;--accent:#9aa6b2;--accent2:#6f7f90;--ink:#172033;--muted:#667085;--line:rgba(6,31,79,.16);--shadow:0 22px 60px rgba(6,31,79,.18);--r:10px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--cream);font-family:Arial,Helvetica,sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
-.header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px clamp(18px,4vw,56px);color:var(--cream2);background:rgba(6,31,79,.96);border-bottom:1px solid rgba(255,255,255,.12)}
-.brand{display:flex;align-items:center;gap:12px;border:0;padding:0;color:inherit;background:transparent;text-align:left}.brand img{width:54px;height:54px;object-fit:contain;border-radius:50%;background:var(--cream2);border:2px solid var(--accent)}.brand strong,.brand small{display:block}.brand strong{font-size:1rem}.brand small{color:rgba(255,250,240,.72);font-size:.78rem}
+:root{--navy:#061f4f;--blue:#123766;--cream:#f8f1df;--paper:#fffaf0;--accent:#9aa6b2;--slate:#6f7f90;--ink:#172033;--muted:#667085;--line:rgba(6,31,79,.16);--shadow:0 22px 60px rgba(6,31,79,.18);--r:10px}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--cream);font-family:Arial,Helvetica,sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px clamp(18px,4vw,56px);color:var(--paper);background:rgba(6,31,79,.96)}
+.brand{display:flex;align-items:center;gap:12px;border:0;background:transparent;color:inherit;text-align:left}.brand img{width:54px;height:54px;object-fit:contain;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}.brand strong,.brand small{display:block}.brand small{color:rgba(255,250,240,.72);font-size:.78rem}
 .nav{display:flex;gap:8px;flex-wrap:wrap}.nav button{border:0;border-radius:var(--r);padding:10px 13px;color:rgba(255,250,240,.92);background:transparent;font-weight:800}.nav button:hover{background:rgba(255,255,255,.12)}
-.button{display:inline-flex;min-height:44px;align-items:center;justify-content:center;border:1px solid transparent;border-radius:var(--r);padding:11px 18px;font-weight:900}.button.primary{color:white;background:var(--navy2);border-color:var(--navy2)}.button.secondary{color:var(--cream2);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}.button.light{color:var(--navy);background:var(--cream2);border-color:var(--line)}
-.page{display:none}.page.active{display:block}.hero{min-height:720px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(28px,5vw,74px);padding:clamp(56px,8vw,100px) clamp(20px,5vw,76px);color:var(--cream2);background:linear-gradient(115deg,rgba(6,31,79,.98),rgba(6,31,79,.82)),repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 1px,transparent 1px 18px),var(--navy)}
-.hero-logo{display:flex;align-items:center;gap:18px;margin-bottom:20px}.hero-logo img{width:96px;height:96px;object-fit:contain;border-radius:50%;background:var(--cream2);border:3px solid var(--accent);box-shadow:var(--shadow)}
-.eyebrow{margin:0 0 10px;color:var(--accent);font-size:.78rem;font-weight:900;text-transform:uppercase}h1{margin:0;max-width:780px;font-size:clamp(3rem,7vw,6.5rem);line-height:1}.hero-text{max-width:670px;margin-top:20px;color:rgba(255,250,240,.86);font-size:1.16rem}.verse{margin-top:24px;max-width:700px;padding:18px 20px;border-left:5px solid var(--accent);border-radius:var(--r);background:rgba(255,255,255,.08)}.verse strong{display:block;margin-top:8px;color:var(--cream2)}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-card{padding:26px;border:1px solid rgba(255,255,255,.16);border-radius:var(--r);background:rgba(255,255,255,.08);box-shadow:var(--shadow)}.hero-card img{display:block;width:min(340px,100%);margin:0 auto;border-radius:50%;background:var(--cream2)}
-.section{padding:clamp(54px,8vw,92px) clamp(20px,5vw,76px)}.section.alt{background:#fbf5e7;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.section-heading{max-width:880px;margin-bottom:30px}.section-heading h2{margin:0;color:var(--navy);font-size:clamp(2rem,4.8vw,3.7rem);line-height:1.08}.section-heading p:not(.eyebrow){margin-top:12px;color:var(--muted);font-size:1.05rem}
-.about-grid,.project-grid,.policy-grid{display:grid;gap:18px}.about-grid{grid-template-columns:repeat(3,1fr)}.project-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.policy-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1080px}.card,.project-card,.form-card,.portal-card,.policy-card,.summary-card{background:var(--cream2);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 12px 30px rgba(6,31,79,.08)}.card,.policy-card{padding:22px}.card h3,.project-card h3,.policy-card h3{margin:0 0 8px;color:var(--navy)}.card p,.project-card p,.policy-card p{margin:0;color:var(--muted)}
-.project-card{overflow:hidden;cursor:pointer}.project-art{min-height:230px;display:grid;place-items:end start;padding:18px;color:var(--cream2);background:linear-gradient(135deg,rgba(6,31,79,.9),rgba(6,31,79,.35)),repeating-linear-gradient(45deg,#123766 0 14px,#2e5278 14px 28px)}.project-art.two{background:linear-gradient(135deg,rgba(6,31,79,.78),rgba(111,127,144,.75)),radial-gradient(circle at 25% 25%,var(--accent),transparent 30%)}.project-art.three{background:linear-gradient(135deg,rgba(6,31,79,.92),rgba(154,166,178,.52)),repeating-linear-gradient(90deg,#123766 0 18px,#254f7c 18px 36px)}.project-art.four{background:linear-gradient(135deg,rgba(6,31,79,.9),rgba(6,31,79,.35)),linear-gradient(45deg,#6f7f90,#e8dfc8)}.project-art span{display:inline-flex;padding:8px 10px;border-radius:var(--r);color:var(--navy);background:var(--cream);font-weight:900}.project-copy{padding:20px}.uploaded-image{width:100%;height:230px;object-fit:cover;display:block;background:var(--cream)}
-.order-layout{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:22px;align-items:start}.form-card,.portal-card,.summary-card{padding:clamp(18px,4vw,34px);box-shadow:var(--shadow)}.step-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:24px}.step-pill{min-height:42px;border:1px solid var(--line);border-radius:var(--r);color:var(--muted);background:#fffdf7;font-size:.82rem;font-weight:900}.step-pill.active{color:var(--navy);border-color:var(--accent2);background:rgba(154,166,178,.18)}.step{display:none}.step.active{display:block}fieldset{margin:0;padding:0;border:0}legend{margin-bottom:18px;color:var(--navy);font-size:1.32rem;font-weight:900}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}label{display:grid;gap:7px;color:var(--navy);font-size:.9rem;font-weight:800}.wide{grid-column:1/-1}input,select,textarea{width:100%;min-height:44px;border:1px solid var(--line);border-radius:var(--r);padding:11px 12px;color:var(--ink);background:#fffdf7}textarea{resize:vertical}input:focus,select:focus,textarea:focus{outline:3px solid rgba(154,166,178,.34);border-color:var(--accent2);background:white}
-.size-tabs{display:flex;gap:8px;margin:18px 0 12px}.size-tab{border:1px solid var(--line);border-radius:var(--r);padding:9px 14px;color:var(--navy);background:#fffdf7;font-weight:900}.size-tab.active{background:var(--navy2);color:white}.size-panel{display:none}.size-panel.active{display:block}.size-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}.size-grid label{gap:4px;padding:8px;border:1px solid var(--line);border-radius:var(--r);background:rgba(255,253,247,.72);font-size:.82rem}.size-grid input{min-height:36px;padding:6px 8px}.form-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}.status{min-height:24px;color:var(--accent2);font-weight:900}
-.mockup-card{position:sticky;top:96px}.mockup-wrap{position:relative;height:470px;display:grid;place-items:center;margin-top:14px;border:1px solid var(--line);border-radius:var(--r);background:#fffdf7;overflow:hidden}.garment{position:relative;width:220px;height:280px;background:#f7efd8;border:2px solid rgba(6,31,79,.18);box-shadow:0 20px 40px rgba(6,31,79,.16);z-index:1}.garment::before,.garment::after{box-sizing:border-box}.garment.tshirt,.garment.longsleeve,.garment.crewneck,.garment.other{border-radius:38px 38px 16px 16px}
-.garment.tshirt::before,.garment.tshirt::after,.garment.crewneck::before,.garment.crewneck::after,.garment.other::before,.garment.other::after{content:"";position:absolute;top:34px;width:78px;height:116px;background:inherit;border:inherit;z-index:-1}.garment.tshirt::before,.garment.crewneck::before,.garment.other::before{left:-58px;transform:rotate(18deg);border-radius:26px 8px 24px 20px}.garment.tshirt::after,.garment.crewneck::after,.garment.other::after{right:-58px;transform:rotate(-18deg);border-radius:8px 26px 20px 24px}
-.garment.longsleeve::before,.garment.longsleeve::after{content:"";position:absolute;top:34px;width:58px;height:214px;background:inherit;border:inherit;z-index:-1}.garment.longsleeve::before{left:-52px;transform:rotate(8deg);border-radius:26px 8px 18px 18px}.garment.longsleeve::after{right:-52px;transform:rotate(-8deg);border-radius:8px 26px 18px 18px}
-.garment.hoodie{border-radius:42px 42px 18px 18px}.garment.hoodie::before{content:"";position:absolute;top:-58px;left:50%;width:128px;height:104px;transform:translateX(-50%);border:inherit;border-radius:66px 66px 30px 30px;background:inherit;z-index:-1}.garment.hoodie .pocket,.garment.hoodie .drawstrings{display:block}
-.garment.quarterzip{border-radius:28px 28px 14px 14px}.garment.quarterzip::before{content:"";position:absolute;top:-32px;left:50%;width:104px;height:54px;transform:translateX(-50%);border:inherit;border-radius:14px 14px 30px 30px;background:inherit}.garment.quarterzip .zipper{display:block;height:92px}.garment.crewneck .neck-detail{display:block}
-.mock-neck{position:absolute;top:-2px;left:50%;width:76px;height:42px;transform:translateX(-50%);border-radius:0 0 40px 40px;background:#fffdf7;border:2px solid rgba(6,31,79,.14);z-index:4}.pocket,.drawstrings,.zipper,.neck-detail{display:none;position:absolute;z-index:2}.pocket{left:50%;bottom:50px;width:94px;height:44px;transform:translateX(-50%);border:2px solid rgba(6,31,79,.22);border-radius:0 0 38px 38px;background:rgba(255,255,255,.14)}.drawstrings{top:42px;left:50%;width:48px;height:70px;transform:translateX(-50%);border-left:2px solid rgba(6,31,79,.35);border-right:2px solid rgba(6,31,79,.35)}.zipper{top:2px;left:50%;width:3px;background:rgba(6,31,79,.35);transform:translateX(-50%)}.neck-detail{top:36px;left:50%;width:108px;height:18px;transform:translateX(-50%);border-top:3px solid rgba(6,31,79,.22);border-radius:50%}
-.design-preview{position:absolute;left:50%;width:92px;height:92px;transform:translateX(-50%);display:grid;place-items:center;color:var(--navy);font-weight:900;text-align:center;font-size:.78rem;overflow:hidden;z-index:5}.design-preview.front-center{top:96px;width:110px;height:110px}.design-preview.left-chest{top:78px;left:42%;width:58px;height:58px}.design-preview.right-chest{top:78px;left:58%;width:58px;height:58px}.design-preview.back-center{top:100px;width:124px;height:124px}.design-preview.upper-back{top:66px;width:130px;height:72px}.design-preview.lower-back{top:154px;width:120px;height:80px}.design-preview img{max-width:100%;max-height:100%;object-fit:contain}
-.check-row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;color:var(--muted);font-weight:700}.check-row input{width:18px;min-height:18px;margin-top:3px}.modal-backdrop{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:18px;background:rgba(5,16,31,.72)}.modal-backdrop.open{display:grid}.modal{width:min(900px,100%);max-height:86vh;overflow:auto;padding:28px;background:var(--cream);border:1px solid rgba(255,255,255,.42);border-radius:var(--r);box-shadow:var(--shadow)}.modal h2{margin-top:0;color:var(--navy);text-align:center}.terms-document{max-width:780px;margin:0 auto;color:var(--ink);background:linear-gradient(180deg,rgba(255,250,240,.82),rgba(248,241,223,.92));border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,38px);box-shadow:0 12px 32px rgba(6,31,79,.1)}.terms-document h2{color:var(--navy)}.terms-document h3{margin:22px 0 8px;color:var(--navy)}.terms-document p,.terms-document li{color:#374151}
-.portal-login{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:20px}.portal-login label{min-width:min(360px,100%)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line)}.tab{min-height:44px;border:0;border-bottom:3px solid transparent;border-radius:var(--r) var(--r) 0 0;padding:10px 12px;color:var(--muted);background:transparent;font-weight:900}.tab.active{color:var(--navy);border-color:var(--accent2);background:rgba(154,166,178,.16)}.tab-panel{display:none}.tab-panel.active{display:block}.calendar-shell{overflow:hidden;border:1px solid var(--line);border-radius:var(--r)}.calendar-shell iframe{display:block;width:100%;height:560px;border:0;background:var(--cream)}.availability-builder{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;margin-top:16px}.saved-list{display:grid;gap:10px;margin-top:16px}.saved-item{padding:14px;border:1px solid var(--line);border-radius:var(--r);background:#fffdf7}.saved-item strong{color:var(--navy)}.saved-item span{display:block;margin-top:4px;color:var(--muted)}.gallery-modal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.gallery-modal-grid img{width:100%;border-radius:var(--r);border:1px solid var(--line)}.footer{display:flex;justify-content:space-between;gap:16px;padding:24px clamp(20px,5vw,76px);color:rgba(255,250,240,.78);background:var(--navy)}.footer strong{color:var(--cream2)}
-@media(max-width:980px){.hero,.order-layout{grid-template-columns:1fr}.mockup-card{position:static}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid,.form-grid,.policy-grid,.availability-builder{grid-template-columns:1fr}.step-bar{grid-template-columns:1fr}}
+.button{display:inline-flex;min-height:44px;align-items:center;justify-content:center;border:1px solid transparent;border-radius:var(--r);padding:11px 18px;font-weight:900;text-decoration:none}.primary{color:white;background:var(--blue);border-color:var(--blue)}.secondary{color:var(--paper);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}.light{color:var(--navy);background:var(--paper);border-color:var(--line)}
+.page{display:none}.page.active{display:block}.hero{min-height:720px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(28px,5vw,74px);padding:clamp(56px,8vw,100px) clamp(20px,5vw,76px);color:var(--paper);background:linear-gradient(115deg,rgba(6,31,79,.98),rgba(6,31,79,.82)),repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 1px,transparent 1px 18px),var(--navy)}
+.hero-logo{display:flex;align-items:center;gap:18px;margin-bottom:20px}.hero-logo img{width:96px;height:96px;object-fit:contain;border-radius:50%;background:var(--paper);border:3px solid var(--accent);box-shadow:var(--shadow)}
+.eyebrow{margin:0 0 10px;color:var(--accent);font-size:.78rem;font-weight:900;text-transform:uppercase}h1{margin:0;max-width:780px;font-size:clamp(3rem,7vw,6.5rem);line-height:1}.hero-text{max-width:670px;margin-top:20px;color:rgba(255,250,240,.86);font-size:1.16rem}.verse{margin-top:24px;max-width:700px;padding:18px 20px;border-left:5px solid var(--accent);border-radius:var(--r);background:rgba(255,255,255,.08)}.verse strong{display:block;margin-top:8px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-card{padding:26px;border:1px solid rgba(255,255,255,.16);border-radius:var(--r);background:rgba(255,255,255,.08);box-shadow:var(--shadow)}.hero-card img{display:block;width:min(340px,100%);margin:auto;border-radius:50%;background:var(--paper)}
+.section{padding:clamp(54px,8vw,92px) clamp(20px,5vw,76px)}.alt{background:#fbf5e7;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.section-heading{max-width:880px;margin-bottom:30px}.section-heading h2{margin:0;color:var(--navy);font-size:clamp(2rem,4.8vw,3.7rem);line-height:1.08}.section-heading p:not(.eyebrow){margin-top:12px;color:var(--muted);font-size:1.05rem}
+.about-grid,.project-grid,.catalog-grid,.policy-grid{display:grid;gap:18px}.about-grid,.catalog-grid{grid-template-columns:repeat(3,1fr)}.project-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.policy-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1080px}.card,.project-card,.garment-card,.form-card,.portal-card,.policy-card,.summary-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 12px 30px rgba(6,31,79,.08)}.card,.policy-card{padding:22px}.card h3,.project-card h3,.policy-card h3{margin:0 0 8px;color:var(--navy)}.card p,.project-card p,.policy-card p{margin:0;color:var(--muted)}
+.garment-card,.project-card{overflow:hidden}.garment-card img{width:100%;height:250px;object-fit:contain;padding:18px;background:#fffdf7}.garment-info,.project-copy{padding:18px}.garment-info h3{margin:0 0 6px;color:var(--navy)}.garment-info p{margin:0;color:var(--muted)}.swatches{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 16px}.swatch{width:22px;height:22px;border:1px solid rgba(6,31,79,.22);border-radius:50%}.catalog-actions{display:flex;gap:8px;flex-wrap:wrap}
+.project-card{cursor:pointer}.project-art{min-height:230px;display:grid;place-items:end start;padding:18px;color:var(--paper);background:linear-gradient(135deg,rgba(6,31,79,.9),rgba(6,31,79,.35)),repeating-linear-gradient(45deg,#123766 0 14px,#2e5278 14px 28px)}.two{background:linear-gradient(135deg,rgba(6,31,79,.78),rgba(111,127,144,.75)),radial-gradient(circle at 25% 25%,var(--accent),transparent 30%)}.three{background:linear-gradient(135deg,rgba(6,31,79,.92),rgba(154,166,178,.52)),repeating-linear-gradient(90deg,#123766 0 18px,#254f7c 18px 36px)}.four{background:linear-gradient(135deg,rgba(6,31,79,.9),rgba(6,31,79,.35)),linear-gradient(45deg,#6f7f90,#e8dfc8)}.project-art span{display:inline-flex;padding:8px 10px;border-radius:var(--r);color:var(--navy);background:var(--cream);font-weight:900}.uploaded-image{width:100%;height:230px;object-fit:cover;display:block;background:var(--cream)}
+.order-layout{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:22px;align-items:start}.form-card,.portal-card,.summary-card{padding:clamp(18px,4vw,34px);box-shadow:var(--shadow)}.step-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:24px}.step-pill{min-height:42px;border:1px solid var(--line);border-radius:var(--r);color:var(--muted);background:#fffdf7;font-size:.82rem;font-weight:900}.step-pill.active{color:var(--navy);border-color:var(--slate);background:rgba(154,166,178,.18)}.step{display:none}.step.active{display:block}fieldset{margin:0;padding:0;border:0}legend{margin-bottom:18px;color:var(--navy);font-size:1.32rem;font-weight:900}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}label{display:grid;gap:7px;color:var(--navy);font-size:.9rem;font-weight:800}.wide{grid-column:1/-1}input,select,textarea{width:100%;min-height:44px;border:1px solid var(--line);border-radius:var(--r);padding:11px 12px;color:var(--ink);background:#fffdf7}textarea{resize:vertical}
+.size-tabs{display:flex;gap:8px;margin:18px 0 12px}.size-tab{border:1px solid var(--line);border-radius:var(--r);padding:9px 14px;color:var(--navy);background:#fffdf7;font-weight:900}.size-tab.active{background:var(--blue);color:white}.size-panel{display:none}.size-panel.active{display:block}.size-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}.size-grid label{gap:4px;padding:8px;border:1px solid var(--line);border-radius:var(--r);background:rgba(255,253,247,.72);font-size:.82rem}.size-grid input{min-height:36px;padding:6px 8px}.form-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}.status{min-height:24px;color:var(--slate);font-weight:900}
+.mockup-card{position:sticky;top:96px}.mockup-wrap{position:relative;height:470px;display:grid;place-items:center;margin-top:14px;border:1px solid var(--line);border-radius:var(--r);background:#fffdf7;overflow:hidden}.mockup-product-image{position:absolute;inset:30px;width:calc(100% - 60px);height:calc(100% - 60px);object-fit:contain;z-index:0}.mockup-wrap.using-photo .garment{background:transparent!important;border-color:transparent;box-shadow:none}.mockup-wrap.using-photo .garment:before,.mockup-wrap.using-photo .garment:after,.mockup-wrap.using-photo .mock-neck,.mockup-wrap.using-photo .pocket,.mockup-wrap.using-photo .drawstrings,.mockup-wrap.using-photo .zipper,.mockup-wrap.using-photo .neck-detail{display:none!important}
+.garment{position:relative;width:220px;height:280px;background:#f7efd8;border:2px solid rgba(6,31,79,.18);box-shadow:0 20px 40px rgba(6,31,79,.16);z-index:1}.garment.tshirt,.garment.longsleeve,.garment.crewneck,.garment.other{border-radius:38px 38px 16px 16px}.garment.tshirt:before,.garment.tshirt:after,.garment.crewneck:before,.garment.crewneck:after,.garment.other:before,.garment.other:after{content:"";position:absolute;top:34px;width:78px;height:116px;background:inherit;border:inherit;z-index:-1}.garment.tshirt:before,.garment.crewneck:before,.garment.other:before{left:-58px;transform:rotate(18deg);border-radius:26px 8px 24px 20px}.garment.tshirt:after,.garment.crewneck:after,.garment.other:after{right:-58px;transform:rotate(-18deg);border-radius:8px 26px 20px 24px}.garment.longsleeve{border-radius:38px 38px 16px 16px}.garment.longsleeve:before,.garment.longsleeve:after{content:"";position:absolute;top:34px;width:58px;height:214px;background:inherit;border:inherit;z-index:-1}.garment.longsleeve:before{left:-52px;transform:rotate(8deg);border-radius:26px 8px 18px 18px}.garment.longsleeve:after{right:-52px;transform:rotate(-8deg);border-radius:8px 26px 18px 18px}.garment.hoodie{border-radius:42px 42px 18px 18px}.garment.hoodie:before{content:"";position:absolute;top:-58px;left:50%;width:128px;height:104px;transform:translateX(-50%);border:inherit;border-radius:66px 66px 30px 30px;background:inherit;z-index:-1}.garment.hoodie .pocket,.garment.hoodie .drawstrings{display:block}.garment.quarterzip{border-radius:28px 28px 14px 14px}.garment.quarterzip:before{content:"";position:absolute;top:-32px;left:50%;width:104px;height:54px;transform:translateX(-50%);border:inherit;border-radius:14px 14px 30px 30px;background:inherit}.garment.quarterzip .zipper{display:block;height:92px}.garment.crewneck .neck-detail{display:block}.mock-neck{position:absolute;top:-2px;left:50%;width:76px;height:42px;transform:translateX(-50%);border-radius:0 0 40px 40px;background:#fffdf7;border:2px solid rgba(6,31,79,.14);z-index:4}.pocket,.drawstrings,.zipper,.neck-detail{display:none;position:absolute;z-index:2}.pocket{left:50%;bottom:50px;width:94px;height:44px;transform:translateX(-50%);border:2px solid rgba(6,31,79,.22);border-radius:0 0 38px 38px;background:rgba(255,255,255,.14)}.drawstrings{top:42px;left:50%;width:48px;height:70px;transform:translateX(-50%);border-left:2px solid rgba(6,31,79,.35);border-right:2px solid rgba(6,31,79,.35)}.zipper{top:2px;left:50%;width:3px;background:rgba(6,31,79,.35);transform:translateX(-50%)}.neck-detail{top:36px;left:50%;width:108px;height:18px;transform:translateX(-50%);border-top:3px solid rgba(6,31,79,.22);border-radius:50%}.design-preview{position:absolute;left:50%;width:92px;height:92px;transform:translateX(-50%);display:grid;place-items:center;color:var(--navy);font-weight:900;text-align:center;font-size:.78rem;overflow:hidden;z-index:5}.front-center{top:96px;width:110px;height:110px}.left-chest{top:78px;left:42%;width:58px;height:58px}.right-chest{top:78px;left:58%;width:58px;height:58px}.back-center{top:100px;width:124px;height:124px}.upper-back{top:66px;width:130px;height:72px}.lower-back{top:154px;width:120px;height:80px}.design-preview img{max-width:100%;max-height:100%;object-fit:contain}
+.check-row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;color:var(--muted);font-weight:700}.check-row input{width:18px;min-height:18px;margin-top:3px}.modal-backdrop{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:18px;background:rgba(5,16,31,.72)}.modal-backdrop.open{display:grid}.modal{width:min(900px,100%);max-height:86vh;overflow:auto;padding:28px;background:var(--cream);border:1px solid rgba(255,255,255,.42);border-radius:var(--r);box-shadow:var(--shadow)}.modal h2{margin-top:0;color:var(--navy);text-align:center}.terms-document{max-width:780px;margin:auto;color:var(--ink);background:linear-gradient(180deg,rgba(255,250,240,.82),rgba(248,241,223,.92));border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,38px);box-shadow:0 12px 32px rgba(6,31,79,.1)}.terms-document h2,.terms-document h3{color:var(--navy)}
+.portal-login{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:20px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line)}.tab{min-height:44px;border:0;border-bottom:3px solid transparent;border-radius:var(--r) var(--r) 0 0;padding:10px 12px;color:var(--muted);background:transparent;font-weight:900}.tab.active{color:var(--navy);border-color:var(--slate);background:rgba(154,166,178,.16)}.tab-panel{display:none}.tab-panel.active{display:block}.calendar-shell{overflow:hidden;border:1px solid var(--line);border-radius:var(--r)}.calendar-shell iframe{display:block;width:100%;height:560px;border:0;background:var(--cream)}.availability-builder{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;margin-top:16px}.saved-list{display:grid;gap:10px;margin-top:16px}.saved-item{padding:14px;border:1px solid var(--line);border-radius:var(--r);background:#fffdf7}.saved-item strong{color:var(--navy)}.saved-item span{display:block;margin-top:4px;color:var(--muted)}.gallery-modal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.gallery-modal-grid img{width:100%;border-radius:var(--r);border:1px solid var(--line)}.footer{display:flex;justify-content:space-between;gap:16px;padding:24px clamp(20px,5vw,76px);color:rgba(255,250,240,.78);background:var(--navy)}
+@media(max-width:980px){.hero,.order-layout{grid-template-columns:1fr}.mockup-card{position:static}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid,.form-grid,.policy-grid,.catalog-grid,.availability-builder{grid-template-columns:1fr}.step-bar{grid-template-columns:1fr}}
 @media(max-width:640px){.header{align-items:flex-start;flex-direction:column}.nav{width:100%}.nav button{flex:1}h1{font-size:clamp(2.7rem,15vw,3.7rem)}.project-grid,.size-grid,.gallery-modal-grid{grid-template-columns:1fr}.footer{flex-direction:column}}
 </style>
 </head>
 <body>
-<header class="header">
-<button class="brand" type="button" onclick="showPage('homePage')">
-<img src="logo.png" alt="St. Veronica Garments logo">
-<span><strong>St. Veronica Garments</strong><small>Church screen printing</small></span>
-</button>
-<nav class="nav">
-<button type="button" onclick="showPage('orderPage')">Place Order</button>
-<button type="button" onclick="showPage('servantPage')">Servants</button>
-<button type="button" onclick="showPage('termsPage')">Terms</button>
-</nav>
-</header>
-
+<header class="header"><button class="brand" type="button" onclick="showPage('homePage')"><img src="logo.png" alt="St. Veronica Garments logo"><span><strong>St. Veronica Garments</strong><small>Church screen printing</small></span></button><nav class="nav"><button type="button" onclick="showPage('orderPage')">Place Order</button><button type="button" onclick="showPage('servantPage')">Servants</button><button type="button" onclick="showPage('termsPage')">Terms</button></nav></header>
 <main>
 <div id="homePage" class="page active">
-<section class="hero">
-<div>
-<div class="hero-logo">
-<img src="logo.png" alt="St. Veronica Garments logo">
-<div><p class="eyebrow">Custom apparel made with care</p><strong>Custom shirts for services, retreats, and church events</strong></div>
-</div>
-<h1>St. Veronica Garments</h1>
-<p class="hero-text">We create custom screen printed garments for church services, servant teams, retreats, youth events, and fundraisers.</p>
-<div class="verse">"As each one has received a gift, minister it to one another, as good stewards of the manifold grace of God."<strong>1 Peter 4:10</strong></div>
-<div class="hero-actions">
-<button class="button primary" type="button" onclick="showPage('orderPage')">Place an Order</button>
-<button class="button secondary" type="button" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">See Projects</button>
-</div>
-</div>
-<div class="hero-card"><img src="logo.png" alt="St. Veronica Garments logo"></div>
-</section>
-
-<section class="section alt">
-<div class="section-heading">
-<p class="eyebrow">About us</p>
-<h2>Printed with purpose, made to serve</h2>
-<p>St. Veronica Garments helps church groups create apparel that is organized, meaningful, and ready for the service or event it belongs to.</p>
-</div>
-<div class="about-grid">
-<article class="card"><h3>For church groups</h3><p>Team shirts, youth events, servant apparel, retreat garments, and fundraiser orders.</p></article>
-<article class="card"><h3>Clear order details</h3><p>Contact info, event dates, garment colors, ink colors, sizes, artwork, and placements.</p></article>
-<article class="card"><h3>Made with care</h3><p>Our work exists to support services, servants, and church events with thoughtful custom garments.</p></article>
-</div>
-</section>
-
-<section id="projects" class="section">
-<div class="section-heading">
-<p class="eyebrow">Projects</p>
-<h2>Previous work and completed orders</h2>
-</div>
-<div id="uploadedProjectGrid" class="project-grid"></div>
-<div id="placeholderProjectGrid" class="project-grid">
-<article class="project-card"><div class="project-art"><span>Retreat</span></div><div class="project-copy"><h3>Confirmation Retreat</h3><p>Navy tees with cream front crest and back scripture layout.</p></div></article>
-<article class="project-card"><div class="project-art two"><span>Youth</span></div><div class="project-copy"><h3>Youth Service Night</h3><p>Soft cream shirts with navy sleeve mark and full-back design.</p></div></article>
-<article class="project-card"><div class="project-art three"><span>Feast</span></div><div class="project-copy"><h3>Feast Day Volunteers</h3><p>Volunteer apparel with simple one-color print for easy sorting.</p></div></article>
-<article class="project-card"><div class="project-art four"><span>Choir</span></div><div class="project-copy"><h3>Choir Fundraiser</h3><p>Crewneck sweatshirts with tonal ink and left-chest placement.</p></div></article>
-</div>
-</section>
+<section class="hero"><div><div class="hero-logo"><img src="logo.png" alt="St. Veronica Garments logo"><div><p class="eyebrow">Custom apparel made with care</p><strong>Custom shirts for services, retreats, and church events</strong></div></div><h1>St. Veronica Garments</h1><p class="hero-text">We create custom screen printed garments for church services, servant teams, retreats, youth events, and fundraisers.</p><div class="verse">"As each one has received a gift, minister it to one another, as good stewards of the manifold grace of God."<strong>1 Peter 4:10</strong></div><div class="hero-actions"><button class="button primary" type="button" onclick="showPage('orderPage')">Place an Order</button><button class="button secondary" type="button" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">See Projects</button></div></div><div class="hero-card"><img src="logo.png" alt="St. Veronica Garments logo"></div></section>
+<section class="section alt"><div class="section-heading"><p class="eyebrow">About us</p><h2>Printed with purpose, made to serve</h2><p>St. Veronica Garments helps church groups create apparel that is organized, meaningful, and ready for the service or event it belongs to.</p></div><div class="about-grid"><article class="card"><h3>For church groups</h3><p>Team shirts, youth events, servant apparel, retreat garments, and fundraiser orders.</p></article><article class="card"><h3>Clear order details</h3><p>Contact info, event dates, garment colors, ink colors, sizes, artwork, and placements.</p></article><article class="card"><h3>Made with care</h3><p>Our work exists to support services, servants, and church events with thoughtful custom garments.</p></article></div></section>
+<section id="projects" class="section"><div class="section-heading"><p class="eyebrow">Garments</p><h2>Garments we offer</h2><p>Select a garment to start your order with that style, color list, and mockup image.</p></div><div id="garmentCatalog" class="catalog-grid"></div><div class="section-heading" style="margin-top:70px"><p class="eyebrow">Projects</p><h2>Previous work and completed orders</h2></div><div id="uploadedProjectGrid" class="project-grid"></div><div id="placeholderProjectGrid" class="project-grid"><article class="project-card"><div class="project-art"><span>Retreat</span></div><div class="project-copy"><h3>Confirmation Retreat</h3><p>Navy tees with cream front crest and back scripture layout.</p></div></article><article class="project-card"><div class="project-art two"><span>Youth</span></div><div class="project-copy"><h3>Youth Service Night</h3><p>Soft cream shirts with navy sleeve mark and full-back design.</p></div></article><article class="project-card"><div class="project-art three"><span>Feast</span></div><div class="project-copy"><h3>Feast Day Volunteers</h3><p>Volunteer apparel with simple one-color print for easy sorting.</p></div></article><article class="project-card"><div class="project-art four"><span>Choir</span></div><div class="project-copy"><h3>Choir Fundraiser</h3><p>Crewneck sweatshirts with tonal ink and left-chest placement.</p></div></article></div></section>
 </div>
 
-<div id="orderPage" class="page">
-<section class="section alt">
-<div class="section-heading">
-<p class="eyebrow">Place an order</p>
-<h2>Custom garment request</h2>
-<p>Complete each step. You can preview SVG or PNG artwork on the mockup before submitting.</p>
-</div>
+<div id="orderPage" class="page"><section class="section alt"><div class="section-heading"><p class="eyebrow">Place an order</p><h2>Custom garment request</h2><p>Complete each step. You can preview SVG or PNG artwork on the mockup before submitting.</p></div><div class="order-layout"><form id="orderForm" class="form-card">
+<div class="step-bar"><button class="step-pill active" type="button" data-step-button="0">Personal</button><button class="step-pill" type="button" data-step-button="1">Event</button><button class="step-pill" type="button" data-step-button="2">Garments</button><button class="step-pill" type="button" data-step-button="3">Design</button><button class="step-pill" type="button" data-step-button="4">Terms</button></div>
+<fieldset class="step active"><legend>Personal Information</legend><div class="form-grid"><label>Name <input name="name" type="text" required></label><label>Email <input name="email" type="email" required></label><label>Phone Number <input name="phone" type="tel" required></label></div></fieldset>
+<fieldset class="step"><legend>Event Information</legend><div class="form-grid"><label>Service or Event Name <input name="eventName" type="text" required></label><label>Date Needed By <input name="neededBy" type="date" required></label><label class="wide">Event Notes <textarea name="eventNotes" rows="4"></textarea></label></div></fieldset>
+<fieldset class="step"><legend>Garment, Color, Ink, and Sizes</legend><input id="selectedGarmentName" name="selectedGarmentName" type="hidden"><input id="selectedGarmentStyle" name="selectedGarmentStyle" type="hidden"><input id="selectedGarmentLink" name="selectedGarmentLink" type="hidden"><div class="form-grid"><label>Garment Type<select name="garmentType" id="garmentType" required><option value="">Select one</option><option value="tshirt">T-shirt</option><option value="longsleeve">Long sleeves</option><option value="quarterzip">Quarter zip</option><option value="hoodie">Hoodie</option><option value="crewneck">Crewneck</option><option value="other">Other</option></select></label><label>Garment Color<select name="garmentColor" id="garmentColor" required><option value="">Select one</option><option value="#f7efd8">Cream</option><option value="#071f4f">Navy</option><option value="#111827">Black</option><option value="#ffffff">White</option><option value="#6f7f90">Slate</option><option value="#6f8b74">Sage</option></select></label><label>Ink Color<select name="inkColor" required><option value="">Select one</option><option>Navy</option><option>Cream</option><option>White</option><option>Black</option><option>Silver</option><option>Slate</option><option>Other</option></select></label></div><div class="size-tabs"><button class="size-tab active" type="button" data-size-panel="youthSizes">Youth Sizes</button><button class="size-tab" type="button" data-size-panel="adultSizes">Adult Sizes</button></div><div id="youthSizes" class="size-panel active"><div class="size-grid"><label>YXS <input name="size_YXS" type="number" min="0" value="0"></label><label>YS <input name="size_YS" type="number" min="0" value="0"></label><label>YM <input name="size_YM" type="number" min="0" value="0"></label><label>YL <input name="size_YL" type="number" min="0" value="0"></label><label>YXL <input name="size_YXL" type="number" min="0" value="0"></label></div></div><div id="adultSizes" class="size-panel"><div class="size-grid"><label>S <input name="size_S" type="number" min="0" value="0"></label><label>M <input name="size_M" type="number" min="0" value="0"></label><label>L <input name="size_L" type="number" min="0" value="0"></label><label>XL <input name="size_XL" type="number" min="0" value="0"></label><label>2XL <input name="size_2XL" type="number" min="0" value="0"></label></div></div></fieldset>
+<fieldset class="step"><legend>Design and Placement</legend><div class="form-grid"><label>Front Design SVG/PNG <input id="frontDesign" name="frontDesign" type="file" accept=".svg,.png,image/svg+xml,image/png"></label><label>Front Placement<select id="frontPlacement" name="frontPlacement"><option value="front-center">Front center</option><option value="left-chest">Left chest</option><option value="right-chest">Right chest</option></select></label><label>Back Design SVG/PNG <input id="backDesign" name="backDesign" type="file" accept=".svg,.png,image/svg+xml,image/png"></label><label>Back Placement<select id="backPlacement" name="backPlacement"><option value="back-center">Back center</option><option value="upper-back">Upper back</option><option value="lower-back">Lower back</option></select></label><label class="wide">Design Notes <textarea name="designNotes" rows="4"></textarea></label></div></fieldset>
+<fieldset class="step"><legend>Terms and Signature</legend><p style="color:var(--muted);margin-bottom:16px">Please open the terms and conditions, check the box, then type your full name as your signature.</p><button id="openTerms" class="button light" type="button">Open Terms and Conditions</button><div style="margin-top:18px"><label class="check-row"><input id="termsCheck" name="termsCheck" type="checkbox" required><span>I have read and agree to the terms and conditions.</span></label></div><div class="form-grid" style="margin-top:18px"><label class="wide">Type Your Full Name as Signature <input name="signature" type="text" required></label></div></fieldset>
+<div class="form-actions"><button id="prevStep" class="button light" type="button">Back</button><p id="orderStatus" class="status"></p><button id="nextStep" class="button primary" type="button">Next</button><button id="submitOrder" class="button primary hidden" type="submit">Submit Order</button></div>
+</form><aside class="summary-card mockup-card"><h3>Live Mockup Preview</h3><p style="color:var(--muted);margin:0">Upload SVG or PNG artwork and choose placement to preview it.</p><div style="display:flex;gap:8px;margin-top:14px"><button id="showFront" class="button light" type="button">Front</button><button id="showBack" class="button light" type="button">Back</button></div><div class="mockup-wrap"><img id="mockupProductImage" class="mockup-product-image hidden" alt="Selected garment preview"><div id="mockShirt" class="garment tshirt"><div class="mock-neck"></div><div class="pocket"></div><div class="drawstrings"></div><div class="zipper"></div><div class="neck-detail"></div><div id="frontPreview" class="design-preview front-center">Front Design</div><div id="backPreview" class="design-preview back-center hidden">Back Design</div></div></div><p style="color:var(--muted);margin-top:12px">This mockup is a preview only. Final placement will be confirmed before printing.</p></aside></div></section></div>
 
-<div class="order-layout">
-<form id="orderForm" class="form-card">
-<div class="step-bar">
-<button class="step-pill active" type="button" data-step-button="0">Personal</button>
-<button class="step-pill" type="button" data-step-button="1">Event</button>
-<button class="step-pill" type="button" data-step-button="2">Garments</button>
-<button class="step-pill" type="button" data-step-button="3">Design</button>
-<button class="step-pill" type="button" data-step-button="4">Terms</button>
-</div>
+<div id="servantPage" class="page"><section class="section alt"><div class="section-heading"><p class="eyebrow">Servants only</p><h2>Private print team portal</h2></div><div class="portal-card"><div id="loginPanel" class="portal-login"><label>Servant Password <input id="portalPassword" type="password"></label><button id="unlockPortal" class="button primary" type="button">Unlock</button><p id="loginStatus" class="status"></p></div><div id="portalArea" class="hidden"><div class="tabs"><button class="tab active" type="button" data-tab="calendarPanel">Calendar</button><button class="tab" type="button" data-tab="availabilityPanel">My Availability</button><button id="ordersTab" class="tab" type="button" data-tab="ordersPanel">Orders</button><button id="allAvailabilityTab" class="tab hidden" type="button" data-tab="allAvailabilityPanel">All Availability</button><button id="adminTab" class="tab hidden" type="button" data-tab="adminPanel">Admin Photos</button><button id="servantsAdminTab" class="tab hidden" type="button" data-tab="servantsAdminPanel">Servant Logins</button></div><section id="calendarPanel" class="tab-panel active"><div class="calendar-shell"><iframe title="St. Veronica Garments Google Calendar" src="https://calendar.google.com/calendar/embed?src=fmario1515%40gmail.com&ctz=America%2FNew_York"></iframe></div></section><section id="availabilityPanel" class="tab-panel"><form id="availabilityForm"><p style="color:var(--muted);margin-top:0">Select the day you are available and the time range. Weekday times are 3:00 PM to 10:00 PM. Saturday times are 8:00 AM to 5:00 PM. Availability resets every Sunday.</p><input id="servantNameField" name="servantName" type="hidden"><p id="servantNameDisplay" style="color:var(--navy);font-weight:900"></p><div class="availability-builder"><label>Day<select id="availabilityDay"><option value="Monday">Monday</option><option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option><option value="Saturday">Saturday</option></select></label><label>Start <select id="availabilityStart"></select></label><label>End <select id="availabilityEnd"></select></label><button class="button light" id="addAvailabilitySlot" type="button">Add</button></div><div id="availabilitySlots" class="saved-list"></div><label style="margin-top:16px">Notes <textarea name="availabilityNotes" rows="4"></textarea></label><div class="form-actions"><p id="availabilityStatus" class="status"></p><button class="button primary" type="submit">Save Availability</button></div></form><div id="availabilityList" class="saved-list"></div></section><section id="ordersPanel" class="tab-panel"><h3>Upcoming Orders</h3><p style="color:var(--muted)">Orders marked completed stay visible for 2 weeks, then hide automatically.</p><div id="ordersList" class="saved-list"></div></section><section id="allAvailabilityPanel" class="tab-panel"><h3>Everyone's Availability This Week</h3><div id="recommendedDays" class="saved-list"></div><div id="allAvailabilityList" class="saved-list"></div></section><section id="adminPanel" class="tab-panel"><form id="photoForm"><div class="form-grid"><label>Project Title <input name="photoTitle" type="text" required></label><label>Photos <input name="photoFiles" type="file" accept="image/*" multiple required></label><label class="wide">Short Description <textarea name="photoDescription" rows="3" required></textarea></label></div><div class="form-actions"><p id="photoStatus" class="status"></p><button class="button primary" type="submit">Add Project Post</button></div></form></section><section id="servantsAdminPanel" class="tab-panel"><form id="servantAccountForm"><div class="form-grid"><label>Servant Name <input name="servantAccountName" type="text" required></label><label>Password <input name="servantAccountPassword" type="text" required></label></div><div class="form-actions"><p id="servantAccountStatus" class="status"></p><button class="button primary" type="submit">Add Servant Login</button></div></form><div id="servantAccountsList" class="saved-list"></div></section></div></div></section></div>
 
-<fieldset class="step active">
-<legend>Personal Information</legend>
-<div class="form-grid">
-<label>Name <input name="name" type="text" required></label>
-<label>Email <input name="email" type="email" required></label>
-<label>Phone Number <input name="phone" type="tel" required></label>
-</div>
-</fieldset>
-
-<fieldset class="step">
-<legend>Event Information</legend>
-<div class="form-grid">
-<label>Service or Event Name <input name="eventName" type="text" required></label>
-<label>Date Needed By <input name="neededBy" type="date" required></label>
-<label class="wide">Event Notes <textarea name="eventNotes" rows="4"></textarea></label>
-</div>
-</fieldset>
-
-<fieldset class="step">
-<legend>Garment, Color, Ink, and Sizes</legend>
-<div class="form-grid">
-<label>Garment Type
-<select name="garmentType" id="garmentType" required>
-<option value="">Select one</option>
-<option value="tshirt">T-shirt</option>
-<option value="longsleeve">Long sleeves</option>
-<option value="quarterzip">Quarter zip</option>
-<option value="hoodie">Hoodie</option>
-<option value="crewneck">Crewneck</option>
-<option value="other">Other</option>
-</select>
-</label>
-<label>Garment Color
-<select name="garmentColor" id="garmentColor" required>
-<option value="">Select one</option>
-<option value="#f7efd8">Cream</option>
-<option value="#071f4f">Navy</option>
-<option value="#111827">Black</option>
-<option value="#ffffff">White</option>
-<option value="#6f7f90">Slate</option>
-<option value="#6f8b74">Sage</option>
-</select>
-</label>
-<label>Ink Color
-<select name="inkColor" required>
-<option value="">Select one</option>
-<option>Navy</option>
-<option>Cream</option>
-<option>White</option>
-<option>Black</option>
-<option>Silver</option>
-<option>Slate</option>
-<option>Other</option>
-</select>
-</label>
-</div>
-
-<div class="size-tabs">
-<button class="size-tab active" type="button" data-size-panel="youthSizes">Youth Sizes</button>
-<button class="size-tab" type="button" data-size-panel="adultSizes">Adult Sizes</button>
-</div>
-<div id="youthSizes" class="size-panel active">
-<div class="size-grid">
-<label>YXS <input name="size_YXS" type="number" min="0" value="0"></label>
-<label>YS <input name="size_YS" type="number" min="0" value="0"></label>
-<label>YM <input name="size_YM" type="number" min="0" value="0"></label>
-<label>YL <input name="size_YL" type="number" min="0" value="0"></label>
-<label>YXL <input name="size_YXL" type="number" min="0" value="0"></label>
-</div>
-</div>
-<div id="adultSizes" class="size-panel">
-<div class="size-grid">
-<label>S <input name="size_S" type="number" min="0" value="0"></label>
-<label>M <input name="size_M" type="number" min="0" value="0"></label>
-<label>L <input name="size_L" type="number" min="0" value="0"></label>
-<label>XL <input name="size_XL" type="number" min="0" value="0"></label>
-<label>2XL <input name="size_2XL" type="number" min="0" value="0"></label>
-</div>
-</div>
-</fieldset>
-
-<fieldset class="step">
-<legend>Design and Placement</legend>
-<div class="form-grid">
-<label>Front Design SVG/PNG <input id="frontDesign" name="frontDesign" type="file" accept=".svg,.png,image/svg+xml,image/png"></label>
-<label>Front Placement
-<select id="frontPlacement" name="frontPlacement">
-<option value="front-center">Front center</option>
-<option value="left-chest">Left chest</option>
-<option value="right-chest">Right chest</option>
-</select>
-</label>
-<label>Back Design SVG/PNG <input id="backDesign" name="backDesign" type="file" accept=".svg,.png,image/svg+xml,image/png"></label>
-<label>Back Placement
-<select id="backPlacement" name="backPlacement">
-<option value="back-center">Back center</option>
-<option value="upper-back">Upper back</option>
-<option value="lower-back">Lower back</option>
-</select>
-</label>
-<label class="wide">Design Notes <textarea name="designNotes" rows="4"></textarea></label>
-</div>
-</fieldset>
-
-<fieldset class="step">
-<legend>Terms and Signature</legend>
-<p style="color:var(--muted);margin-bottom:16px">Please open the terms and conditions, check the box, then type your full name as your signature.</p>
-<button id="openTerms" class="button light" type="button">Open Terms and Conditions</button>
-<div style="margin-top:18px">
-<label class="check-row"><input id="termsCheck" name="termsCheck" type="checkbox" required><span>I have read and agree to the terms and conditions.</span></label>
-</div>
-<div class="form-grid" style="margin-top:18px">
-<label class="wide">Type Your Full Name as Signature <input name="signature" type="text" required></label>
-</div>
-</fieldset>
-
-<div class="form-actions">
-<button id="prevStep" class="button light" type="button">Back</button>
-<p id="orderStatus" class="status"></p>
-<button id="nextStep" class="button primary" type="button">Next</button>
-<button id="submitOrder" class="button primary hidden" type="submit">Submit Order</button>
-</div>
-</form>
-
-<aside class="summary-card mockup-card">
-<h3>Live Mockup Preview</h3>
-<p style="color:var(--muted);margin:0">Upload SVG or PNG artwork and choose placement to preview it.</p>
-<div style="display:flex;gap:8px;margin-top:14px">
-<button id="showFront" class="button light" type="button">Front</button>
-<button id="showBack" class="button light" type="button">Back</button>
-</div>
-<div class="mockup-wrap">
-<div id="mockShirt" class="garment tshirt">
-<div class="mock-neck"></div><div class="pocket"></div><div class="drawstrings"></div><div class="zipper"></div><div class="neck-detail"></div>
-<div id="frontPreview" class="design-preview front-center">Front Design</div>
-<div id="backPreview" class="design-preview back-center hidden">Back Design</div>
-</div>
-</div>
-<p style="color:var(--muted);margin-top:12px">This mockup is a preview only. Final placement will be confirmed before printing.</p>
-</aside>
-</div>
-</section>
-</div>
-
-<div id="servantPage" class="page">
-<section class="section alt">
-<div class="section-heading">
-<p class="eyebrow">Servants only</p>
-<h2>Private print team portal</h2>
-</div>
-<div class="portal-card">
-<div id="loginPanel" class="portal-login">
-<label>Servant Password <input id="portalPassword" type="password"></label>
-<button id="unlockPortal" class="button primary" type="button">Unlock</button>
-<p id="loginStatus" class="status"></p>
-</div>
-
-<div id="portalArea" class="hidden">
-<div class="tabs">
-<button class="tab active" type="button" data-tab="calendarPanel">Calendar</button>
-<button class="tab" type="button" data-tab="availabilityPanel">My Availability</button>
-<button id="ordersTab" class="tab hidden" type="button" data-tab="ordersPanel">Orders</button>
-<button id="allAvailabilityTab" class="tab hidden" type="button" data-tab="allAvailabilityPanel">All Availability</button>
-<button id="adminTab" class="tab hidden" type="button" data-tab="adminPanel">Admin Photos</button>
-</div>
-
-<section id="calendarPanel" class="tab-panel active">
-<div class="calendar-shell">
-<iframe title="St. Veronica Garments Google Calendar" src="https://calendar.google.com/calendar/embed?src=fmario1515%40gmail.com&ctz=America%2FNew_York"></iframe>
-</div>
-</section>
-
-<section id="availabilityPanel" class="tab-panel">
-<form id="availabilityForm">
-<p style="color:var(--muted);margin-top:0">Select the day you are available and the time range. Weekday times are 3:00 PM to 10:00 PM. Saturday times are 8:00 AM to 5:00 PM. Availability resets every Sunday.</p>
-<div class="form-grid"><label>Name <input name="servantName" type="text" required></label></div>
-<div class="availability-builder">
-<label>Day
-<select id="availabilityDay">
-<option value="Monday">Monday</option>
-<option value="Tuesday">Tuesday</option>
-<option value="Wednesday">Wednesday</option>
-<option value="Thursday">Thursday</option>
-<option value="Friday">Friday</option>
-<option value="Saturday">Saturday</option>
-</select>
-</label>
-<label>Start <select id="availabilityStart"></select></label>
-<label>End <select id="availabilityEnd"></select></label>
-<button class="button light" id="addAvailabilitySlot" type="button">Add</button>
-</div>
-<div id="availabilitySlots" class="saved-list"></div>
-<label style="margin-top:16px">Notes <textarea name="availabilityNotes" rows="4"></textarea></label>
-<div class="form-actions">
-<p id="availabilityStatus" class="status"></p>
-<button class="button primary" type="submit">Save Availability</button>
-</div>
-</form>
-<div id="availabilityList" class="saved-list"></div>
-</section>
-
-<section id="ordersPanel" class="tab-panel">
-<h3>Upcoming Orders</h3>
-<p style="color:var(--muted)">Orders marked completed stay visible for 2 weeks, then hide automatically.</p>
-<div id="ordersList" class="saved-list"></div>
-</section>
-
-<section id="allAvailabilityPanel" class="tab-panel">
-<h3>Everyone's Availability This Week</h3>
-<div id="allAvailabilityList" class="saved-list"></div>
-</section>
-
-<section id="adminPanel" class="tab-panel">
-<form id="photoForm">
-<div class="form-grid">
-<label>Project Title <input name="photoTitle" type="text" required></label>
-<label>Photos <input name="photoFiles" type="file" accept="image/*" multiple required></label>
-<label class="wide">Short Description <textarea name="photoDescription" rows="3" required></textarea></label>
-</div>
-<div class="form-actions">
-<p id="photoStatus" class="status"></p>
-<button class="button primary" type="submit">Add Project Post</button>
-</div>
-</form>
-</section>
-</div>
-</div>
-</section>
-</div>
-
-<div id="termsPage" class="page">
-<section class="section">
-<div class="section-heading">
-<p class="eyebrow">Terms and policies</p>
-<h2>St. Veronica's Garments Ordering Policies</h2>
-</div>
-<div class="terms-document">
-<h2>St. Veronica's Garments Ordering Policies - Terms & Conditions</h2>
-<h3>1. Price Structure</h3>
-<p>The price for your order is based on the cost of wholesale items, plus any additional materials or services required.</p>
-<ul><li><strong>Wholesale Price:</strong> The base cost of the garment.</li><li><strong>Supplies:</strong> This includes all materials such as ink, film paper, and other production-related items.</li></ul>
-<h3>2. Production Turnaround</h3>
-<p>Production time is based on the size of the order:</p>
-<ul><li>50 items or less: 10 days</li><li>51-100 items: 2 weeks</li><li>101+ items: 3 weeks</li><li>200+ items: 1 month in advance</li></ul>
-<p>Please note that these timelines are estimates and may vary depending on the complexity of the order.</p>
-<h3>3. Payment Terms</h3>
-<ul><li><strong>Payment Method:</strong> Payment is CASH or Zelle.</li><li><strong>Deposit Requirement:</strong> A 50% deposit is required upon signing the invoice to begin processing your order.</li><li><strong>Order Confirmation:</strong> Your order is not confirmed until the invoice is signed and the deposit is paid.</li><li>Deposits are non-refundable.</li></ul>
-<h3>4. Final Delivery & Pickup</h3>
-<p>Once your order is completed, you will be notified to arrange for pickup. The balance of your invoice is due upon pickup IN CASH or through Zelle.</p>
-<h3>5. Disclaimer</h3>
-<p>By signing the invoice and submitting your deposit, you agree to these Terms & Conditions, which govern all aspects of your order, including pricing, payment, and production timelines.</p>
-<p>St. Veronica's Garments reserves the right to amend these policies at any time, with changes taking effect immediately upon publication.</p>
-<p>If you have any questions or concerns, please contact us before signing the invoice. We are committed to providing you with high-quality garments and excellent service.</p>
-<p><strong>In Christ, St. Veronica's Garment Servants</strong></p>
-</div>
-</section>
-</div>
+<div id="termsPage" class="page"><section class="section"><div class="section-heading"><p class="eyebrow">Terms and policies</p><h2>St. Veronica's Garments Ordering Policies</h2></div><div class="terms-document"><h2>St. Veronica's Garments Ordering Policies - Terms & Conditions</h2><h3>1. Price Structure</h3><p>The price for your order is based on the cost of wholesale items, plus any additional materials or services required.</p><ul><li><strong>Wholesale Price:</strong> The base cost of the garment.</li><li><strong>Supplies:</strong> This includes all materials such as ink, film paper, and other production-related items.</li></ul><h3>2. Production Turnaround</h3><p>Production time is based on the size of the order:</p><ul><li>50 items or less: 10 days</li><li>51-100 items: 2 weeks</li><li>101+ items: 3 weeks</li><li>200+ items: 1 month in advance</li></ul><p>Please note that these timelines are estimates and may vary depending on the complexity of the order.</p><h3>3. Payment Terms</h3><ul><li><strong>Payment Method:</strong> Payment is CASH or Zelle.</li><li><strong>Deposit Requirement:</strong> A 50% deposit is required upon signing the invoice to begin processing your order.</li><li><strong>Order Confirmation:</strong> Your order is not confirmed until the invoice is signed and the deposit is paid.</li><li>Deposits are non-refundable.</li></ul><h3>4. Final Delivery & Pickup</h3><p>Once your order is completed, you will be notified to arrange for pickup. The balance of your invoice is due upon pickup IN CASH or through Zelle.</p><h3>5. Disclaimer</h3><p>By signing the invoice and submitting your deposit, you agree to these Terms & Conditions, which govern all aspects of your order, including pricing, payment, and production timelines.</p><p>St. Veronica's Garments reserves the right to amend these policies at any time, with changes taking effect immediately upon publication.</p><p>If you have any questions or concerns, please contact us before signing the invoice. We are committed to providing you with high-quality garments and excellent service.</p><p><strong>In Christ, St. Veronica's Garment Servants</strong></p></div></section></div>
 </main>
 
-<div id="termsModal" class="modal-backdrop">
-<div class="modal">
-<div class="terms-document">
-<h2>St. Veronica's Garments Ordering Policies - Terms & Conditions</h2>
-<h3>1. Price Structure</h3>
-<p>The price for your order is based on the cost of wholesale items, plus any additional materials or services required.</p>
-<ul><li><strong>Wholesale Price:</strong> The base cost of the garment.</li><li><strong>Supplies:</strong> Ink, film paper, and other production-related items.</li></ul>
-<h3>2. Production Turnaround</h3>
-<ul><li>50 items or less: 10 days</li><li>51-100 items: 2 weeks</li><li>101+ items: 3 weeks</li><li>200+ items: 1 month in advance</li></ul>
-<h3>3. Payment Terms</h3>
-<ul><li>Payment is CASH or Zelle.</li><li>A 50% deposit is required upon signing the invoice.</li><li>Your order is not confirmed until the invoice is signed and the deposit is paid.</li><li>Deposits are non-refundable.</li></ul>
-<h3>4. Final Delivery & Pickup</h3>
-<p>Once your order is completed, you will be notified to arrange pickup. The balance is due upon pickup in CASH or through Zelle.</p>
-<h3>5. Disclaimer</h3>
-<p>By signing the invoice and submitting your deposit, you agree to these Terms & Conditions.</p>
-<p><strong>In Christ, St. Veronica's Garment Servants</strong></p>
-</div>
-<div class="form-actions">
-<label class="check-row"><input id="modalTermsCheck" type="checkbox"><span>I have read the terms and conditions.</span></label>
-<button id="closeTerms" class="button primary" type="button">Close</button>
-</div>
-</div>
-</div>
-
-<div id="galleryModal" class="modal-backdrop">
-<div class="modal">
-<h2 id="galleryTitle"></h2>
-<p id="galleryDescription" style="color:var(--muted)"></p>
-<div id="galleryImages" class="gallery-modal-grid"></div>
-<div class="form-actions"><button id="closeGallery" class="button primary" type="button">Close</button></div>
-</div>
-</div>
-
-<footer class="footer">
-<strong>St. Veronica Garments</strong>
-<span>Made for servant teams and church events.</span>
-</footer>
+<div id="termsModal" class="modal-backdrop"><div class="modal"><div class="terms-document"><h2>St. Veronica's Garments Ordering Policies - Terms & Conditions</h2><h3>1. Price Structure</h3><p>The price for your order is based on the cost of wholesale items, plus any additional materials or services required.</p><ul><li><strong>Wholesale Price:</strong> The base cost of the garment.</li><li><strong>Supplies:</strong> Ink, film paper, and other production-related items.</li></ul><h3>2. Production Turnaround</h3><ul><li>50 items or less: 10 days</li><li>51-100 items: 2 weeks</li><li>101+ items: 3 weeks</li><li>200+ items: 1 month in advance</li></ul><h3>3. Payment Terms</h3><ul><li>Payment is CASH or Zelle.</li><li>A 50% deposit is required upon signing the invoice.</li><li>Your order is not confirmed until the invoice is signed and the deposit is paid.</li><li>Deposits are non-refundable.</li></ul><h3>4. Final Delivery & Pickup</h3><p>Once your order is completed, you will be notified to arrange pickup. The balance is due upon pickup in CASH or through Zelle.</p><h3>5. Disclaimer</h3><p>By signing the invoice and submitting your deposit, you agree to these Terms & Conditions.</p><p><strong>In Christ, St. Veronica's Garment Servants</strong></p></div><div class="form-actions"><label class="check-row"><input id="modalTermsCheck" type="checkbox"><span>I have read the terms and conditions.</span></label><button id="closeTerms" class="button primary" type="button">Close</button></div></div></div>
+<div id="galleryModal" class="modal-backdrop"><div class="modal"><h2 id="galleryTitle"></h2><p id="galleryDescription" style="color:var(--muted)"></p><div id="galleryImages" class="gallery-modal-grid"></div><div class="form-actions"><button id="closeGallery" class="button primary" type="button">Close</button></div></div></div>
+<div id="thankYouModal" class="modal-backdrop"><div class="modal"><h2>Thank you for your order request</h2><p style="color:var(--muted);text-align:center">St. Veronica Garments received your request. A servant will review the details, confirm artwork, timeline, and pricing, then follow up with you.</p><div class="form-actions" style="justify-content:center"><button id="closeThankYou" class="button primary" type="button">Back to Home</button></div></div></div>
+<footer class="footer"><strong>St. Veronica Garments</strong><span>Made for servant teams and church events.</span></footer>
 
 <script>
-const GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/AKfycbx8w1VKMhsLCmlsvepn0j6MOXi8K5aNzUHQmV3LGT0JJwRdX0dfIHevgT5YkI7XJWuB/exec";
-const NOTIFICATION_EMAIL="fmario1515@gmail.com";
-const pages=document.querySelectorAll(".page"),steps=document.querySelectorAll(".step"),stepButtons=document.querySelectorAll("[data-step-button]"),prevStepButton=document.querySelector("#prevStep"),nextStepButton=document.querySelector("#nextStep"),submitOrderButton=document.querySelector("#submitOrder"),orderForm=document.querySelector("#orderForm"),orderStatus=document.querySelector("#orderStatus"),termsModal=document.querySelector("#termsModal"),openTerms=document.querySelector("#openTerms"),closeTerms=document.querySelector("#closeTerms"),termsCheck=document.querySelector("#termsCheck"),modalTermsCheck=document.querySelector("#modalTermsCheck"),mockShirt=document.querySelector("#mockShirt"),frontPreview=document.querySelector("#frontPreview"),backPreview=document.querySelector("#backPreview"),frontDesign=document.querySelector("#frontDesign"),backDesign=document.querySelector("#backDesign"),frontPlacement=document.querySelector("#frontPlacement"),backPlacement=document.querySelector("#backPlacement"),garmentColor=document.querySelector("#garmentColor"),garmentType=document.querySelector("#garmentType"),unlockPortal=document.querySelector("#unlockPortal"),loginStatus=document.querySelector("#loginStatus"),portalArea=document.querySelector("#portalArea"),loginPanel=document.querySelector("#loginPanel"),adminTab=document.querySelector("#adminTab"),ordersTab=document.querySelector("#ordersTab"),allAvailabilityTab=document.querySelector("#allAvailabilityTab"),availabilityForm=document.querySelector("#availabilityForm"),availabilityList=document.querySelector("#availabilityList"),allAvailabilityList=document.querySelector("#allAvailabilityList"),availabilityStatus=document.querySelector("#availabilityStatus"),ordersList=document.querySelector("#ordersList"),photoForm=document.querySelector("#photoForm"),photoStatus=document.querySelector("#photoStatus"),uploadedProjectGrid=document.querySelector("#uploadedProjectGrid"),placeholderProjectGrid=document.querySelector("#placeholderProjectGrid"),galleryModal=document.querySelector("#galleryModal"),galleryTitle=document.querySelector("#galleryTitle"),galleryDescription=document.querySelector("#galleryDescription"),galleryImages=document.querySelector("#galleryImages"),closeGallery=document.querySelector("#closeGallery"),availabilityDay=document.querySelector("#availabilityDay"),availabilityStart=document.querySelector("#availabilityStart"),availabilityEnd=document.querySelector("#availabilityEnd"),addAvailabilitySlot=document.querySelector("#addAvailabilitySlot"),availabilitySlots=document.querySelector("#availabilitySlots");
-let currentStep=0,pendingAvailabilitySlots=[];
-function showPage(id){pages.forEach(p=>p.classList.toggle("active",p.id===id));window.scrollTo({top:0,behavior:"smooth"})}window.showPage=showPage;
+const GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/AKfycbx8w1VKMhsLCmlsvepn0j6MOXi8K5aNzUHQmV3LGT0JJwRdX0dfIHevgT5YkI7XJWuB/exec",NOTIFICATION_EMAIL="fmario1515@gmail.com";
+const garments=[{id:"g8000",brand:"Gildan",style:"8000",name:"Unisex DryBlend Tee",type:"tshirt",link:"https://www.ssactivewear.com/p/gildan/8000",image:"https://www.ssactivewear.com/Images/Style/146_fm.jpg",description:"5.5 oz. 50/50 cotton/poly tee with classic fit, taped neck and shoulders, and tear away label.",colors:[["White","#fff"],["Black","#111"],["Ash","#d7d5ce"],["Dark Heather","#3f4144"],["Dark Navy","#061f4f"],["Forest Green","#183c2f"],["Maroon","#5b1d2b"],["Red","#b91c1c"],["Royal","#1d4f91"],["Sport Grey","#b9b9b2"],["Sand","#d6c6a8"]]},{id:"g8400",brand:"Gildan",style:"8400",name:"Unisex DryBlend Long Sleeve Tee",type:"longsleeve",link:"https://www.ssactivewear.com/p/gildan/8400",image:"https://www.ssactivewear.com/Images/Style/335_fm.jpg",description:"5.5 oz. 50/50 long sleeve tee with rib cuffs, classic fit, and a smoother printing surface.",colors:[["White","#fff"],["Black","#111"],["Ash","#d7d5ce"],["Carolina Blue","#91bde6"],["Dark Heather","#3f4144"],["Forest Green","#183c2f"],["Graphite Heather","#56585b"],["Maroon","#5b1d2b"],["Navy","#071f4f"],["Red","#b91c1c"],["Royal","#1d4f91"],["Sport Grey","#b9b9b2"]]},{id:"g18500",brand:"Gildan",style:"18500",name:"Unisex Heavy Blend Hooded Sweatshirt",type:"hoodie",link:"https://www.ssactivewear.com/p/gildan/18500",image:"https://www.ssactivewear.com/Images/Style/108_fm.jpg",description:"8 oz. 50/50 fleece hoodie with double-lined hood, drawcord, pouch pocket, and classic fit.",colors:[["White","#fff"],["Black","#111"],["Ash","#d7d5ce"],["Charcoal","#4b4b4b"],["Dark Heather","#3f4144"],["Forest","#183c2f"],["Graphite Heather","#56585b"],["Maroon","#5b1d2b"],["Navy","#071f4f"],["Red","#b91c1c"],["Royal","#1d4f91"],["Sport Grey","#b9b9b2"],["Sand","#d6c6a8"]]},{id:"g18000",brand:"Gildan",style:"18000",name:"Unisex Heavy Blend Crewneck Sweatshirt",type:"crewneck",link:"https://www.ssactivewear.com/p/gildan/18000",image:"https://www.ssactivewear.com/Images/Style/109_fm.jpg",description:"8 oz. 50/50 crewneck sweatshirt with classic fit, rib with spandex, and tear away label.",colors:[["White","#fff"],["Black","#111"],["Ash","#d7d5ce"],["Charcoal","#4b4b4b"],["Dark Heather","#3f4144"],["Forest","#183c2f"],["Graphite Heather","#56585b"],["Maroon","#5b1d2b"],["Navy","#071f4f"],["Red","#b91c1c"],["Royal","#1d4f91"],["Sport Grey","#b9b9b2"]]},{id:"j995",brand:"JERZEES",style:"995MR",name:"Unisex NuBlend Cadet Collar Quarter-Zip Sweatshirt",type:"quarterzip",link:"https://www.ssactivewear.com/p/jerzees/995mr",image:"https://www.ssactivewear.com/Images/Style/2708_fm.jpg",description:"8 oz. NuBlend pill-resistant fleece quarter zip with concealed 7 inch aluminum zipper.",colors:[["White","#fff"],["Black","#111"],["Ash","#d7d5ce"],["Royal","#1d4f91"],["Vintage Heather Navy","#344861"],["Vintage Heather Red","#8d343a"]]},{id:"ct1000",brand:"Colortone",style:"1000",name:"Unisex Multi-Color Tie-Dyed T-Shirt",type:"tshirt",link:"https://www.ssactivewear.com/p/colortone/1000",image:"https://www.ssactivewear.com/Images/Style/631_fm.jpg",description:"5.3 oz. heavyweight cotton tie-dyed tee. Each shirt is unique because of the dye process.",colors:[["Black Spider","#111"],["Blue Ocean","#286aa6"],["Cotton Candy","#f5a6c8"],["Desert Rose","#c4817b"],["Eternity","#594f8d"],["Lagoon","#33a6a6"],["Minty Rainbow","#90d6bf"],["Neon Rainbow","#ec4fb3"],["Prism","#f4c542"],["Reactive Rainbow","#6d52a3"]]}];
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const pages=$$(".page"),steps=$$(".step"),stepButtons=$$("[data-step-button]"),prevStepButton=$("#prevStep"),nextStepButton=$("#nextStep"),submitOrderButton=$("#submitOrder"),orderForm=$("#orderForm"),orderStatus=$("#orderStatus"),termsModal=$("#termsModal"),openTerms=$("#openTerms"),closeTerms=$("#closeTerms"),termsCheck=$("#termsCheck"),modalTermsCheck=$("#modalTermsCheck"),mockShirt=$("#mockShirt"),frontPreview=$("#frontPreview"),backPreview=$("#backPreview"),frontDesign=$("#frontDesign"),backDesign=$("#backDesign"),frontPlacement=$("#frontPlacement"),backPlacement=$("#backPlacement"),garmentColor=$("#garmentColor"),garmentType=$("#garmentType"),selectedGarmentName=$("#selectedGarmentName"),selectedGarmentStyle=$("#selectedGarmentStyle"),selectedGarmentLink=$("#selectedGarmentLink"),garmentCatalog=$("#garmentCatalog"),mockupProductImage=$("#mockupProductImage"),unlockPortal=$("#unlockPortal"),loginStatus=$("#loginStatus"),portalArea=$("#portalArea"),loginPanel=$("#loginPanel"),adminTab=$("#adminTab"),ordersTab=$("#ordersTab"),allAvailabilityTab=$("#allAvailabilityTab"),servantsAdminTab=$("#servantsAdminTab"),availabilityForm=$("#availabilityForm"),availabilityList=$("#availabilityList"),allAvailabilityList=$("#allAvailabilityList"),recommendedDays=$("#recommendedDays"),availabilityStatus=$("#availabilityStatus"),ordersList=$("#ordersList"),photoForm=$("#photoForm"),photoStatus=$("#photoStatus"),uploadedProjectGrid=$("#uploadedProjectGrid"),placeholderProjectGrid=$("#placeholderProjectGrid"),galleryModal=$("#galleryModal"),galleryTitle=$("#galleryTitle"),galleryDescription=$("#galleryDescription"),galleryImages=$("#galleryImages"),closeGallery=$("#closeGallery"),availabilityDay=$("#availabilityDay"),servantNameField=$("#servantNameField"),servantNameDisplay=$("#servantNameDisplay"),availabilityStart=$("#availabilityStart"),availabilityEnd=$("#availabilityEnd"),addAvailabilitySlot=$("#addAvailabilitySlot"),availabilitySlots=$("#availabilitySlots"),servantAccountForm=$("#servantAccountForm"),servantAccountStatus=$("#servantAccountStatus"),servantAccountsList=$("#servantAccountsList"),thankYouModal=$("#thankYouModal"),closeThankYou=$("#closeThankYou");
+let currentStep=0,pendingAvailabilitySlots=[],currentPortalUser=null;
+function showPage(id){pages.forEach(p=>p.classList.toggle("active",p.id===id));scrollTo({top:0,behavior:"smooth"})}window.showPage=showPage;
+function esc(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
+function get(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch{return[]}}function set(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function renderGarmentCatalog(){garmentCatalog.innerHTML=garments.map(g=>`<article class="garment-card"><img src="${g.image}" alt="${esc(g.brand)} ${esc(g.style)}" onerror="this.style.display='none'"><div class="garment-info"><p class="eyebrow">${esc(g.brand)} ${esc(g.style)}</p><h3>${esc(g.name)}</h3><p>${esc(g.description)}</p><div class="swatches">${g.colors.map(([n,h])=>`<span class="swatch" title="${esc(n)}" style="background:${h}"></span>`).join("")}</div><div class="catalog-actions"><button class="button primary" type="button" onclick="selectCatalogGarment('${g.id}')">Select Garment</button><a class="button light" href="${g.link}" target="_blank" rel="noopener">View S&S</a></div></div></article>`).join("")}
+function resetColors(){garmentColor.innerHTML='<option value="">Select one</option><option value="#f7efd8">Cream</option><option value="#071f4f">Navy</option><option value="#111827">Black</option><option value="#ffffff">White</option><option value="#6f7f90">Slate</option><option value="#6f8b74">Sage</option>'}
+function selectCatalogGarment(id){const g=garments.find(x=>x.id===id);if(!g)return;selectedGarmentName.value=`${g.brand} ${g.style} ${g.name}`;selectedGarmentStyle.value=g.style;selectedGarmentLink.value=g.link;garmentType.value=g.type;garmentType.dispatchEvent(new Event("change"));garmentColor.innerHTML='<option value="">Select one</option>'+g.colors.map(([n,h])=>`<option value="${h}">${n}</option>`).join("");mockupProductImage.src=g.image;mockupProductImage.classList.remove("hidden");$(".mockup-wrap").classList.add("using-photo");showPage("orderPage");currentStep=2;updateStep()}window.selectCatalogGarment=selectCatalogGarment;
 function updateStep(){steps.forEach((s,i)=>s.classList.toggle("active",i===currentStep));stepButtons.forEach((b,i)=>b.classList.toggle("active",i===currentStep));prevStepButton.classList.toggle("hidden",currentStep===0);nextStepButton.classList.toggle("hidden",currentStep===steps.length-1);submitOrderButton.classList.toggle("hidden",currentStep!==steps.length-1);orderStatus.textContent=""}
-function validateCurrentStep(){for(const f of steps[currentStep].querySelectorAll("input,select,textarea")){if(!f.checkValidity()){f.reportValidity();return false}}return true}
-nextStepButton.addEventListener("click",()=>{if(!validateCurrentStep())return;currentStep=Math.min(currentStep+1,steps.length-1);updateStep()});
-prevStepButton.addEventListener("click",()=>{currentStep=Math.max(currentStep-1,0);updateStep()});
-stepButtons.forEach(b=>b.addEventListener("click",()=>{const n=Number(b.dataset.stepButton);if(n>currentStep&&!validateCurrentStep())return;currentStep=n;updateStep()}));
-document.querySelectorAll(".size-tab").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".size-tab").forEach(i=>i.classList.remove("active"));document.querySelectorAll(".size-panel").forEach(i=>i.classList.remove("active"));t.classList.add("active");document.querySelector("#"+t.dataset.sizePanel).classList.add("active")}));
-openTerms.addEventListener("click",()=>termsModal.classList.add("open"));
-closeTerms.addEventListener("click",()=>{if(modalTermsCheck.checked)termsCheck.checked=true;termsModal.classList.remove("open")});
-termsModal.addEventListener("click",e=>{if(e.target===termsModal)termsModal.classList.remove("open")});
-garmentColor.addEventListener("change",()=>{mockShirt.style.background=garmentColor.value||"#f7efd8"});
-garmentType.addEventListener("change",()=>{mockShirt.className="garment "+(garmentType.value||"tshirt")});
-function processPngBackground(file,cb){const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const c=document.createElement("canvas");c.width=img.width;c.height=img.height;const x=c.getContext("2d");x.drawImage(img,0,0);const d=x.getImageData(0,0,c.width,c.height),p=d.data,s=[p[0],p[1],p[2]],tol=42;for(let i=0;i<p.length;i+=4){const corner=Math.abs(p[i]-s[0])<tol&&Math.abs(p[i+1]-s[1])<tol&&Math.abs(p[i+2]-s[2])<tol,white=p[i]>236&&p[i+1]>236&&p[i+2]>236;if(corner||white)p[i+3]=0}x.putImageData(d,0,0);cb(c.toDataURL("image/png"))};img.src=r.result};r.readAsDataURL(file)}
-function readPreviewFile(input,el){const file=input.files[0];if(!file)return;if(!["image/png","image/svg+xml"].includes(file.type)){alert("Preview only supports SVG or PNG files.");input.value="";return}if(file.type==="image/png"){processPngBackground(file,src=>{el.innerHTML=`<img src="${src}" alt="Design preview">`});return}const r=new FileReader();r.onload=()=>{el.innerHTML=`<img src="${r.result}" alt="Design preview">`};r.readAsDataURL(file)}
-frontDesign.addEventListener("change",()=>readPreviewFile(frontDesign,frontPreview));backDesign.addEventListener("change",()=>readPreviewFile(backDesign,backPreview));
-frontPlacement.addEventListener("change",()=>{frontPreview.className="design-preview "+frontPlacement.value});backPlacement.addEventListener("change",()=>{backPreview.className="design-preview "+backPlacement.value});
-document.querySelector("#showFront").addEventListener("click",()=>{frontPreview.classList.remove("hidden");backPreview.classList.add("hidden")});document.querySelector("#showBack").addEventListener("click",()=>{backPreview.classList.remove("hidden");frontPreview.classList.add("hidden")});
-function escapeHtml(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
-function getStored(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch{return[]}}function setStored(k,v){localStorage.setItem(k,JSON.stringify(v))}
-function getWeekKey(d=new Date()){const c=new Date(d),day=c.getDay();c.setDate(c.getDate()-day);c.setHours(0,0,0,0);return c.toISOString().slice(0,10)}
-function getSizes(fd){return["YXS","YS","YM","YL","YXL","S","M","L","XL","2XL"].map(size=>({size,quantity:Number(fd.get("size_"+size)||0)})).filter(i=>i.quantity>0)}
-async function fileToData(input){const file=input.files[0];if(!file)return null;return new Promise(res=>{const r=new FileReader();r.onload=()=>res({name:file.name,type:file.type,data:r.result});r.readAsDataURL(file)})}
-function cleanupOrders(){const now=new Date(),orders=getStored("svgOrders").filter(o=>{if(o.status!=="completed"||!o.completedAt)return true;return(now-new Date(o.completedAt))/(1000*60*60*24)<=14});setStored("svgOrders",orders);return orders}
-function saveLocalOrder(order){const orders=cleanupOrders();orders.unshift({...order,id:Date.now(),status:"submitted",completedAt:""});setStored("svgOrders",orders)}
-function renderOrders(){const orders=cleanupOrders();if(!orders.length){ordersList.innerHTML='<p class="saved-item">No upcoming orders saved on this browser yet.</p>';return}ordersList.innerHTML=orders.map(o=>`<article class="saved-item"><strong>${escapeHtml(o.eventName)}</strong><span>Due: ${escapeHtml(o.neededBy)}</span><span>Customer: ${escapeHtml(o.name)} | ${escapeHtml(o.email)}</span><span>Status: ${escapeHtml(o.status||"submitted")}</span><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;"><button class="button light" type="button" onclick="updateOrderStatus(${o.id}, 'started')">Started</button><button class="button primary" type="button" onclick="updateOrderStatus(${o.id}, 'completed')">Completed</button></div></article>`).join("")}
-function updateOrderStatus(id,status){const orders=getStored("svgOrders").map(o=>o.id!==id?o:{...o,status,completedAt:status==="completed"?new Date().toISOString():o.completedAt});setStored("svgOrders",orders);renderOrders()}window.updateOrderStatus=updateOrderStatus;
-orderForm.addEventListener("submit",async e=>{e.preventDefault();if(!orderForm.checkValidity()){orderForm.reportValidity();return}const fd=new FormData(orderForm),sizes=getSizes(fd);if(!sizes.length){orderStatus.textContent="Please enter at least one size quantity.";currentStep=2;updateStep();return}orderStatus.textContent="Submitting...";const order={notificationEmail:NOTIFICATION_EMAIL,submittedAt:new Date().toISOString(),name:fd.get("name"),email:fd.get("email"),phone:fd.get("phone"),eventName:fd.get("eventName"),neededBy:fd.get("neededBy"),eventNotes:fd.get("eventNotes"),garmentType:fd.get("garmentType"),garmentColor:fd.get("garmentColor"),inkColor:fd.get("inkColor"),sizes,frontPlacement:fd.get("frontPlacement"),backPlacement:fd.get("backPlacement"),designNotes:fd.get("designNotes"),signature:fd.get("signature"),frontDesign:await fileToData(frontDesign),backDesign:await fileToData(backDesign)};saveLocalOrder(order);renderOrders();try{await fetch(GOOGLE_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(order)});orderStatus.textContent="Order submitted. You should receive confirmation soon."}catch{orderStatus.textContent="The order was saved locally, but email/calendar submission had a problem."}orderForm.reset();modalTermsCheck.checked=false;frontPreview.innerHTML="Front Design";backPreview.innerHTML="Back Design";mockShirt.style.background="#f7efd8";mockShirt.className="garment tshirt";currentStep=0;updateStep()});
-unlockPortal.addEventListener("click",()=>{const p=document.querySelector("#portalPassword").value.trim();if(p!=="servant"&&p!=="admin"){loginStatus.textContent="Password not recognized.";return}loginStatus.textContent="";loginPanel.classList.add("hidden");portalArea.classList.remove("hidden");if(p==="admin"){adminTab.classList.remove("hidden");ordersTab.classList.remove("hidden");allAvailabilityTab.classList.remove("hidden")}renderAvailability();renderAllAvailability();renderOrders()});
-document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(i=>i.classList.remove("active"));document.querySelectorAll(".tab-panel").forEach(i=>i.classList.remove("active"));t.classList.add("active");document.querySelector("#"+t.dataset.tab).classList.add("active")}));
-function makeTimeOptions(start,end){let out=[];for(let h=start;h<=end;h++){for(const m of[0,30]){if(h===end&&m>0)continue;const v=`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`,h12=h>12?h-12:h,s=h>=12?"PM":"AM";out.push(`<option value="${v}">${h12}:${String(m).padStart(2,"0")} ${s}</option>`)}}return out.join("")}
-function updateAvailabilityTimes(){const opts=availabilityDay.value==="Saturday"?makeTimeOptions(8,17):makeTimeOptions(15,22);availabilityStart.innerHTML=opts;availabilityEnd.innerHTML=opts;availabilityEnd.selectedIndex=Math.min(availabilityStart.selectedIndex+2,availabilityEnd.options.length-1)}
-function renderPendingSlots(){availabilitySlots.innerHTML=pendingAvailabilitySlots.map((s,i)=>`<article class="saved-item"><strong>${escapeHtml(s.day)}</strong><span>${escapeHtml(s.start)} to ${escapeHtml(s.end)}</span><button class="button light" type="button" onclick="removePendingSlot(${i})" style="margin-top:8px;">Remove</button></article>`).join("")}
-function removePendingSlot(i){pendingAvailabilitySlots.splice(i,1);renderPendingSlots()}window.removePendingSlot=removePendingSlot;
-addAvailabilitySlot.addEventListener("click",()=>{if(availabilityEnd.value<=availabilityStart.value){availabilityStatus.textContent="End time must be after start time.";return}pendingAvailabilitySlots.push({day:availabilityDay.value,start:availabilityStart.options[availabilityStart.selectedIndex].text,end:availabilityEnd.options[availabilityEnd.selectedIndex].text});availabilityStatus.textContent="";renderPendingSlots()});
-availabilityDay.addEventListener("change",updateAvailabilityTimes);
-function currentWeekAvailability(){const week=getWeekKey(),entries=getStored("svgAvailability").filter(e=>e.week===week);setStored("svgAvailability",entries);return entries}
-function renderAvailability(){const entries=currentWeekAvailability();if(!entries.length){availabilityList.innerHTML='<p class="saved-item">No availability saved for this week yet.</p>';return}availabilityList.innerHTML=entries.map(e=>`<article class="saved-item"><strong>${escapeHtml(e.name)}</strong>${e.slots.map(s=>`<span>${escapeHtml(s.day)}: ${escapeHtml(s.start)} to ${escapeHtml(s.end)}</span>`).join("")}${e.notes?`<span>${escapeHtml(e.notes)}</span>`:""}</article>`).join("")}
-function renderAllAvailability(){const entries=currentWeekAvailability();if(!entries.length){allAvailabilityList.innerHTML='<p class="saved-item">No servant availability saved for this week yet.</p>';return}allAvailabilityList.innerHTML=entries.map(e=>`<article class="saved-item"><strong>${escapeHtml(e.name)}</strong>${e.slots.map(s=>`<span>${escapeHtml(s.day)}: ${escapeHtml(s.start)} to ${escapeHtml(s.end)}</span>`).join("")}${e.notes?`<span>${escapeHtml(e.notes)}</span>`:""}</article>`).join("")}
-availabilityForm.addEventListener("submit",e=>{e.preventDefault();if(!pendingAvailabilitySlots.length){availabilityStatus.textContent="Please add at least one availability time.";return}const fd=new FormData(availabilityForm),entry={name:fd.get("servantName"),week:getWeekKey(),slots:pendingAvailabilitySlots,notes:fd.get("availabilityNotes")},entries=currentWeekAvailability();entries.unshift(entry);setStored("svgAvailability",entries);availabilityStatus.textContent="Availability saved for this week.";availabilityForm.reset();pendingAvailabilitySlots=[];updateAvailabilityTimes();renderPendingSlots();renderAvailability();renderAllAvailability()});
-function readFilesAsData(files){return Promise.all([...files].map(file=>new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(file)})))}
-function renderPhotos(){const posts=getStored("svgCompletedPhotos");placeholderProjectGrid.classList.toggle("hidden",posts.length>0);if(!posts.length){uploadedProjectGrid.innerHTML="";return}uploadedProjectGrid.innerHTML=posts.map((p,i)=>`<article class="project-card" onclick="openGallery(${i})"><img class="uploaded-image rotating-photo" data-post="${i}" data-photo="0" src="${p.images[0]}" alt="${escapeHtml(p.title)}"><div class="project-copy"><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.description)}</p></div></article>`).join("")}
-function rotateProjectPhotos(){const posts=getStored("svgCompletedPhotos");document.querySelectorAll(".rotating-photo").forEach(img=>{const i=Number(img.dataset.post),p=posts[i];if(!p||!p.images||p.images.length<=1)return;const n=(Number(img.dataset.photo)+1)%p.images.length;img.dataset.photo=String(n);img.src=p.images[n]})}
-function openGallery(i){const p=getStored("svgCompletedPhotos")[i];if(!p)return;galleryTitle.textContent=p.title;galleryDescription.textContent=p.description;galleryImages.innerHTML=p.images.map(img=>`<img src="${img}" alt="${escapeHtml(p.title)}">`).join("");galleryModal.classList.add("open")}window.openGallery=openGallery;
-closeGallery.addEventListener("click",()=>galleryModal.classList.remove("open"));galleryModal.addEventListener("click",e=>{if(e.target===galleryModal)galleryModal.classList.remove("open")});
-photoForm.addEventListener("submit",async e=>{e.preventDefault();const fd=new FormData(photoForm),files=fd.getAll("photoFiles").filter(f=>f&&f.size),images=await readFilesAsData(files),posts=getStored("svgCompletedPhotos");posts.unshift({title:fd.get("photoTitle"),description:fd.get("photoDescription"),images});setStored("svgCompletedPhotos",posts);photoStatus.textContent="Project post added to completed work.";photoForm.reset();renderPhotos()});
-updateStep();updateAvailabilityTimes();renderPhotos();renderAvailability();renderAllAvailability();renderOrders();setInterval(rotateProjectPhotos,3000);
+function validStep(){for(const f of steps[currentStep].querySelectorAll("input,select,textarea"))if(!f.checkValidity()){f.reportValidity();return false}return true}
+nextStepButton.onclick=()=>{if(validStep()){currentStep=Math.min(currentStep+1,steps.length-1);updateStep()}};prevStepButton.onclick=()=>{currentStep=Math.max(currentStep-1,0);updateStep()};
+stepButtons.forEach(b=>b.onclick=()=>{const n=+b.dataset.stepButton;if(n>currentStep&&!validStep())return;currentStep=n;updateStep()});
+$$(".size-tab").forEach(t=>t.onclick=()=>{$$(".size-tab").forEach(i=>i.classList.remove("active"));$$(".size-panel").forEach(i=>i.classList.remove("active"));t.classList.add("active");$("#"+t.dataset.sizePanel).classList.add("active")});
+openTerms.onclick=()=>termsModal.classList.add("open");closeTerms.onclick=()=>{if(modalTermsCheck.checked)termsCheck.checked=true;termsModal.classList.remove("open")};termsModal.onclick=e=>{if(e.target===termsModal)termsModal.classList.remove("open")};
+garmentColor.onchange=()=>mockShirt.style.background=garmentColor.value||"#f7efd8";garmentType.onchange=()=>{mockShirt.className="garment "+(garmentType.value||"tshirt");if(!selectedGarmentName.value){mockupProductImage.classList.add("hidden");$(".mockup-wrap").classList.remove("using-photo")}};
+function pngBg(file,cb){const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const c=document.createElement("canvas");c.width=img.width;c.height=img.height;const x=c.getContext("2d");x.drawImage(img,0,0);const d=x.getImageData(0,0,c.width,c.height),p=d.data,s=[p[0],p[1],p[2]];for(let i=0;i<p.length;i+=4){const corner=Math.abs(p[i]-s[0])<42&&Math.abs(p[i+1]-s[1])<42&&Math.abs(p[i+2]-s[2])<42,white=p[i]>236&&p[i+1]>236&&p[i+2]>236;if(corner||white)p[i+3]=0}x.putImageData(d,0,0);cb(c.toDataURL("image/png"))};img.src=r.result};r.readAsDataURL(file)}
+function preview(input,el){const f=input.files[0];if(!f)return;if(!["image/png","image/svg+xml"].includes(f.type)){alert("Preview only supports SVG or PNG files.");input.value="";return}if(f.type==="image/png"){pngBg(f,src=>el.innerHTML=`<img src="${src}" alt="Design preview">`);return}const r=new FileReader();r.onload=()=>el.innerHTML=`<img src="${r.result}" alt="Design preview">`;r.readAsDataURL(f)}
+frontDesign.onchange=()=>preview(frontDesign,frontPreview);backDesign.onchange=()=>preview(backDesign,backPreview);frontPlacement.onchange=()=>frontPreview.className="design-preview "+frontPlacement.value;backPlacement.onchange=()=>backPreview.className="design-preview "+backPlacement.value;$("#showFront").onclick=()=>{frontPreview.classList.remove("hidden");backPreview.classList.add("hidden")};$("#showBack").onclick=()=>{backPreview.classList.remove("hidden");frontPreview.classList.add("hidden")};
+function weekKey(d=new Date()){const c=new Date(d);c.setDate(c.getDate()-c.getDay());c.setHours(0,0,0,0);return c.toISOString().slice(0,10)}
+function sizes(fd){return["YXS","YS","YM","YL","YXL","S","M","L","XL","2XL"].map(s=>({size:s,quantity:+(fd.get("size_"+s)||0)})).filter(i=>i.quantity>0)}
+async function fileData(input){const f=input.files[0];if(!f)return null;return new Promise(res=>{const r=new FileReader();r.onload=()=>res({name:f.name,type:f.type,data:r.result});r.readAsDataURL(f)})}
+function cleanupOrders(){const now=new Date(),orders=get("svgOrders").filter(o=>o.status!=="completed"||!o.completedAt||(now-new Date(o.completedAt))/(864e5)<=14);set("svgOrders",orders);return orders}
+function renderOrders(){const orders=cleanupOrders();if(!orders.length){ordersList.innerHTML='<p class="saved-item">No upcoming orders saved on this browser yet.</p>';return}ordersList.innerHTML=orders.map(o=>{const controls=currentPortalUser?.role==="admin"?`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="button light" type="button" onclick="updateOrderStatus(${o.id},'started')">Started</button><button class="button primary" type="button" onclick="updateOrderStatus(${o.id},'completed')">Completed</button></div>`:"";return`<article class="saved-item"><strong>${esc(o.eventName)}</strong><span>Due: ${esc(o.neededBy)}</span><span>Customer: ${esc(o.name)} | ${esc(o.email)}</span><span>Garment: ${esc(o.selectedGarmentName||o.garmentType||"")}</span><span>Status: ${esc(o.status||"submitted")}</span>${controls}</article>`}).join("")}
+function updateOrderStatus(id,status){set("svgOrders",get("svgOrders").map(o=>o.id!==id?o:{...o,status,completedAt:status==="completed"?new Date().toISOString():o.completedAt}));renderOrders()}window.updateOrderStatus=updateOrderStatus;
+orderForm.onsubmit=async e=>{e.preventDefault();if(!orderForm.checkValidity()){orderForm.reportValidity();return}const fd=new FormData(orderForm),sz=sizes(fd);if(!sz.length){orderStatus.textContent="Please enter at least one size quantity.";currentStep=2;updateStep();return}orderStatus.textContent="Submitting...";const order={notificationEmail:NOTIFICATION_EMAIL,submittedAt:new Date().toISOString(),name:fd.get("name"),email:fd.get("email"),phone:fd.get("phone"),eventName:fd.get("eventName"),neededBy:fd.get("neededBy"),eventNotes:fd.get("eventNotes"),garmentType:fd.get("garmentType"),selectedGarmentName:fd.get("selectedGarmentName"),selectedGarmentStyle:fd.get("selectedGarmentStyle"),selectedGarmentLink:fd.get("selectedGarmentLink"),garmentColor:fd.get("garmentColor"),inkColor:fd.get("inkColor"),sizes:sz,frontPlacement:fd.get("frontPlacement"),backPlacement:fd.get("backPlacement"),designNotes:fd.get("designNotes"),signature:fd.get("signature"),frontDesign:await fileData(frontDesign),backDesign:await fileData(backDesign)};const orders=cleanupOrders();orders.unshift({...order,id:Date.now(),status:"submitted",completedAt:""});set("svgOrders",orders);renderOrders();try{await fetch(GOOGLE_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(order)});orderStatus.textContent="Order submitted."}catch{orderStatus.textContent="Saved locally, but email/calendar submission had a problem."}orderForm.reset();modalTermsCheck.checked=false;frontPreview.innerHTML="Front Design";backPreview.innerHTML="Back Design";mockShirt.style.background="#f7efd8";mockShirt.className="garment tshirt";mockupProductImage.classList.add("hidden");$(".mockup-wrap").classList.remove("using-photo");selectedGarmentName.value="";selectedGarmentStyle.value="";selectedGarmentLink.value="";resetColors();currentStep=0;updateStep();thankYouModal.classList.add("open")};
+function accounts(){return get("svgServantAccounts")}function renderAccounts(){const a=accounts();servantAccountsList.innerHTML=a.length?a.map((x,i)=>`<article class="saved-item"><strong>${esc(x.name)}</strong><span>Password: ${esc(x.password)}</span><button class="button light" type="button" onclick="removeServantAccount(${i})" style="margin-top:8px">Remove</button></article>`).join(""):'<p class="saved-item">No servant logins have been added yet.</p>'}function removeServantAccount(i){const a=accounts();a.splice(i,1);set("svgServantAccounts",a);renderAccounts()}window.removeServantAccount=removeServantAccount;
+unlockPortal.onclick=()=>{const p=$("#portalPassword").value.trim(),acc=accounts().find(a=>a.password===p);if(p!=="servant"&&p!=="admin"&&!acc){loginStatus.textContent="Password not recognized.";return}loginStatus.textContent="";loginPanel.classList.add("hidden");portalArea.classList.remove("hidden");currentPortalUser=acc?{name:acc.name,role:"servant"}:{name:p==="admin"?"Admin":"Servant",role:p};servantNameField.value=currentPortalUser.name;servantNameDisplay.textContent=`Logged in as ${currentPortalUser.name}`;if(p==="admin"){adminTab.classList.remove("hidden");allAvailabilityTab.classList.remove("hidden");servantsAdminTab.classList.remove("hidden")}renderAvailability();renderAllAvailability();renderOrders();renderAccounts()};
+$$(".tab").forEach(t=>t.onclick=()=>{$$(".tab").forEach(i=>i.classList.remove("active"));$$(".tab-panel").forEach(i=>i.classList.remove("active"));t.classList.add("active");$("#"+t.dataset.tab).classList.add("active")});
+servantAccountForm.onsubmit=e=>{e.preventDefault();const fd=new FormData(servantAccountForm),a={name:fd.get("servantAccountName").trim(),password:fd.get("servantAccountPassword").trim()};if(!a.name||!a.password)return;const list=accounts().filter(x=>x.password!==a.password);list.push(a);set("svgServantAccounts",list);servantAccountStatus.textContent="Servant login added.";servantAccountForm.reset();renderAccounts()};
+function timeOpts(start,end){let out=[];for(let h=start;h<=end;h++)for(const m of[0,30]){if(h===end&&m>0)continue;const v=`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`,h12=h>12?h-12:h,s=h>=12?"PM":"AM";out.push(`<option value="${v}">${h12}:${String(m).padStart(2,"0")} ${s}</option>`)}return out.join("")}
+function updateTimes(){const opts=availabilityDay.value==="Saturday"?timeOpts(8,17):timeOpts(15,22);availabilityStart.innerHTML=opts;availabilityEnd.innerHTML=opts;availabilityEnd.selectedIndex=Math.min(availabilityStart.selectedIndex+2,availabilityEnd.options.length-1)}
+function renderSlots(){availabilitySlots.innerHTML=pendingAvailabilitySlots.map((s,i)=>`<article class="saved-item"><strong>${esc(s.day)}</strong><span>${esc(s.start)} to ${esc(s.end)}</span><button class="button light" type="button" onclick="removePendingSlot(${i})" style="margin-top:8px">Remove</button></article>`).join("")}
+function removePendingSlot(i){pendingAvailabilitySlots.splice(i,1);renderSlots()}window.removePendingSlot=removePendingSlot;addAvailabilitySlot.onclick=()=>{if(availabilityEnd.value<=availabilityStart.value){availabilityStatus.textContent="End time must be after start time.";return}pendingAvailabilitySlots.push({day:availabilityDay.value,start:availabilityStart.options[availabilityStart.selectedIndex].text,end:availabilityEnd.options[availabilityEnd.selectedIndex].text});availabilityStatus.textContent="";renderSlots()};availabilityDay.onchange=updateTimes;
+function weekAvail(){const w=weekKey(),e=get("svgAvailability").filter(x=>x.week===w);set("svgAvailability",e);return e}
+function renderAvailability(){const e=weekAvail();availabilityList.innerHTML=e.length?e.map(x=>`<article class="saved-item"><strong>${esc(x.name)}</strong>${x.slots.map(s=>`<span>${esc(s.day)}: ${esc(s.start)} to ${esc(s.end)}</span>`).join("")}${x.notes?`<span>${esc(x.notes)}</span>`:""}</article>`).join(""):'<p class="saved-item">No availability saved for this week yet.</p>'}
+function renderAllAvailability(){const e=weekAvail();if(!e.length){recommendedDays.innerHTML="";allAvailabilityList.innerHTML='<p class="saved-item">No servant availability saved for this week yet.</p>';return}const counts={};e.forEach(x=>x.slots.forEach(s=>counts[s.day]=(counts[s.day]||0)+1));const max=Math.max(...Object.values(counts)),days=Object.entries(counts).filter(([,c])=>c===max).map(([d])=>d);recommendedDays.innerHTML=`<article class="saved-item"><strong>Recommended day${days.length>1?"s":""}</strong><span>${days.map(esc).join(", ")} (${max} servant${max===1?"":"s"} available)</span></article>`;allAvailabilityList.innerHTML=e.map(x=>`<article class="saved-item"><strong>${esc(x.name)}</strong>${x.slots.map(s=>`<span>${esc(s.day)}: ${esc(s.start)} to ${esc(s.end)}</span>`).join("")}${x.notes?`<span>${esc(x.notes)}</span>`:""}</article>`).join("")}
+availabilityForm.onsubmit=e=>{e.preventDefault();if(!pendingAvailabilitySlots.length){availabilityStatus.textContent="Please add at least one availability time.";return}const fd=new FormData(availabilityForm),entry={name:fd.get("servantName"),week:weekKey(),slots:pendingAvailabilitySlots,notes:fd.get("availabilityNotes")},entries=weekAvail();entries.unshift(entry);set("svgAvailability",entries);availabilityStatus.textContent="Availability saved for this week.";availabilityForm.reset();servantNameField.value=currentPortalUser?.name||"";pendingAvailabilitySlots=[];updateTimes();renderSlots();renderAvailability();renderAllAvailability()};
+function readFiles(files){return Promise.all([...files].map(f=>new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(f)})))}
+function renderPhotos(){const posts=get("svgCompletedPhotos");placeholderProjectGrid.classList.toggle("hidden",posts.length>0);uploadedProjectGrid.innerHTML=posts.map((p,i)=>`<article class="project-card" onclick="openGallery(${i})"><img class="uploaded-image rotating-photo" data-post="${i}" data-photo="0" src="${p.images[0]}" alt="${esc(p.title)}"><div class="project-copy"><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p></div></article>`).join("")}
+function rotatePhotos(){const posts=get("svgCompletedPhotos");$$(".rotating-photo").forEach(img=>{const i=+img.dataset.post,p=posts[i];if(!p||p.images.length<=1)return;const n=(+img.dataset.photo+1)%p.images.length;img.dataset.photo=n;img.src=p.images[n]})}
+function openGallery(i){const p=get("svgCompletedPhotos")[i];if(!p)return;galleryTitle.textContent=p.title;galleryDescription.textContent=p.description;galleryImages.innerHTML=p.images.map(img=>`<img src="${img}" alt="${esc(p.title)}">`).join("");galleryModal.classList.add("open")}window.openGallery=openGallery;closeGallery.onclick=()=>galleryModal.classList.remove("open");galleryModal.onclick=e=>{if(e.target===galleryModal)galleryModal.classList.remove("open")};
+photoForm.onsubmit=async e=>{e.preventDefault();const fd=new FormData(photoForm),files=fd.getAll("photoFiles").filter(f=>f&&f.size),images=await readFiles(files),posts=get("svgCompletedPhotos");posts.unshift({title:fd.get("photoTitle"),description:fd.get("photoDescription"),images});set("svgCompletedPhotos",posts);photoStatus.textContent="Project post added to completed work.";photoForm.reset();renderPhotos()};
+closeThankYou.onclick=()=>{thankYouModal.classList.remove("open");showPage("homePage")};thankYouModal.onclick=e=>{if(e.target===thankYouModal){thankYouModal.classList.remove("open");showPage("homePage")}};
+renderGarmentCatalog();updateStep();updateTimes();renderPhotos();renderAvailability();renderAllAvailability();renderOrders();renderAccounts();setInterval(rotatePhotos,3000);
 </script>
 </body>
 </html>
